@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AdvertiseComponent } from './advertise/advertise.component';
 import { ItemComponent } from './item/item.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { LoginComponent } from './/login/login.component';
 
 
 
@@ -14,11 +16,13 @@ import { ItemComponent } from './item/item.component';
     AppComponent,
     HeaderComponent,
     AdvertiseComponent,
-    ItemComponent
+    ItemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

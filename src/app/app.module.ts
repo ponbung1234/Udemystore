@@ -8,6 +8,7 @@ import { AdvertiseComponent } from './advertise/advertise.component';
 import { ItemComponent } from './item/item.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './/login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -17,7 +18,8 @@ import { LoginComponent } from './/login/login.component';
     HeaderComponent,
     AdvertiseComponent,
     ItemComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

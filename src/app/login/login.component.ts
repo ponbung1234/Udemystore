@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -11,23 +12,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private modalService: NgbModal) {}
   
-  ngOnInit(){}
-
-  open(content) {
-    this.modalService.open(content).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+  ngOnInit(){
+    //console.log(this.content);
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
+  openVerticallyCentered(content) {
+    console.log(content);
+    this.modalService.open(content, { centered: true });
   }
 }

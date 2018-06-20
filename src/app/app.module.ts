@@ -11,6 +11,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './/login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ModalRegistComponent } from './modal-regist/modal-regist.component';
+import { OrderlistComponent } from './orderlist/orderlist.component';
 
 
 
@@ -22,7 +23,8 @@ import { ModalRegistComponent } from './modal-regist/modal-regist.component';
     ItemComponent,
     LoginComponent,
     RegisterComponent,
-    ModalRegistComponent
+    ModalRegistComponent,
+    OrderlistComponent
   ],
   imports: [
     BrowserModule,

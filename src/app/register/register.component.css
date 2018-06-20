@@ -1,8 +1,9 @@
 
 .borderless td, .borderless th {
     border: none;
+    padding-top: 10px;
     padding-left: 5px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     margin: 5px;
 }
 input {

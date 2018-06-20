@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(){}
 
   open(content) {
-    this.modalService.open(content).result.then((result) => {
+    this.modalService.open(content,{ size: 'lg'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

@@ -12,6 +12,7 @@ import { LoginComponent } from './/login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ModalRegistComponent } from './modal-regist/modal-regist.component';
 import { OrderlistComponent } from './orderlist/orderlist.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 
 
 
@@ -24,7 +25,8 @@ import { OrderlistComponent } from './orderlist/orderlist.component';
     LoginComponent,
     RegisterComponent,
     ModalRegistComponent,
-    OrderlistComponent
+    OrderlistComponent,
+    OrderdetailComponent
   ],
   imports: [
     BrowserModule,

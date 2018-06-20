@@ -14,10 +14,5 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-  callMethod(content){
-    //this.loginComponent.open(content);
-    //this.massageEvent.emit(content)
-    this.comp.openVerticallyCentered(content);
-  }
-  
+
 }

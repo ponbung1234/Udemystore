@@ -1,13 +1,12 @@
-<ng-template #content let-c="close" let-d="dismiss">
+<ng-template  #content let-c="close" let-d="dismiss">
 
-<div class="modal-header " style="padding:15px 170px;">
+<div class="modal-header" style="padding:15px 170px;">
     <H3 style="color:white;">
         <strong>
           Create your K-eCommerce account
         </strong> 
       </H3>
 </div>
-  <div class="col-md-12 col-md-pull-6">
     <form>
       <table align="center" class="borderless" id="registerTable">
         <tbody >
@@ -102,7 +101,12 @@
           <td colspan="2">
               <div class="form-group">
                   <div class="form-check">
-                    <input style="width: 15px;" class="form-check-input" type="checkbox" id="gridCheck">
+                    <input 
+                      style="width: 15px;" 
+                      class="form-check-input" 
+                      type="checkbox" 
+                      ngModel checked 
+                      >
                     <label class="form-check-label" for="gridCheck">
                       I agree to the Terms & Conditions
                     </label>
@@ -112,158 +116,19 @@
         </tr>
       </tbody>
     </table>
-    </form>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success pull-right" (click)="c('Save click')">Save</button>
+      <button 
+      type="button" 
+      class="btn btn-success pull-right" 
+      ng-disabled="checked"
+      >
+      Save</button>
     </div>
-</div>
+  </form>
 
 </ng-template>
-
-
   <a href="#" (click)="open(content)">register</a>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-<div class="col-md-12 col-md-pull-6">
-    <form>
-      <table align="center" class="borderless" id="registerTable">
-        <thead>
-          <tr>
-            <td colspan="2">
-              <H3 style="color:green; text-align: center">
-                <strong>
-                  Create your K-eCommerce account
-                </strong> 
-              </H3>
-            </td>
-          </tr>
-        </thead>
-        <tbody >
-          <tr>
-            <!-- Username -->
-            <!-- <td >
-              <strong>
-                <label class="pull-right" for="Username">Username</label>
-              </strong>
-              <td>
-                <input type="text" class="form-control" id="username"  placeholder="Example Us3l2name">
-                <small id="usernameHelp" class="form-text text-muted">
-                  <span style="color: red">*</span>
-                  Username must be least 6 characters. don't !@#$%
-                </small>
-              </td>
-            </tr>
-            <tr> -->
-              <!-- password -->
-              <!-- <td >
-                <strong>
-                  <label class="pull-right" for="Password">Password</label>
-                </strong>
-              </td>
-              <td>
-                <input type="text" class="form-control" id="password"  placeholder="Example P@ssw0rd">
-                <small id="passwordHelp" class="form-text text-muted">
-                  <span style="color: red">*</span>
-                  Password must be least 6 characters.
-                </small>
-              </td>
-            </tr>
-            
-            <tr> -->
-              <!-- Confirmpass -->
-              <!-- <td >
-                <strong>
-                  <label class="pull-right" for="passwordCF">Confirm password</label>
-                </strong>
-              </td>
-              <td>
-                <input type="text" class="form-control" id="passwordCF"  placeholder="please confirm your password">
-              </td>
-            </tr>
-            <tr> -->
-              <!-- E-mail -->
-              <!-- <td >
-                <strong>
-                  <label class="pull-right" for="email">Email</label>
-              </strong>
-            </td>
-            <td>
-              <input type="email" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email">
-            </td>
-          </tr>
-        <tr > -->
-          <!-- Full Name -->
-          <!-- <td >
-            <strong>
-              <label class="pull-right" for="fullName">Full name</label>
-            </strong>
-          </td>
-          <td>
-            <input type="text" class="form-control" id="fullName" placeholder="Your full name">
-          </td>
-        </tr>
-        <tr > -->
-          <!-- term -->
-          <!-- <td colspan="2">
-            <h3 style="color:green; text-align: center">
-               <strong>
-                  Term & Condition
-               </strong> 
-            </h3>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-                <div class="col-md-2" align="center">
-                    <ul class="nav nav-pills nav-stacked anyClass">
-                      <img 
-                      src="https://termsfeed.com/blog/wp-content/uploads/2015/07/500px-terms-use-abusive-accounts.jpeg" 
-                      alt="">
-                      <img 
-                      src="https://termsfeed.com/blog/wp-content/uploads/2015/07/500px-terms-use-abusive-accounts.jpeg" 
-                      alt="">
-                    </ul>
-                  </div>
-          </td>
-        </tr>
-        <tr align="center">
-          <td colspan="2">
-              <div class="form-group">
-                  <div class="form-check">
-                    <input style="width: 15px;" class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                      I agree to the Terms & Conditions
-                    </label>
-                  </div>
-                </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    </form>
-</div> --> 
+<script>
+  console.log(checkRegist)
+</script>

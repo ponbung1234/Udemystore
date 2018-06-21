@@ -15,6 +15,7 @@ import { OrderlistComponent } from './orderlist/orderlist.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { CoverpageComponent } from './coverpage/coverpage.component';
 import { HeaderServiceService } from './service/header-service.service';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -29,7 +30,8 @@ import { HeaderServiceService } from './service/header-service.service';
     ModalRegistComponent,
     OrderlistComponent,
     OrderdetailComponent,
-    CoverpageComponent
+    CoverpageComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

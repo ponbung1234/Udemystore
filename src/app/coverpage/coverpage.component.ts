@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderServiceService } from './../service/header-service.service';
 
 @Component({
   selector: 'app-coverpage',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoverpageComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public nav: HeaderServiceService) { }
   ngOnInit() {
+    this.nav.hide();
   }
-
 }

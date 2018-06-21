@@ -14,8 +14,7 @@ import { ModalRegistComponent } from './modal-regist/modal-regist.component';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { CoverpageComponent } from './coverpage/coverpage.component';
-import { HeaderServiceComponent } from './header-service/header-service.component';
-import { CartComponent } from './cart/cart.component';
+import { HeaderServiceService } from './service/header-service.service';
 
 
 
@@ -30,9 +29,7 @@ import { CartComponent } from './cart/cart.component';
     ModalRegistComponent,
     OrderlistComponent,
     OrderdetailComponent,
-    CoverpageComponent,
-    HeaderServiceComponent,
-    CartComponent
+    CoverpageComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +37,7 @@ import { CartComponent } from './cart/cart.component';
     AppRoutingModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [HeaderServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

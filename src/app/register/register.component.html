@@ -102,10 +102,10 @@
               <div class="form-group">
                   <div class="form-check">
                     <input 
-                      style="width: 15px;" 
-                      class="form-check-input" 
+                      class="form-check-input checkBox" 
                       type="checkbox" 
-                      ngModel checked 
+                      [checked]="saveRegist" 
+                      (change)="saveRegist = !saveRegist"
                       >
                     <label class="form-check-label" for="gridCheck">
                       I agree to the Terms & Conditions
@@ -119,8 +119,9 @@
     <div class="modal-footer">
       <button 
       type="button" 
-      class="btn btn-success pull-right" 
-      ng-disabled="checked"
+      class="btn btn-success pull-right"
+      id="save"
+      [disabled]="!saveRegist"
       >
       Save</button>
     </div>
@@ -130,6 +131,3 @@
 
 <a (click)="open(content)">register</a>
 
-<script>
-  console.log(checkRegist)
-</script>

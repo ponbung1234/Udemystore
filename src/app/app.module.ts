@@ -13,6 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import { ModalRegistComponent } from './modal-regist/modal-regist.component';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { CoverpageComponent } from './coverpage/coverpage.component';
+import { HeaderServiceComponent } from './header-service/header-service.component';
 
 
 
@@ -26,7 +28,9 @@ import { OrderdetailComponent } from './orderdetail/orderdetail.component';
     RegisterComponent,
     ModalRegistComponent,
     OrderlistComponent,
-    OrderdetailComponent
+    OrderdetailComponent,
+    CoverpageComponent,
+    HeaderServiceComponent
   ],
   imports: [
     BrowserModule,

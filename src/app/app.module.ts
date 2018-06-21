@@ -18,7 +18,6 @@ import { HeaderServiceService } from './service/header-service.service';
 import { CartComponent } from './cart/cart.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

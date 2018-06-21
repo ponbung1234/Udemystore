@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav *ngIf="nav.visible" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" routerLink='/'>K-eCommerce</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="mr-sm-5">
-                    <a routerLink="/cart">
+                    <a href="#">
                         <i class="fa fa-2x  fa-cart-arrow-down">
                             <span class="badge badge-primary badge-pill badge-cart bg-danger ">4</span>
                         </i>

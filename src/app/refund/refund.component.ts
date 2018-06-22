@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HeaderServiceService } from './../service/header-service.service';
 @Component({
   selector: 'app-refund',
   templateUrl: './refund.component.html',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RefundComponent implements OnInit {
 
-  constructor() { }
+  closeResult: string;
+
+  constructor(public nav: HeaderServiceService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
 }

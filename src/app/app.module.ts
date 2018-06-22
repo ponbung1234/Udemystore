@@ -16,6 +16,7 @@ import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { CoverpageComponent } from './coverpage/coverpage.component';
 import { HeaderServiceService } from './service/header-service.service';
 import { CartComponent } from './cart/cart.component';
+import { RefundComponent } from './refund/refund.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CartComponent } from './cart/cart.component';
     OrderlistComponent,
     OrderdetailComponent,
     CoverpageComponent,
-    CartComponent
+    CartComponent,
+    RefundComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { CoverpageComponent } from './coverpage/coverpage.component';
 import { CartComponent } from './cart/cart.component';
+import { RefundComponent } from './refund/refund.component';
 const routes: Routes = [
  // {path: '', component: ItemComponent},
   {path: '', component: ItemComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'orderlist', component: OrderlistComponent},
   {path: 'cover', component: CoverpageComponent},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'refund', component: RefundComponent}
   
 ];
 

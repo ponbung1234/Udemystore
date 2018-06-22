@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderServiceService } from './../service/header-service.service';
+
+
 
 @Component({
   selector: 'app-orderdetail',
@@ -9,9 +12,10 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class OrderdetailComponent implements OnInit {
   closeResult: string;
 
-  constructor(private modalService: NgbModal,) { }
+  constructor(private modalService: NgbModal,public nav: HeaderServiceService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
   openVerticallyCentered(content) {

@@ -7,4 +7,31 @@
 }
 .imgSize{
     width: 10rem;
+    margin: 4px;
+}
+
+.btnSize {
+    font-weight: 300;
+    margin: 4px;
+    font-size: 13px;
+}
+
+.header {
+    background-color: rgb(221, 223, 217);
+    height: 40px;
+    width: 100%;
+    padding-top: 6px;
+    border-radius: 4px;
+}
+.borderDiv{
+    border: 1px solid black;
+    padding: 0px;
+    border-radius: 4px;
+    margin: 0px;
+    
+}
+
+.hrS {
+    margin-left: 10%;
+    margin-right: 10%; 
 }

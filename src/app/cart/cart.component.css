@@ -25,10 +25,11 @@
 }
 .borderDiv{
     border: 1px solid black;
-    padding: 0px;
+    padding-top: 1px;
     border-radius: 4px;
     margin: 0px;
-    
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .hrS {

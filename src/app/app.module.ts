@@ -17,6 +17,7 @@ import { CoverpageComponent } from './coverpage/coverpage.component';
 import { HeaderServiceService } from './service/header-service.service';
 import { CartComponent } from './cart/cart.component';
 import { RefundComponent } from './refund/refund.component';
+import { PayOptionComponent } from './pay-option/pay-option.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RefundComponent } from './refund/refund.component';
     OrderdetailComponent,
     CoverpageComponent,
     CartComponent,
-    RefundComponent
+    RefundComponent,
+    PayOptionComponent
   ],
   imports: [
     BrowserModule,

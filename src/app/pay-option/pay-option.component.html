@@ -1,0 +1,24 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Pay Options</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+        <div class="col-4">
+          <button class="btn btn-success">ATM UPLOAD</button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-success">CREDIT CARD</button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-success">QR-CODE</button>
+        </div>
+      </div>
+    </div>
+    
+  </ng-template>
+  
+  <button class="btn btn-success pull-right" (click)="open(content)">Check out</button>

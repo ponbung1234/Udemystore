@@ -21,6 +21,7 @@ import { PayOptionComponent } from './pay-option/pay-option.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UploadTransactionComponent } from './upload-transaction/upload-transaction.component';
+import { AtmComponent } from './atm/atm.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UploadTransactionComponent } from './upload-transaction/upload-transact
     RefundComponent,
     PayOptionComponent,
     FooterComponent,
-    UploadTransactionComponent
+    UploadTransactionComponent,
+    AtmComponent
   ],
   imports: [
     BrowserModule,

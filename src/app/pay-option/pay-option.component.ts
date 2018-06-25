@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pay-option',
@@ -7,11 +7,11 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./pay-option.component.css']
 })
 export class PayOptionComponent implements OnInit {
-  constructor(private modalService: NgbModal) { }
+  constructor(public modalService: NgbModal) { }
 
   ngOnInit() {
   }
-  open(content) {
+  public open(content) {
     this.modalService.open(content);
   }
 

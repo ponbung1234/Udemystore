@@ -9,6 +9,7 @@ import { CoverpageComponent } from './coverpage/coverpage.component';
 import { CartComponent } from './cart/cart.component';
 import { RefundComponent } from './refund/refund.component';
 import { AtmComponent } from './atm/atm.component';
+import { UploadTransactionComponent } from './upload-transaction/upload-transaction.component';
 const routes: Routes = [
  // {path: '', component: ItemComponent},
   {path: '', component: ItemComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'cover', component: CoverpageComponent},
   {path: 'cart', component: CartComponent},
   {path: 'refund', component: RefundComponent},
-  {path: 'atm',component: AtmComponent}
+  {path: 'atm',component: AtmComponent},
+  {path:'uploadTs',component: UploadTransactionComponent},
   
 ];
 

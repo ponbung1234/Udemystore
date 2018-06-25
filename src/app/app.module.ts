@@ -19,6 +19,7 @@ import { CartComponent } from './cart/cart.component';
 import { RefundComponent } from './refund/refund.component';
 import { PayOptionComponent } from './pay-option/pay-option.component';
 import { FooterComponent } from './footer/footer.component';
+import { CreditcardComponent } from './creditcard/creditcard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FooterComponent } from './footer/footer.component';
     CartComponent,
     RefundComponent,
     PayOptionComponent,
-    FooterComponent
+    FooterComponent,
+    CreditcardComponent
   ],
   imports: [
     BrowserModule,

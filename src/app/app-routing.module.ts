@@ -8,6 +8,7 @@ import { OrderlistComponent } from './orderlist/orderlist.component';
 import { CoverpageComponent } from './coverpage/coverpage.component';
 import { CartComponent } from './cart/cart.component';
 import { RefundComponent } from './refund/refund.component';
+import { AtmComponent } from './atm/atm.component';
 const routes: Routes = [
  // {path: '', component: ItemComponent},
   {path: '', component: ItemComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'orderlist', component: OrderlistComponent},
   {path: 'cover', component: CoverpageComponent},
   {path: 'cart', component: CartComponent},
-  {path: 'refund', component: RefundComponent}
+  {path: 'refund', component: RefundComponent},
+  {path: 'atm',component: AtmComponent}
   
 ];
 

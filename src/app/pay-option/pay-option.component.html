@@ -1,20 +1,41 @@
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title">Pay Options</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <h4 class="modal-title" style="margin-left: 35%">Pay Options</h4>
+      <button type="button" class="close " aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" style="margin-left: 3%">
       <div class="container">
-        <div class="col-4">
-          <button class="btn btn-success">ATM UPLOAD</button>
+        <div class="col-4" style="margin-bottom: 3%">
+          <div class="row">
+            <div class="col-6">
+              <i class="fas fa-2x fa-money-check-alt"></i>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-outline-success" style="width:300px">ATM UPLOAD</button>
+            </div>
+          </div>
         </div>
-        <div class="col-4">
-          <button class="btn btn-success">CREDIT CARD</button>
+        <div class="col-4" style="margin-bottom: 3%">
+            <div class="row">
+              <div class="col-6">
+                <i class="fa-2x fab fa-cc-visa"></i>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-outline-success " style="width:300px">CREDIT CARD</button>
+              </div>
+            </div>
         </div>
-        <div class="col-4">
-          <button class="btn btn-success">QR-CODE</button>
+        <div class="col-4" style="margin-bottom: 3%">
+            <div class="row">
+              <div class="col-6">
+                <i class=" fa-2x fas fa-qrcode"></i>
+              </div>
+              <div class="col-6">
+                  <button class="btn btn-outline-success" style="width:300px">QR-CODE</button>
+              </div>
+            </div>
         </div>
       </div>
     </div>

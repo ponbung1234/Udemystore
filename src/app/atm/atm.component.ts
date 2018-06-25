@@ -18,8 +18,6 @@ export class AtmComponent implements OnInit {
   ngOnInit() {
     this.nav.show();
   }
-  openPayOption(){
-    this.openPayOption;
-  }
+
 
 }

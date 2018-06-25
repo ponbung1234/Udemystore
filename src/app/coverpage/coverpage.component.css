@@ -1,51 +1,67 @@
-/*
- * Globals
- */
+/*-------------------------
+	Simple reset
+--------------------------*/
 
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
 
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: .05rem solid #fff;
+*{
+	margin:0;
+	padding:0;
 }
 
 
-/*
- * Base structure
- */
+/*-------------------------
+	General Styles
+--------------------------*/
 
-html 
-body {
+
+body, html {
   height: 100%;
-  background-color: #333;
-}
-body {
-  color: #fff;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
 }
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-/* Extra markup and styles for table-esque vertical and horizontal centering */
+.bg { 
+  /* The image used */
+
+  /* Full height */
+  height: 635px;
+  width: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.cover-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0;
+}
+.cover-distributed h5{
+	color:  #ffffff;
+	font: normal 18px 'Cookie', cursive;
+	margin: 0;
+}
+
+
 .site-wrapper {
   display: table;
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
-  box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+  
 }
 .site-wrapper-inner {
   display: table-cell;
-  height: 635px;
+  height: 100%;
   vertical-align: top;
 }
 .cover-container {
@@ -58,6 +74,16 @@ body {
   padding: 2rem;
 }
 
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
 
 /*
  * Header
@@ -116,47 +142,69 @@ body {
 }
 
 
-/*
- * Footer
- */
 
-.mastfoot {
-  color: rgba(255,255,255,.5);
+a, a:visited {
+	outline:none;
+	color:#1c4f64;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header{
+	display: block;
 }
 
 
-/*
- * Affix and center
- */
+/*----------------------------
+	The Footer
+-----------------------------*/
 
-@media (min-width: 40em) {
-  /* Pull out the header and footer */
-  .masthead {
-    position: fixed;
-    top: 0;
-  }
-  .mastfoot {
-    position: fixed;
-    bottom: 0;
-  }
 
-  /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
-  }
-
-  /* Handle the widths */
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
-  }
+footer{
+	background-color: #111111;
+	bottom: 0;
+	box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
+	height: 45px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
 }
 
-@media (min-width: 62em) {
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 42rem;
-  }
+footer h2{
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: normal;
+	left: 50%;
+	margin-left: -400px;
+	padding: 13px 0 0;
+	position: absolute;
+	width: 540px;
+}
+
+footer h2 i{
+	font-style:normal;
+	color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+	color: #999999;
+	font-size: 12px;
+	left: 50%;
+	margin: 16px 0 0 110px;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+footer a i{
+	color:#ccc;
+	font-style: normal;
+}
+
+footer a i b{
+	color:#c92020;
+	font-weight: normal;
 }

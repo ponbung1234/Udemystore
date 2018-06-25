@@ -18,7 +18,7 @@ import { HeaderServiceService } from './service/header-service.service';
 import { CartComponent } from './cart/cart.component';
 import { RefundComponent } from './refund/refund.component';
 import { PayOptionComponent } from './pay-option/pay-option.component';
-
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,8 @@ import { PayOptionComponent } from './pay-option/pay-option.component';
     CoverpageComponent,
     CartComponent,
     RefundComponent,
-    PayOptionComponent
+    PayOptionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

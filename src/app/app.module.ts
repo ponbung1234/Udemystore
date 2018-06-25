@@ -19,7 +19,7 @@ import { CartComponent } from './cart/cart.component';
 import { RefundComponent } from './refund/refund.component';
 import { PayOptionComponent } from './pay-option/pay-option.component';
 import { FooterComponent } from './footer/footer.component';
-import { AtmComponent } from './atm/atm.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,13 +36,13 @@ import { AtmComponent } from './atm/atm.component';
     CartComponent,
     RefundComponent,
     PayOptionComponent,
-    FooterComponent,
-    AtmComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule.forRoot()
   ],
   providers: [HeaderServiceService],

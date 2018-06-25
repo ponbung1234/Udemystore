@@ -1,12 +1,26 @@
-<div class="container-fluid">
-      <img
-      style="
-        height: 300px;
-        width: 100%;
-        margin-top: 20px;
-        padding-left: 20px;
-        margin-bottom: 20px" 
-      src="https://atmedia.imgix.net/room_search/search-by-color_17.png" 
-      class="img-fluid" 
-      alt="Responsive image" >
+<div class="container p-3">
+    <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+          <img class="img-thumbnail" [src]="images[0]" alt="Random first slide">
+          <div class="carousel-caption">
+            <h3>First Promotion</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img class="img-thumbnail" [src]="images[1]" alt="Random second slide">
+          <div class="carousel-caption">
+            <h3>Second Promotion</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img class="img-thumbnail" [src]="images[2]" alt="Random third slide">
+          <div class="carousel-caption">
+            <h3>Third Promotion</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      
 </div>

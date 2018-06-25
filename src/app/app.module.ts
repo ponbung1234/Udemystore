@@ -20,6 +20,7 @@ import { RefundComponent } from './refund/refund.component';
 import { PayOptionComponent } from './pay-option/pay-option.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UploadTransactionComponent } from './upload-transaction/upload-transaction.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     CartComponent,
     RefundComponent,
     PayOptionComponent,
-    FooterComponent
+    FooterComponent,
+    UploadTransactionComponent
   ],
   imports: [
     BrowserModule,

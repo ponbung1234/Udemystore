@@ -1,4 +1,4 @@
-<nav *ngIf="nav.visible" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav *ngIf="nav.visible" class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-bottom:2px;padding-top:2px;">
     <a class="navbar-brand" routerLink='/'>K-eCommerce</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
                 </a>
             </li>
         </ul>
-        <div class="navbar-text">
+        <div class="navbar-text" style="padding-bottom: 0px; padding-top: 0px;">
             <form class="form-inline">
                 <div class="input-group mr-sm-5">
                     <input class="form-control " type="search" placeholder="Search..." aria-label="Search">
@@ -31,14 +31,14 @@
                         
                     </a>
                 </div>
-                <div class="mr-sm-3">
-                    <a href="#">
+                <div class="mr-sm-3" style="padding-top: 20px">
+                    <p class="btn btn-sm btn-outline-success" style="margin-right: 3px;">
                         <app-login></app-login>
-                    </a>
-                    |
-                    <a href="#">
+                    </p>
+
+                    <p class="btn btn-sm btn-outline-secondary">
                         <app-register></app-register>
-                    </a>
+                    </p>
                 </div>
             </form>
         </div>

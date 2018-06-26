@@ -1,0 +1,31 @@
+.modal-header, h4, .close {
+    background-color: #5cb85c;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+}
+.modal-footer {
+    background-color: #f9f9f9;
+}
+
+
+/* 
+    .modal-header, h4, .close {
+        background-color: #5cb85c;
+        color:white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+    .dark-modal .modal-content {
+        background-color: #292b2c;
+        color: white;
+      }
+      .dark-modal .close {
+        color: white;
+      }
+      .light-blue-backdrop {
+        background-color: #5cb3fd;
+      } */

@@ -1,0 +1,106 @@
+
+<main role="main" class="container-fluid" >
+        <h1 style="margin: 30px">Bank Account</h1>
+        <hr>
+    <div class="row">
+        <div class="col-lg-7"  style="margin-right: 50px; margin-left: 10px">
+            <img src="{{imageSrc}}" alt="">
+            
+        </div>
+        <div class="col-lg-4 borderDiv">    
+            <div class="header">
+                <h5 style="color: forestgreen; text-align: center">
+                    Summery Details
+                </h5>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <img 
+                        class="imgSize pull-right"
+                        src="https://www.att.com/catalog/en/skus/images/apple-iphone%20x-space%20gray-450x350.png" 
+                        alt="">
+                </div>
+                <div class="col-6 "><br>
+                    <span>
+                        <strong>
+                            iPhone X 64GB
+                        </strong>
+                    </span>
+                    <br><br>
+                    <span>price: 40,000 THB</span>
+                </div>
+            </div>
+            <hr class="hrS" >
+            <div class="row">
+                    <div class="col-6 ">
+                        <img 
+                            class="imgSize pull-right"
+                            src="https://www.att.com/catalog/en/skus/images/apple-iphone%20x-space%20gray-450x350.png" 
+                            alt="">
+                    </div>
+                    <div class="col-6 "><br>
+                        <span>
+                            <strong>
+                                iPhone X 64GB
+                            </strong>
+                        </span>
+                        <br><br>
+                        <span>price: 40,000 THB</span>
+                    </div>
+                </div>
+                <hr class="hrS">
+                <div class="row">
+                        <div class="col-6 ">
+                            <img 
+                                class="imgSize pull-right"
+                                src="https://www.att.com/catalog/en/skus/images/apple-iphone%20x-space%20gray-450x350.png" 
+                                alt="">
+                        </div>
+                        <div class="col-6 "><br>
+                            <span>
+                                <strong>
+                                    iPhone X 64GB
+                                </strong>
+                            </span>
+                            <br><br>
+                            <span>price: 40,000 THB</span>
+                        </div>
+                    </div>
+    <!-- Total path -->
+                <hr>
+                <div class="row" style="margin: 10px;">
+                    <div class="col-7" style="text-align: center;">
+                        <span>
+                            SubTotal: sumSubTotal THB
+                        </span>
+                    </div>
+                    <div class="col-5"  style="text-align: center;">
+                        <span>
+                            VAT: vatSummery %
+                        </span>
+                    </div>
+                    <br><br>
+                    <div class="col-12" style="font-size: 20px">
+                        <span>
+                            <strong>
+                                Total : sumTotal THB      
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="row" style="margin-top: 5%; margin-left: 12%">
+        <div class="col-4">
+            <button routerLink="/uploadTs" class="btn btn-success">
+                Upload Transaction
+            </button>    
+        </div>
+        <div class="col-4">
+                <app-pay-option></app-pay-option>
+        </div>
+        <div class="col-4">
+            <button routerLink="/cart" class="btn btn-success">Back to cart</button>
+        </div>
+    </div>
+</main>

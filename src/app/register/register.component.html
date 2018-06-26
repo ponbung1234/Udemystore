@@ -1,0 +1,136 @@
+<ng-template  #content let-c="close" let-d="dismiss">
+
+<div class="modal-header" style="">
+    <H3 style="color:white;margin-left:150px;">
+        <strong>
+          Create your K-eCommerce account
+        </strong> 
+      </H3>
+      <button type="button" class="close" aria-label="Close" style="padding-top:3px;padding-right:10px" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+</div>
+    <form>
+      <table align="center" class="borderless" id="registerTable">
+        <tbody >
+          <tr>
+            <!-- Username -->
+            <td  style="padding-top:30px">
+              <strong>
+                <label class="pull-right" for="Username">Username</label>
+              </strong>
+              <td style="padding-top:30px">
+                <input type="text" class="form-control" id="username"  placeholder="Example Us3l2name">
+                <small id="usernameHelp" class="form-text text-muted">
+                  <span style="color: red">*</span>
+                  Username must be least 6 characters. don't !@#$%
+                </small>
+              </td>
+            </tr>
+            <tr>
+              <!-- password -->
+              <td >
+                <strong>
+                  <label class="pull-right" for="Password">Password</label>
+                </strong>
+              </td>
+              <td>
+                <input type="text" class="form-control" id="password"  placeholder="Example P@ssw0rd">
+                <small id="passwordHelp" class="form-text text-muted">
+                  <span style="color: red">*</span>
+                  Password must be least 6 characters.
+                </small>
+              </td>
+            </tr>
+            
+            <tr>
+              <!-- Confirmpass -->
+              <td >
+                <strong>
+                  <label class="pull-right" for="passwordCF">Confirm password</label>
+                </strong>
+              </td>
+              <td>
+                <input type="text" class="form-control" id="passwordCF"  placeholder="please confirm your password">
+              </td>
+            </tr>
+            <tr>
+              <!-- E-mail -->
+              <td >
+                <strong>
+                  <label class="pull-right" for="email">Email</label>
+              </strong>
+            </td>
+            <td>
+              <input type="email" class="form-control" id="" aria-describedby="emailHelp" placeholder="Enter email">
+            </td>
+          </tr>
+        <tr >
+          <!-- Full Name -->
+          <td >
+            <strong>
+              <label class="pull-right" for="fullName">Full name</label>
+            </strong>
+          </td>
+          <td>
+            <input type="text" class="form-control" id="fullName" placeholder="Your full name">
+          </td>
+        </tr>
+        <tr >
+          <!-- term -->
+          <td colspan="2">
+            <h3 style="color:green; text-align: center">
+               <strong>
+                  Term & Condition
+               </strong> 
+            </h3>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+                <div class="col-md-2" align="center">
+                    <ul class="nav nav-pills nav-stacked anyClass">
+                      <img 
+                      src="https://termsfeed.com/blog/wp-content/uploads/2015/07/500px-terms-use-abusive-accounts.jpeg" 
+                      alt="">
+                      <img 
+                      src="https://termsfeed.com/blog/wp-content/uploads/2015/07/500px-terms-use-abusive-accounts.jpeg" 
+                      alt="">
+                    </ul>
+                  </div>
+          </td>
+        </tr>
+        <tr align="center">
+          <td colspan="2">
+              <div class="form-group">
+                  <div class="form-check">
+                    <input 
+                      class="form-check-input checkBox" 
+                      type="checkbox" 
+                      [checked]="saveRegist" 
+                      (change)="saveRegist = !saveRegist"
+                      >
+                    <label class="form-check-label" for="gridCheck">
+                      I agree to the Terms & Conditions
+                    </label>
+                  </div>
+                </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="modal-footer">
+      <button 
+      type="button" 
+      class="btn btn-success pull-right"
+      id="save"
+      [disabled]="!saveRegist"
+      >
+      Save</button>
+    </div>
+  </form>
+
+</ng-template>
+
+<a (click)="open(content)">register</a>
+

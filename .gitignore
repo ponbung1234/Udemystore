@@ -42,3 +42,20 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+*.json
+*.json
+*.map
+*.js
+*.md
+*.yml
+*.json
+src/node_modules/@angular/compiler-cli/node_modules/minimist/LICENSE
+*.jst
+*.json
+*.markdown
+src/node_modules/@ngtools/json-schema/LICENSE
+src/node_modules/@ngtools/webpack/LICENSE
+src/node_modules/@schematics/angular/application/files/__dot__editorconfig
+*.json
+*.__style__

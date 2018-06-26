@@ -1,0 +1,10 @@
+.mousehover{
+    cursor: pointer;
+}
+.badge-cart{
+    font-size: 48%;
+    position: absolute;
+    top: 1px;
+    margin-left: -15px;
+    margin-top: 10px; 
+}

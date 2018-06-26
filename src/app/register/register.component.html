@@ -1,11 +1,14 @@
 <ng-template  #content let-c="close" let-d="dismiss">
 
-<div class="modal-header" style="padding:15px 170px;">
-    <H3 style="color:white;">
+<div class="modal-header" style="">
+    <H3 style="color:white;margin-left:150px;">
         <strong>
           Create your K-eCommerce account
         </strong> 
       </H3>
+      <button type="button" class="close" aria-label="Close" style="padding-top:3px;padding-right:10px" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
 </div>
     <form>
       <table align="center" class="borderless" id="registerTable">

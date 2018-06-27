@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpModule } from '@angular/http';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AdvertiseComponent } from './advertise/advertise.component';
@@ -22,6 +23,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UploadTransactionComponent } from './upload-transaction/upload-transaction.component';
 import { AtmComponent } from './atm/atm.component';
+import { ProductService }from './service/product.service';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -40,16 +43,18 @@ import { AtmComponent } from './atm/atm.component';
     PayOptionComponent,
     FooterComponent,
     UploadTransactionComponent,
-    AtmComponent
+    AtmComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
     AppRoutingModule,
     HttpClientModule,
+    HttpModule,
     NgbModule.forRoot()
   ],
-  providers: [HeaderServiceService],
+  providers: [HeaderServiceService,ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

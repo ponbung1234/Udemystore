@@ -10,6 +10,7 @@ import { CartComponent } from './cart/cart.component';
 import { RefundComponent } from './refund/refund.component';
 import { AtmComponent } from './atm/atm.component';
 import { UploadTransactionComponent } from './upload-transaction/upload-transaction.component';
+import { SearchComponent } from './search/search.component';
 const routes: Routes = [
  // {path: '', component: ItemComponent},
   {path: '', component: ItemComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'refund', component: RefundComponent},
   {path: 'atm',component: AtmComponent},
   {path:'uploadTs',component: UploadTransactionComponent},
+  {path: 'search', component: SearchComponent}
   
 ];
 

@@ -7,16 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" routerLink='orderlist'>Your Orders History
+                <a class="nav-link" routerLink='orderlist'>Your Oders History
                     <span class="sr-only">(current)</span>
                     <span class="badge badge-primary badge-pill bg-danger">4</span>
                 </a>
             </li>
         </ul>
         <div class="navbar-text" style="padding-bottom: 0px; padding-top: 0px;">
-            <form class="form-inline">
+            <form class="form-inline" action="http://192.168.137.130:8080/search" method="post">
                 <div class="input-group mr-sm-5">
-                    <input class="form-control " type="search" placeholder="Search..." aria-label="Search">
+                    <input class="form-control " name="input" type="input" placeholder="Search..." aria-label="input">
                     <div class="input-group-prepend">
                         <button class="input-group-text">
                             <span id="">Go!</span>

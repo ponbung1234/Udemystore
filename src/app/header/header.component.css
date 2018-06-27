@@ -2,9 +2,9 @@
     cursor: pointer;
 }
 .badge-cart{
-    font-size: 48%;
+    font-size: 40%;
     position: absolute;
     top: 1px;
-    margin-left: -15px;
+    margin-left: 18px;
     margin-top: 10px; 
 }

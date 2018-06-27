@@ -7,7 +7,8 @@
     <div class="col-sm-3">
     </div>
     <div class="col-sm-9">
-      <h1 style="margin-left: 20px">Most Popular</h1>
+  
+        <h1 class="name">Most Popular</h1>
 
     </div>
 
@@ -20,9 +21,12 @@
       <div class="row ">
         <div class="col-sm-3">
           <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">
-              Category
-            </a>
+            
+            <button type="button" class="btn btn-dark">
+              <div class="btnName">
+                Category
+              </div> 
+            </button>
             <a routerLink="/" [queryParams]="{ id: 1 }" class="list-group-item list-group-item-action">test</a>
             <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
             <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>

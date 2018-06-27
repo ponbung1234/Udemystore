@@ -5,3 +5,13 @@
 .card {
     margin-bottom : 10px;
 }
+.name{
+	color:  #3a3a3a;
+	font: normal 36px 'Cookie', cursive;
+	margin-left: 25px;
+}
+.btnName{
+	color:  #ffffff;
+	font: normal 20px 'Cookie', cursive;
+
+}

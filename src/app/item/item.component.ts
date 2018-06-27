@@ -10,6 +10,8 @@ import { Products } from '../products';
 })
 export class ItemComponent implements OnInit {
   private product:Products[];
+  show: boolean = true;
+  i: number =0;
   constructor(private _productService:ProductService,public nav: HeaderServiceService) { }
 
   ngOnInit() {

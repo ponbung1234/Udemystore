@@ -2,73 +2,83 @@
 <app-advertise></app-advertise>
 
 <div class="container-fluid">
-  <h1 style="margin-left: 40px">Most Popular</h1>
+
+  <div class="row" style="margin-bottom: 13px">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-9">
+      <h1 style="margin-left: 20px">Most Popular</h1>
+
+    </div>
+
+  </div>
   <hr>
-  <div class="container-fluid">
-    <table class="table borderless">
-      <tbody>
-        <tr>
-          <td *ngFor="let products of product">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://www.img.live/images/2018/06/27/694914-topic-ix-0.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">{{products.product_name}}</h5>
-                <a href="#" class="btn btn-primary">Add cart</a>
-                <a href="#" class="btn btn-light pull-right">Details</a>
-              </div>
-            </div>
-          </td>
 
-        </tr>
-        <tr>
-          <td>
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1520532907/524297_9RO40_2072_001_100_0000_Light-Suede-Square-G-and-faux-fur-slipper.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Suede Square G and faux fur slippe</h5>
-                <a href="#" class="btn btn-primary">Add cart</a>
-                <a href="#" class="btn btn-light pull-right">Details</a>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1520532907/524297_9RO40_2072_001_100_0000_Light-Suede-Square-G-and-faux-fur-slipper.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Suede Square G and faux fur slippe</h5>
-                <a href="#" class="btn btn-primary">Add cart</a>
-                <a href="#" class="btn btn-light pull-right">Details</a>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1520532907/524297_9RO40_2072_001_100_0000_Light-Suede-Square-G-and-faux-fur-slipper.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Suede Square G and faux fur slippe</h5>
-                <a href="#" class="btn btn-primary">Add cart</a>
-                <a href="#" class="btn btn-light pull-right">Details</a>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1520532907/524297_9RO40_2072_001_100_0000_Light-Suede-Square-G-and-faux-fur-slipper.jpg"
-                alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Suede Square G and faux fur slippe</h5>
-                <a href="#" class="btn btn-primary">Add cart</a>
-                <a href="#" class="btn btn-light pull-right">Details</a>
-              </div>
-            </div>
-          </td>
-        </tr>
+  <div class="row">
+    <div class="container-fluid" style="margin-left: 13px">
+      <!-- /////////////////////////////////// -->
+      <div class="row ">
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+              Category
+            </a>
+            <a routerLink="/" [queryParams]="{ id: 1 }" class="list-group-item list-group-item-action">test</a>
+            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+          </div>
+        </div>
+        <div class="col-sm-9">
 
-      </tbody>
-    </table>
+          <div class="container-fluid">
+            <div class="row ">
+              <ng-container *ngFor="let products of product let i = index">
+                <div class="col">
+
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://www.img.live/images/2018/06/27/694914-topic-ix-0.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{products.product_name}}</h5>
+                      <a href="#" class="btn btn-primary">Add cart</a>
+                      <a href="#" class="btn btn-light pull-right">Details</a>
+                    </div>
+                  </div>
+
+                </div>
+                <div *ngIf="(i+1)%3===0" class="w-100"></div>
+              </ng-container>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <!-- 
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://www.img.live/images/2018/06/27/694914-topic-ix-0.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{products.product_name}}</h5>
+    <a href="#" class="btn btn-primary">Add cart</a>
+    <a href="#" class="btn btn-light pull-right">Details</a>
   </div>
 </div>
+
+
+
+
+
+<div class="card" style="width: 20rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h4 class="card-title">Card title</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->

@@ -4,9 +4,7 @@ import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw'
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CategoryService {
   private baseUrl:string='http://192.168.43.242:8080/category';
   private headers = new Headers({'content-Type':'application/json'});

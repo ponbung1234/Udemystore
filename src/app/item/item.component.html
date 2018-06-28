@@ -15,7 +15,8 @@
             </div>
           </button>
           <!-- <a routerLink="/" [queryParams]="{ id: 1 }" class="list-group-item list-group-item-action">test</a> -->
-          <a *ngFor="let categorys of category" routerLink="/" [queryParams]="{ category: categorys.category_id }" class="list-group-item list-group-item-action">
+          <a routerLink="/" class="list-group-item list-group-item-action"> All Categories </a>
+          <a *ngFor="let categorys of category" routerLink="/" [queryParams]="{ category: categorys.category_id , name: categorys.category_name}" class="list-group-item list-group-item-action">
             {{categorys.category_name}}</a>
 
         </div>
@@ -25,7 +26,7 @@
     <div class="col-lg-9">
       <!-- head -->
       <div class="row" style="margin-bottom: 13px">
-        <h1 class="name">Most Popular</h1>
+        <h1 class="name">Most Popular [ {{categoryName}} ]</h1>
       </div>
       <hr>
       <!-- data-item -->
@@ -36,7 +37,7 @@
 
               <div class="container-fluid">
                 <div class="row ">
-                  <ng-container *ngFor="let products of product let i = index">
+                  <ng-container *ngFor="let products of filteredProducts let i = index">
                     <div class="col">
 
                       <div class="card" style="width: 18rem;">

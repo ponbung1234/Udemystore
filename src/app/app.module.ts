@@ -25,6 +25,7 @@ import { UploadTransactionComponent } from './upload-transaction/upload-transact
 import { AtmComponent } from './atm/atm.component';
 import { ProductService }from './service/product.service';
 import { SearchComponent } from './search/search.component';
+import { CategoryService } from './service/category.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { SearchComponent } from './search/search.component';
     HttpModule,
     NgbModule.forRoot()
   ],
-  providers: [HeaderServiceService,ProductService],
+  providers: [HeaderServiceService,ProductService,CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

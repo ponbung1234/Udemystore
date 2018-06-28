@@ -15,3 +15,6 @@
 	font: normal 20px 'Cookie', cursive;
 
 }
+.sticky-top{
+	top: 40px;
+}

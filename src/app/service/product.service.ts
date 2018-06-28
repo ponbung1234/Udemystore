@@ -7,7 +7,7 @@ import 'rxjs/add/observable/throw'
 
 @Injectable()
 export class ProductService {
-  private baseUrl:string='http://192.168.137.130:8080/products';
+  private baseUrl:string='http://192.168.43.242:8080/products';
   private headers = new Headers({'content-Type':'application/json'});
   private option = new RequestOptions({headers:this.headers});
   constructor(private _http:Http) { }

@@ -27,6 +27,8 @@ import { ProductService }from './service/product.service';
 import { SearchComponent } from './search/search.component';
 import { CategoryService } from './service/category.service';
 import { CartService } from './service/cart.service';
+import { OrderlistService } from './service/orderlist.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,15 @@ import { CartService } from './service/cart.service';
     HttpModule,
     NgbModule.forRoot()
   ],
-  providers: [HeaderServiceService,ProductService,CategoryService,CartService],
+  providers: [
+    HeaderServiceService,
+    ProductService,
+    CategoryService,
+    CartService,
+    OrderlistService,
+    OrderdetailComponent,
+    NgbActiveModal
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

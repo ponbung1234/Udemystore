@@ -7,30 +7,21 @@
         <table class="table table-hover border" >
             <thead class="thead-light ">
                 <tr >
-                    <th style="width: 100px;">Item name</th>
-                    <th style="width: 200px;">Item Description</th>
+                    <th style="width: 250px;">Item name</th>
+                    <th style="width: 300px;">Item Description</th>
                     <th style="width: 180px;"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr >
-                    <td >iPhone X 64GB</td>
-                    <td > is a smartphone designed, developed, and marketed by Apple Inc. It was announced on September 12, 2017, alongside the iPhone 8 and iPhone 8 Plus, at the Steve Jobs Theater in the Apple Park campus. The phone was released on November 3, 2017. This device marks the iPhone series' tenth anniversary, with "X" being the symbol for "ten" in Roman numerals.
+                <tr *ngFor="let carts of cartItem">
+                    <td >{{ carts.product_name }}</td>
+                    <td > {{ carts.product_description }}
                     </td>
                     <td >
                         <Button class="btn btn-primary btnSize">add more</Button>
                         <button class="btn btn-danger btnSize"> delete</button>
                     </td>
                 </tr>
-                <tr >
-                        <td >iPhone X 64GB</td>
-                        <td >  is a smartphone designed, developed, and marketed by Apple Inc. It was announced on September 12, 2017, alongside the iPhone 8 and iPhone 8 Plus, at the Steve Jobs Theater in the Apple Park campus. The phone was released on November 3, 2017. This device marks the iPhone series' tenth anniversary, with "X" being the symbol for "ten" in Roman numerals.
-                        </td>
-                        <td >
-                            <Button class="btn btn-primary btnSize">add more</Button>
-                            <button class="btn btn-danger btnSize"> delete</button>
-                        </td>
-                    </tr>
                 
             </tbody>
         </table>

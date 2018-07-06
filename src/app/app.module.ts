@@ -26,6 +26,7 @@ import { AtmComponent } from './atm/atm.component';
 import { ProductService }from './service/product.service';
 import { SearchComponent } from './search/search.component';
 import { CategoryService } from './service/category.service';
+import { CartService } from './service/cart.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { CategoryService } from './service/category.service';
     HttpModule,
     NgbModule.forRoot()
   ],
-  providers: [HeaderServiceService,ProductService,CategoryService],
+  providers: [HeaderServiceService,ProductService,CategoryService,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -31,7 +31,7 @@ export class ItemComponent implements OnInit {
   ) {
     _productService
       .getProducts().switchMap(product => {
-        console.log(product);
+        // console.log(product);
         this.product = product;
         return route.queryParamMap;
       })
@@ -55,11 +55,11 @@ export class ItemComponent implements OnInit {
 
 
     _categoryService.getProducts().subscribe((category) => {
-      console.log(category);
+      // console.log(category);
       this.category = category;
 
     }, (error) => {
-      console.log(error);
+      // console.log(error);
     })
 
 

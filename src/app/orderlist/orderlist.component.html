@@ -17,12 +17,13 @@
   </blockquote>
   <div class="row">
     <div class="col">
-     
-      
+
+
       <table class="table table-hover border">
         <thead class="thead-light">
           <tr>
             <th scope="col">Order Date</th>
+            <th scope="col">Time</th>
             <th scope="col">Order Status</th>
             <th scope="col">Total Price</th>
             <th scope="col">Paid By</th>
@@ -30,49 +31,33 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">11/06/2018</th>
-            <td>Delivered</td>
-            <td>2500 THB</td>
-            <td>QR Code</td>
+          <tr *ngFor="let orderlists of orderlist">
+            <th scope="row">{{orderlists.orderDate | date}}</th>
+            <td>{{orderlists.orderDate | date:'shortTime'}}</td>
+            <td>{{orderlists.status}}</td>
+            <td>{{orderlists.total_price}} THB</td>
+            <td>{{orderlists.paymentType_name}}</td>
             <td>
               <!-- Button for viewing order detail -->
-              <app-orderdetail></app-orderdetail>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">11/06/2018</th>
-            <td>
-              <p class="wordwarp" style="width: 179px">
-                Delivered
-              </p>
-              
-            </td>
-            <td>2500 THB</td>
-            <td>QR Code</td>
-            <td>
-              <!-- Button for viewing order detail -->
-              <app-orderdetail></app-orderdetail>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">11/06/2018</th>
-            <td>Delivered</td>
-            <td>2500 THB</td>
-            <td>QR Code</td>
-            <td>
-              <!-- Button for viewing order detail -->
-              <app-orderdetail></app-orderdetail>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">11/06/2018</th>
-            <td>Delivered</td>
-            <td>2500 THB</td>
-            <td>QR Code</td>
-            <td>
-              <!-- Button for viewing order detail -->
-              <app-orderdetail></app-orderdetail>
+              <ng-template #content let-c="close" let-d="dismiss">
+                <div class="modal-header">
+                  <h4 class="modal-title">Order Detail</h4>
+                  <button type="button" class="close" aria-label="Close" (click)="c('Close click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <!--information in the modal-->
+                <app-orderdetail></app-orderdetail>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+                </div>
+                <p>  {{orderNum}}</p>
+              </ng-template>
+              <!-- Button view detail -->
+              <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" (click)="openmodal(content,orderlists.order_id)">
+                View Detail
+              </button>
+
             </td>
           </tr>
         </tbody>
@@ -82,3 +67,16 @@
     </div>
   </div>
 </div>
+
+
+<!-- from order
+-orderDate
+-total_price
+from order_detail
+-status
+from paymentType
+-paymentType_name
+from product
+-product_name
+-price -->
+<!-- select * from orders natural join payment,payment_type where orders.order_id = payment.order_id AND payment.paymentType_id = payment_type.paymentType_id; -->

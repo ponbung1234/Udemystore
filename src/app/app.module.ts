@@ -30,6 +30,7 @@ import { SearchComponent } from './search/search.component';
 import { CategoryService } from './service/category.service';
 import { OrderlistService } from './service/orderlist.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { CartService } from './service/cart.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     NgbModule.forRoot()
   ],
   providers: [HeaderServiceService,ProductService,CategoryService,OrderlistService,OrderdetailComponent,NgbActiveModal
-  ,OrderdetailService
+  ,OrderdetailService,
+  CartService
 ],
   bootstrap: [AppComponent]
 })

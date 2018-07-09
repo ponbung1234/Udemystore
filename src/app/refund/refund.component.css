@@ -27,7 +27,7 @@
   .h6 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    color: #333;
+    color: rgb(167, 17, 17);
   }
   
   
@@ -115,6 +115,7 @@
   /* Sidebar modules for boxing content */
   .sidebar-module {
     padding: 1rem;
+    
   }
   .sidebar-module-inset {
     padding: 1rem;
@@ -126,7 +127,9 @@
   .sidebar-module-inset ol:last-child {
     margin-bottom: 0;
   }
-  
+  .sidebar{
+    background-color: #df5656;
+  }
   
   /* Pagination */
   .blog-pagination {

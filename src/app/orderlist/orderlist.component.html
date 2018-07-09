@@ -185,7 +185,7 @@
                                     </div>
                                     <div class="row d-flex justify-content-end mg-5">
 
-                                      <button type="button" routerLink='/refund' [queryParams]="{ itemID: od.item_id }" class="btn btn-outline-danger" (click)="c('Close click')">Refund</button>
+                                      <button type="button" routerLink='/refund' [queryParams]="{ itemID: od.item_id, amount: od.amount }" class="btn btn-outline-danger" (click)="c('Close click')">Refund</button>
 
                                     </div>
                                   </div>

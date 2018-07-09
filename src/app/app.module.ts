@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AdvertiseComponent } from './advertise/advertise.component';
@@ -59,6 +60,7 @@ import { CartService } from './service/cart.service';
     AppRoutingModule,
     HttpClientModule,
     HttpModule,
+    FormsModule,
     NgbModule.forRoot()
   ],
   providers: [HeaderServiceService,ProductService,CategoryService,OrderlistService,OrderdetailComponent,NgbActiveModal

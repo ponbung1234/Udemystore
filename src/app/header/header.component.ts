@@ -22,7 +22,9 @@ export class HeaderComponent implements OnInit {
     .getCart()
     .subscribe((cart) => {
       if(cart !== null){
-      this.cartAmount = cart[0].cart_amount;
+        if(cart[1].ecustomer_id == 1){
+          this.cartAmount = cart[0].cart_amount;
+        }
       // console.log(cart[2].cart_amount)
       }
   

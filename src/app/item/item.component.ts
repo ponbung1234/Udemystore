@@ -34,12 +34,13 @@ export class ItemComponent implements OnInit {
 
   ) {
     //popovers
+      config.container = 'body';
       config.placement = 'bottom';
       config.triggers = 'hover';
 
     _productService
       .getProducts().switchMap(product => {
-        console.log(product);
+        //console.log(product);
         this.product = product;
         return route.queryParamMap;
       })

@@ -7,8 +7,9 @@
         <table class="table table-hover border" >
             <thead class="thead-light ">
                 <tr >
-                    <th style="width: 250px;">Item name</th>
-                    <th style="width: 300px;">Item Description</th>
+                    <th style="width: 250px;"> Product name</th>
+                    <th style="width: 300px;"> Description</th>
+                    <th style="width: 20px;"> Amount </th>
                     <th style="width: 180px;"></th>
                 </tr>
             </thead>
@@ -17,7 +18,8 @@
                     <td >{{ carts.product_name }}</td>
                     <td > {{ carts.product_description }}
                     </td>
-                    <td >
+                    <td> {{ carts.cart_amount }}</td>
+                    <td style="padding: 4px">
                         <Button class="btn btn-primary btnSize">add more</Button>
                         <button class="btn btn-danger btnSize"> delete</button>
                     </td>
@@ -33,77 +35,46 @@
                 Summery Details
             </h5>
         </div>
-        <div class="row">
-            <div class="col-6 ">
-                <img 
-                    class="imgSize pull-right"
-                    src="https://www.att.com/catalog/en/skus/images/apple-iphone%20x-space%20gray-450x350.png" 
-                    alt="">
-            </div>
-            <div class="col-6 "><br>
-                <span>
-                    <strong>
-                        iPhone X 64GB
-                    </strong>
-                </span>
-                <br><br>
-                <span>price: 40,000 THB</span>
-            </div>
-        </div>
-        <hr class="hrS" >
-        <div class="row">
+        <div *ngFor="let carts of cartItem">
+        <div class="row" >
                 <div class="col-6 ">
                     <img 
                         class="imgSize pull-right"
-                        src="https://www.att.com/catalog/en/skus/images/apple-iphone%20x-space%20gray-450x350.png" 
+                        src="{{carts.pro_image_path}}" 
                         alt="">
                 </div>
                 <div class="col-6 "><br>
                     <span>
                         <strong>
-                            iPhone X 64GB
+                            {{carts.product_name}}
                         </strong>
                     </span>
                     <br><br>
-                    <span>price: 40,000 THB</span>
+                    <span>
+                        price: {{carts.price}} THB
+                    </span>
                 </div>
             </div>
             <hr class="hrS">
-            <div class="row">
-                    <div class="col-6 ">
-                        <img 
-                            class="imgSize pull-right"
-                            src="https://www.att.com/catalog/en/skus/images/apple-iphone%20x-space%20gray-450x350.png" 
-                            alt="">
-                    </div>
-                    <div class="col-6 "><br>
-                        <span>
-                            <strong>
-                                iPhone X 64GB
-                            </strong>
-                        </span>
-                        <br><br>
-                        <span>price: 40,000 THB</span>
-                    </div>
-                </div>
+            </div>
 <!-- Total path -->
             <hr>
             <div class="row" style="margin: 10px;">
                 <div class="col-7" style="text-align: center;">
                     <span>
-                        SubTotal: sumSubTotal THB
+                        SubTotal: {{cartPrice}} THB
                     </span>
                 </div>
                 <div class="col-5"  style="text-align: center;">
                     <span>
-                        VAT: vatSummery %
+                        VAT: 7 %
                     </span>
                 </div>
                 <br><br>
                 <div class="col-12" style="font-size: 20px">
                     <span>
                         <strong>
-                            Total : sumTotal THB      
+                            Total : {{cartTotalPrice}} THB      
                         </strong>
                     </span>
                 </div>

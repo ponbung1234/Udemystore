@@ -5,4 +5,5 @@ export class Products {
     price: Number;
     product_amount: Number;
     url: string;
+    product_description: string;
 }

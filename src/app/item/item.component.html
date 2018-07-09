@@ -40,10 +40,10 @@
                   <ng-container *ngFor="let products of filteredProducts let i = index">
                     <div class="col">
 
-                      <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{products.url}}" alt="Card image cap">
+                      <div class="card" style="width: 20rem;">
+                        <img class="card-img-top imgSize"   src="{{products.url}}" alt="Card image cap">
                         <div class="card-body">
-                          <h5 class="card-title">{{products.product_name}}</h5>
+                          <h5 class="card-title" style="height: 46.67px;">{{products.product_name}}</h5>
                           <a href="#" class="btn btn-primary">Add cart</a>
                           <a href="#" class="btn btn-light pull-right">Details</a>
                         </div>

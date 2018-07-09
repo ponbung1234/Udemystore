@@ -60,21 +60,21 @@
                               <tr>
                                 <th scope="col">Order Number: {{orderNum}} </th>
                                 <th scope="col"> Detail</th>
-              
+
                               </tr>
                             </thead>
-                            <tbody >
+                            <tbody>
                               <tr>
-              
+
                                 <th scope="row">
                                   <button type="button" class="btn btn-success " style="height:40px;width:120px" disabled>
                                     <p class="font-weight-bold">Date :</p>
                                   </button>
                                 </th>
-                                <td >
+                                <td>
                                   <p class="font-weight-bold"> {{orderlists.orderDate | date}} </p>
                                 </td>
-              
+
                               </tr>
                               <tr>
                                 <th scope="row">
@@ -87,7 +87,7 @@
                                     {{orderlists.status}}
                                   </p>
                                 </td>
-              
+
                               </tr>
                               <tr>
                                 <th scope="row">
@@ -98,7 +98,7 @@
                                 <td>
                                   <p class="font-weight-bold">{{orderlists.total_price}} THB </p>
                                 </td>
-              
+
                               </tr>
                               <tr>
                                 <th scope="row">
@@ -109,164 +109,108 @@
                                 <td>
                                   <p class="font-weight-bold">{{orderlists.paymentType_name}}</p>
                                 </td>
-              
+
                               </tr>
-              
+
                             </tbody>
                           </table>
                         </div>
-              
-              
+
+
                       </ng-template>
                     </ngb-tab>
-              
+
                     <!-- second site -->
                     <ngb-tab>
                       <ng-template ngbTabTitle>
                         Products</ng-template>
                       <ng-template ngbTabContent>
-              
-                        <ngb-accordion [closeOthers]="true" activeIds="static-1">
-                          <ngb-panel id="static-1">
-                            <ng-template ngbPanelTitle>
-                              <span> 1.) Product one</span>
-                              <i class="fa fa-chevron-circle-down"></i>
-              
-                            </ng-template>
-              
-                            <ng-template ngbPanelContent>
-              
-                              <div class="d-flex justify-content-center">
-                                <img class="rounded img-thumbnail" src="https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1520532907/524297_9RO40_2072_001_100_0000_Light-Suede-Square-G-and-faux-fur-slipper.jpg"
-                                  alt="Card image cap" style="width:50%;height:50%;">
-                              </div>
-              
-              
-                              <div class="container">
-                                <div class="row p-1">
-                                  <div class="col-8">
-                                    <h3 class="font-weight-bold p-1">Product name</h3>
+                        <!-- activeIds="static-1" -->
+                        <ngb-accordion [closeOthers]="true" *ngFor="let od of orderdetail;let i = index">
+                          <!-- show product information -->
+                          <!-- {{od.order_id}} === {{orderlists.order_id}} -->
+                       
+                            <div *ngIf=" compareItem(od.order_id , orderlists.order_id) ">
+                              <!-- {{ compareItem( od.order_id ) }} -->
+                              <ngb-panel id="static-2">
+                                <ng-template ngbPanelTitle>
+                                  <span> Product: [ {{od.product_name}} ]
+                                  </span>
+                                  <i class="fa fa-chevron-circle-down"></i>
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+
+                                  <div class="d-flex justify-content-center">
+                                    <img class="rounded img-thumbnail" src="{{od.pro_image_path}}" alt="Card image cap" style="width:50%;height:50%;">
                                   </div>
-              
-                                </div>
-                                <div class="row p-1">
-                                  <div class="col-3">
-                                    <p class="font-weight-bold">
-                                      Detail:</p>
+
+
+                                  <div class="container">
+                                    <div class="row p-1">
+                                      <div class="col-8">
+                                        <h3 class="font-weight-bold p-1">{{od.product_name}}</h3>
+                                      </div>
+
+                                    </div>
+                                    <div class="row p-1">
+                                      <div class="col-3">
+                                        <p class="font-weight-bold">
+                                          Detail:</p>
+                                      </div>
+                                      <div class="col-9">
+                                        {{ od.product_description}}
+                                      </div>
+
+                                    </div>
+                                    <div class="row p-1">
+                                      <div class="col-3">
+                                        <p class="font-weight-bold">
+                                          Price:
+                                        </p>
+                                      </div>
+                                      <div class="col-9">
+                                        {{ od.price}} THB
+                                      </div>
+
+                                    </div>
+                                    <div class="row p-1">
+                                      <div class="col-3">
+                                        <p class="font-weight-bold">
+                                          Amount:</p>
+                                      </div>
+                                      <div class="col-9">
+                                        {{od.amount}}
+                                      </div>
+
+                                    </div>
+                                    <div class="row d-flex justify-content-end mg-5">
+
+                                      <button type="button" routerLink='/refund' [queryParams]="{ itemID: od.item_id }" class="btn btn-outline-danger" (click)="c('Close click')">Refund</button>
+
+                                    </div>
                                   </div>
-                                  <div class="col-9">
-                                    Louis Vuitton Malletier, commonly referred to as Louis Vuitton , or shortened to LV, is a French fashion
-                                    house and luxury retail company founded in 1854 by Louis Vuitton.
-                                  </div>
-              
-                                </div>
-                                <div class="row p-1">
-                                  <div class="col-3">
-                                    <p class="font-weight-bold">
-                                      Price:
-                                    </p>
-                                  </div>
-                                  <div class="col-9">
-                                    10000 THB
-                                  </div>
-              
-                                </div>
-                                <div class="row p-1">
-                                  <div class="col-3">
-                                    <p class="font-weight-bold">
-                                      Amount:</p>
-                                  </div>
-                                  <div class="col-9">
-                                    10
-                                  </div>
-              
-                                </div>
-                                <div class="row d-flex justify-content-end mg-5">
-                                  <button type="button" routerLink='/refund' class="btn btn-outline-danger" (click)="c('Close click')">Refund</button>
-                                </div>
-                              </div>
-              
-              
-                            </ng-template>
-                          </ngb-panel>
-                          <ngb-panel id="static-2">
-                            <ng-template ngbPanelTitle>
-                              <span> 2.) Product two</span>
-                              <i class="fa fa-chevron-circle-down"></i>
-                            </ng-template>
-                            <ng-template ngbPanelContent>
-              
-                              <div class="d-flex justify-content-center">
-                                <img class="rounded img-thumbnail" src="https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1520532907/524297_9RO40_2072_001_100_0000_Light-Suede-Square-G-and-faux-fur-slipper.jpg"
-                                  alt="Card image cap" style="width:50%;height:50%;">
-                              </div>
-              
-              
-                              <div class="container">
-                                <div class="row p-1">
-                                  <div class="col-8">
-                                    <h3 class="font-weight-bold p-1">Product name</h3>
-                                  </div>
-              
-                                </div>
-                                <div class="row p-1">
-                                  <div class="col-3">
-                                    <p class="font-weight-bold">
-                                      Detail:</p>
-                                  </div>
-                                  <div class="col-9">
-                                    Louis Vuitton Malletier, commonly referred to as Louis Vuitton , or shortened to LV, is a French fashion
-                                    house and luxury retail company founded in 1854 by Louis Vuitton.
-                                  </div>
-              
-                                </div>
-                                <div class="row p-1">
-                                  <div class="col-3">
-                                    <p class="font-weight-bold">
-                                      Price:
-                                    </p>
-                                  </div>
-                                  <div class="col-9">
-                                    10000 THB
-                                  </div>
-              
-                                </div>
-                                <div class="row p-1">
-                                  <div class="col-3">
-                                    <p class="font-weight-bold">
-                                      Amount:</p>
-                                  </div>
-                                  <div class="col-9">
-                                    10
-                                  </div>
-              
-                                </div>
-                                <div class="row d-flex justify-content-end mg-5">
-                                
-                                  <button type="button" routerLink='/refund' class="btn btn-outline-danger" (click)="c('Close click')">Refund</button>
-                                
-                                </div>
-                              </div>
-              
-                            </ng-template>
-                          </ngb-panel>
+
+                                </ng-template>
+                              </ngb-panel>
+                            </div>
+                          
                         </ngb-accordion>
-              
+
                       </ng-template>
                     </ngb-tab>
-              
+
                   </ngb-tabset>
-              
+
                 </div>
-               
 
 
 
-               
+
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
                 </div>
-               
+
               </ng-template>
               <!-- Button view detail -->
               <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" (click)="openmodal(content,orderlists.order_id)">

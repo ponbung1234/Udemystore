@@ -6,6 +6,8 @@ import { OrderlistService } from '../service/orderlist.service';
 import { Orderlist } from '../Orderlist';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
+import { Orderdetail } from '../orderdetail';
+import {OrderdetailService} from '../service/orderdetail.service';
 
 @Component({
   selector: 'app-orderlist',
@@ -14,18 +16,20 @@ import 'rxjs/add/operator/switchMap';
 })
 export class OrderlistComponent implements OnInit {
   orderlist: Orderlist[] = [];
-  show: boolean = true;
+  orderdetail: Orderdetail[] = [];
+  show: boolean = false;
   i: number = 0;
   categoryR: string = null;
   categoryName: string;
   public orderNum: Number;
-
+  numWords= ['One','Two','Three','Four','Five','Six','seven'];
 
   constructor(
     private _orderlistService: OrderlistService,
     public nav: HeaderServiceService,
     private route: ActivatedRoute,
-    private orderdetailCom: OrderdetailComponent
+    private orderdetailCom: OrderdetailComponent,
+    private _orderdetailService: OrderdetailService
 
   ) {
 
@@ -37,11 +41,29 @@ export class OrderlistComponent implements OnInit {
       console.log(error);
     })
 
+    _orderdetailService.getOrderdetail().subscribe((orderdetail) => {
+      console.log(orderdetail);
+      this.orderdetail = orderdetail;
+
+    }, (error) => {
+      console.log(error);
+    })
+
+
+
   }
   openmodal(content,orderID: number){
     this.orderdetailCom.openVerticallyCentered(content,orderID);
     this.orderNum = orderID;
     //console.log(orderID);
+  }
+  compareItem(od: any,ol: any){
+    if(od == ol){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   ngOnInit() {

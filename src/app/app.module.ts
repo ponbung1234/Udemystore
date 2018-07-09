@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpModule } from '@angular/http';
@@ -24,9 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadTransactionComponent } from './upload-transaction/upload-transaction.component';
 import { AtmComponent } from './atm/atm.component';
 import { ProductService }from './service/product.service';
+import { OrderdetailService } from './service/orderdetail.service';
 import { SearchComponent } from './search/search.component';
 import { CategoryService } from './service/category.service';
-import { CartService } from './service/cart.service';
 import { OrderlistService } from './service/orderlist.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -48,7 +49,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     UploadTransactionComponent,
     AtmComponent,
-    SearchComponent
+    SearchComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -58,15 +60,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     HttpModule,
     NgbModule.forRoot()
   ],
-  providers: [
-    HeaderServiceService,
-    ProductService,
-    CategoryService,
-    CartService,
-    OrderlistService,
-    OrderdetailComponent,
-    NgbActiveModal
-  ],
+  providers: [HeaderServiceService,ProductService,CategoryService,OrderlistService,OrderdetailComponent,NgbActiveModal
+  ,OrderdetailService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

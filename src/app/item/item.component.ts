@@ -16,7 +16,7 @@ import 'rxjs/add/operator/switchMap';
 export class ItemComponent implements OnInit {
   product: Products[] = [];
   filteredProducts: Products[] = [];
-  private category: Category[] = [];
+  category: Category[] = [];
   show: boolean = true;
   i: number = 0;
   categoryR: string = null;

@@ -8,7 +8,7 @@ import { Products } from '../products';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  private product:Products[];
+  product:Products[];
   constructor(private _productService:ProductService) { }
 
   ngOnInit() {

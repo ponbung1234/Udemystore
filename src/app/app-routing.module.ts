@@ -22,7 +22,8 @@ const routes: Routes = [
   {path: 'refund', component: RefundComponent},
   {path: 'atm',component: AtmComponent},
   {path:'uploadTs',component: UploadTransactionComponent},
-  {path: 'search', component: SearchComponent}
+  {path: 'search', component: SearchComponent},
+  {path: 'item', component: ItemComponent}
   
 ];
 

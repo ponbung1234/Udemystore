@@ -20,7 +20,7 @@
                     </td>
                     <td> {{ carts.cart_amount }}</td>
                     <td style="padding: 4px">
-                        <Button class="btn btn-primary btnSize">add more</Button>
+                        <Button routerLink="/item" class="btn btn-primary btnSize">add more</Button>
                         <button class="btn btn-danger btnSize"> delete</button>
                     </td>
                 </tr>
@@ -35,8 +35,8 @@
                 Summery Details
             </h5>
         </div>
-        <div *ngFor="let carts of cartItem">
-        <div class="row" >
+        <div *ngFor="let carts of cartItem; let i = index">
+        <div class="row">
                 <div class="col-6 ">
                     <img 
                         class="imgSize pull-right"
@@ -55,7 +55,9 @@
                     </span>
                 </div>
             </div>
-            <hr class="hrS">
+            <div *ngIf="i !== 5">
+                <hr class="hrS" #show>
+            </div>
             </div>
 <!-- Total path -->
             <hr>

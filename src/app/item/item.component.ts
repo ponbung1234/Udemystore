@@ -5,13 +5,15 @@ import { Products } from '../products';
 import { CategoryService } from '../service/category.service';
 import { Category } from '../category';
 import { ActivatedRoute } from '@angular/router';
+import {NgbPopoverConfig} from '@ng-bootstrap/ng-bootstrap';
 import 'rxjs/add/operator/switchMap';
 
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  styleUrls: ['./item.component.css'],
+  providers:[NgbPopoverConfig]
 })
 export class ItemComponent implements OnInit {
   product: Products[] = [];
@@ -27,13 +29,19 @@ export class ItemComponent implements OnInit {
     private _productService: ProductService,
     public nav: HeaderServiceService,
     private _categoryService: CategoryService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    config: NgbPopoverConfig
 
   ) {
+    //Popover
+    config.container = 'body';
+    config.placement = 'bottom';
+    config.triggers = 'hover';
+
     _productService
       .getProducts().switchMap(product => {
 
-        console.log(product);
+       // console.log(product);
         this.product = product;
         if(this.product.length>0){
           this.showLoader = false
@@ -61,7 +69,7 @@ export class ItemComponent implements OnInit {
 
 
     _categoryService.getProducts().subscribe((category) => {
-      console.log(category);
+     // console.log(category);
       this.category = category;
 
     }, (error) => {

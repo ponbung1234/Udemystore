@@ -32,16 +32,6 @@ export class CartComponent implements OnInit {
     .subscribe((cart) => {
       if(cart !== null ){
         this.lastIndex = cart;
-        // for(let i = 1 ; i <= cart.length ; i++){
-        //   // console.log(i);
-        //   this.lastIndex;
-        //   this.lastIndex++;
-        //   if(i == this.lastIndex){
-        //     console.log(this.lastIndex);
-        //     // this.hr = 6;
-        //   }
-        // }
-     
         if(cart[1].ecustomer_id == 1){
         this.cartAmout = cart[1].cart_amount;
         this.cartItem = cart;

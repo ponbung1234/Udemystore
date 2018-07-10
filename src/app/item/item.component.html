@@ -52,17 +52,26 @@
 
                 <div class="container-fluid">
                   <div class="row ">
-                    <ng-container *ngFor="let products of filteredProducts let i = index">
+                    <ng-container *ngFor="let products of filteredProducts; let i = index;">
                       <div class="col">
 
                         <div class="card" style="width: 18rem;">
                           <img class="card-img-top imgSize" src="{{products.url}}" alt="Card image cap">
                           <div class="card-body">
                             <h5 class="card-title" style="height: 46.67px;">{{products.product_name}}</h5>
-                            <p class="btn btn-primary">Add cart</p>
-                            <p class="btn btn-outline-secondary pull-right"
+                            <p 
+                            class="btn btn-primary" 
+                            (click)="addItem(products,i)" 
+                            >
+                              Add cart
+                            </p>
+                            <p 
+                            class="btn btn-outline-secondary pull-right"
                             ngbPopover="{{products.product_description}}" 
-                            popoverTitle=" Price: {{products.price}} THB" >Details</p>
+                            popoverTitle=" Price: {{products.price}} THB" 
+                            >
+                              Details
+                            </p>
                           </div>
                         </div>
 

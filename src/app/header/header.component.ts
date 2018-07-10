@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { HeaderServiceService } from './../service/header-service.service';
 import { CartService } from '../service/cart.service';
 import { Cart } from '../cart';
@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   cart: Cart[] = []; 
   private cartProduct: any;
   cartAmount: Number;
+  public itemAmount: string; 
   
 
   constructor(
@@ -36,6 +37,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
+  // public setDataAmount(data){
+  //   this.itemAmount = data;
+  //   console.log(data);
+  // }
 }

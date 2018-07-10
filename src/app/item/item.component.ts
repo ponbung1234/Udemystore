@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter} from '@angular/core';
 import { HeaderServiceService } from './../service/header-service.service';
 import { ProductService } from '../service/product.service';
 import { Products } from '../products';
@@ -16,6 +16,8 @@ import 'rxjs/add/operator/switchMap';
   providers:[NgbPopoverConfig]
 })
 export class ItemComponent implements OnInit {
+  // @Input() cartItemAmount;
+  @Output() cartItemAmount:EventEmitter<any> = new EventEmitter<any>();
   product: Products[] = [];
   filteredProducts: Products[] = [];
   private category: Category[] = [];
@@ -24,6 +26,9 @@ export class ItemComponent implements OnInit {
   categoryR: string = null;
   categoryName: string;
   showLoader = true;
+  itemCount = 0;
+  itemProduct;
+  itemIndex;
 
   constructor(
     private _productService: ProductService,
@@ -75,13 +80,25 @@ export class ItemComponent implements OnInit {
     }, (error) => {
       console.log(error);
     })
-
-
   }
 
   ngOnInit() {
     this.nav.show();
+  }
 
+  public addItem(Product,index){
+    index++;
+      if(index && Product != null){
+        // console.log(index,itemProduct);
+        this.itemCount++;
+        this.itemProduct = Product;
+        this.itemIndex = index;
+        console.log(this.itemCount);
+        // this.cartItemAmount.emit('this.itemCount');
+        // console.log(this.cartItemAmount);
+      }else{
+        alert("No result");
+      }
   }
 
 

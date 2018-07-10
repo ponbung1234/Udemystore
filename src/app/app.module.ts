@@ -25,13 +25,14 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UploadTransactionComponent } from './upload-transaction/upload-transaction.component';
 import { AtmComponent } from './atm/atm.component';
-import { ProductService }from './service/product.service';
+import { ProductService } from './service/product.service';
 import { OrderdetailService } from './service/orderdetail.service';
 import { SearchComponent } from './search/search.component';
 import { CategoryService } from './service/category.service';
 import { OrderlistService } from './service/orderlist.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from './service/cart.service';
+import { RefundService } from './service/refund.service';
 
 @NgModule({
   declarations: [
@@ -63,10 +64,17 @@ import { CartService } from './service/cart.service';
     FormsModule,
     NgbModule.forRoot()
   ],
-  providers: [HeaderServiceService,ProductService,CategoryService,OrderlistService,OrderdetailComponent,NgbActiveModal
-  ,OrderdetailService,
-  CartService
-],
+  providers: [
+    HeaderServiceService,
+    ProductService,
+    CategoryService,
+    OrderlistService,
+    OrderdetailComponent,
+    NgbActiveModal,
+    OrderdetailService,
+    CartService,
+    RefundService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

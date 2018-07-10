@@ -6,43 +6,40 @@ import { CategoryService } from '../service/category.service';
 import { Category } from '../category';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import {NgbPopoverConfig} from '@ng-bootstrap/ng-bootstrap';
-
 
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css'],
-  providers:[NgbPopoverConfig]
+  styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
   product: Products[] = [];
   filteredProducts: Products[] = [];
-  category: Category[] = [];
+  private category: Category[] = [];
   show: boolean = true;
   i: number = 0;
   categoryR: string = null;
   categoryName: string;
+  showLoader = true;
 
   constructor(
     private _productService: ProductService,
     public nav: HeaderServiceService,
     private _categoryService: CategoryService,
-    private route: ActivatedRoute,
-    config: NgbPopoverConfig
+    private route: ActivatedRoute
 
   ) {
-    //popovers
-      config.container = 'body';
-      config.placement = 'bottom';
-      config.triggers = 'hover';
-
     _productService
       .getProducts().switchMap(product => {
-        //console.log(product);
+
+        console.log(product);
         this.product = product;
+        if(this.product.length>0){
+          this.showLoader = false
+        }
         return route.queryParamMap;
+    
       })
       .subscribe(params => {
         this.categoryR = params.get('category');
@@ -64,11 +61,11 @@ export class ItemComponent implements OnInit {
 
 
     _categoryService.getProducts().subscribe((category) => {
-      // console.log(category);
+      console.log(category);
       this.category = category;
 
     }, (error) => {
-      // console.log(error);
+      console.log(error);
     })
 
 

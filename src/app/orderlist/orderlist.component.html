@@ -15,10 +15,15 @@
       <cite title="Source Title">EiEi</cite>
     </footer>
   </blockquote>
+
   <div class="row">
     <div class="col">
+      <div *ngIf=" showLoader; else showPage " >
+            <div class="loader"></div>
 
-
+      </div>
+      
+  <ng-template #showPage>
       <table class="table table-hover border">
         <thead class="thead-light">
           <tr>
@@ -29,8 +34,12 @@
             <th scope="col">Paid By</th>
             <th scope="col"> </th>
           </tr>
+
         </thead>
+
+
         <tbody>
+
           <tr *ngFor="let orderlists of orderlist">
             <th scope="row">{{orderlists.orderDate | date}}</th>
             <td>{{orderlists.orderDate | date:'shortTime'}}</td>
@@ -129,71 +138,72 @@
                         <ngb-accordion [closeOthers]="true" *ngFor="let od of orderdetail;let i = index">
                           <!-- show product information -->
                           <!-- {{od.order_id}} === {{orderlists.order_id}} -->
-                       
-                            <div *ngIf=" compareItem(od.order_id , orderlists.order_id) ">
-                              <!-- {{ compareItem( od.order_id ) }} -->
-                              <ngb-panel id="static-2">
-                                <ng-template ngbPanelTitle>
-                                  <span> Product: [ {{od.product_name}} ]
-                                  </span>
-                                  <i class="fa fa-chevron-circle-down"></i>
-                                </ng-template>
-                                <ng-template ngbPanelContent>
 
-                                  <div class="d-flex justify-content-center">
-                                    <img class="rounded img-thumbnail" src="{{od.pro_image_path}}" alt="Card image cap" style="width:50%;height:50%;">
+                          <div *ngIf=" compareItem(od.order_id , orderlists.order_id) ">
+                            <!-- {{ compareItem( od.order_id ) }} -->
+                            <ngb-panel id="static-2">
+                              <ng-template ngbPanelTitle>
+                                <span> Product: [ {{od.product_name}} ]
+                                </span>
+                                <i class="fa fa-chevron-circle-down"></i>
+                              </ng-template>
+                              <ng-template ngbPanelContent>
+
+                                <div class="d-flex justify-content-center">
+                                  <img class="rounded img-thumbnail" src="{{od.pro_image_path}}" alt="Card image cap" style="width:50%;height:50%;">
+                                </div>
+
+
+                                <div class="container">
+                                  <div class="row p-1">
+                                    <div class="col-8">
+                                      <h3 class="font-weight-bold p-1">{{od.product_name}}</h3>
+                                    </div>
+
                                   </div>
-
-
-                                  <div class="container">
-                                    <div class="row p-1">
-                                      <div class="col-8">
-                                        <h3 class="font-weight-bold p-1">{{od.product_name}}</h3>
-                                      </div>
-
+                                  <div class="row p-1">
+                                    <div class="col-3">
+                                      <p class="font-weight-bold">
+                                        Detail:</p>
                                     </div>
-                                    <div class="row p-1">
-                                      <div class="col-3">
-                                        <p class="font-weight-bold">
-                                          Detail:</p>
-                                      </div>
-                                      <div class="col-9">
-                                        {{ od.product_description}}
-                                      </div>
-
+                                    <div class="col-9">
+                                      {{ od.product_description}}
                                     </div>
-                                    <div class="row p-1">
-                                      <div class="col-3">
-                                        <p class="font-weight-bold">
-                                          Price:
-                                        </p>
-                                      </div>
-                                      <div class="col-9">
-                                        {{ od.price}} THB
-                                      </div>
 
-                                    </div>
-                                    <div class="row p-1">
-                                      <div class="col-3">
-                                        <p class="font-weight-bold">
-                                          Amount:</p>
-                                      </div>
-                                      <div class="col-9">
-                                        {{od.amount}}
-                                      </div>
-
-                                    </div>
-                                    <div class="row d-flex justify-content-end mg-5">
-
-                                      <button type="button" routerLink='/refund' [queryParams]="{ itemID: od.item_id, amount: od.amount }" class="btn btn-outline-danger" (click)="c('Close click')">Refund</button>
-
-                                    </div>
                                   </div>
+                                  <div class="row p-1">
+                                    <div class="col-3">
+                                      <p class="font-weight-bold">
+                                        Price:
+                                      </p>
+                                    </div>
+                                    <div class="col-9">
+                                      {{ od.price}} THB
+                                    </div>
 
-                                </ng-template>
-                              </ngb-panel>
-                            </div>
-                          
+                                  </div>
+                                  <div class="row p-1">
+                                    <div class="col-3">
+                                      <p class="font-weight-bold">
+                                        Amount:</p>
+                                    </div>
+                                    <div class="col-9">
+                                      {{od.amount}}
+                                    </div>
+
+                                  </div>
+                                  <div class="row d-flex justify-content-end mg-5">
+
+                                    <button type="button" routerLink='/refund' [queryParams]="{ itemID: od.item_id, amount: od.amount }" class="btn btn-outline-danger"
+                                      (click)="c('Close click')">Refund</button>
+
+                                  </div>
+                                </div>
+
+                              </ng-template>
+                            </ngb-panel>
+                          </div>
+
                         </ngb-accordion>
 
                       </ng-template>
@@ -218,7 +228,7 @@
           </tr>
         </tbody>
       </table>
-
+    </ng-template>
       <!-- </span> -->
     </div>
   </div>

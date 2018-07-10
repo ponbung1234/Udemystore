@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { Orderdetail } from '../orderdetail';
 import {OrderdetailService} from '../service/orderdetail.service';
+import { isNull } from 'util';
 
 @Component({
   selector: 'app-orderlist',
@@ -23,6 +24,7 @@ export class OrderlistComponent implements OnInit {
   categoryName: string;
   public orderNum: Number;
   numWords= ['One','Two','Three','Four','Five','Six','seven'];
+  showLoader = true;
 
   constructor(
     private _orderlistService: OrderlistService,
@@ -36,6 +38,10 @@ export class OrderlistComponent implements OnInit {
     _orderlistService.getOrderlist().subscribe((orderlist) => {
       console.log(orderlist);
       this.orderlist = orderlist;
+      if(this.orderlist.length>0){
+        this.showLoader = false
+      }
+  
 
     }, (error) => {
       console.log(error);

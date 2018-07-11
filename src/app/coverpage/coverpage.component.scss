@@ -30,8 +30,11 @@ body, html {
   /* The image used */
 
   /* Full height */
-  height: 635px;
+  height: 100%;
   width: 100%; 
+  left: 0%;
+  top: 0%;
+  position: fixed;
 
   /* Center and scale the image nicely */
   background-position: center;

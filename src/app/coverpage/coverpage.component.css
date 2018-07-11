@@ -30,11 +30,15 @@ body, html {
   /* The image used */
 
   /* Full height */
-  height: 635px;
+  max-height: 100%;
   width: 100%; 
+  background-attachment: fixed;
+  left: 0%;
+  top: 0%;
+  /* overflow: auto; */
 
   /* Center and scale the image nicely */
-  background-position: center;
+  position: fixed;  
   background-repeat: no-repeat;
   background-size: cover;
 }

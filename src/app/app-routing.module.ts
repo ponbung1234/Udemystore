@@ -11,6 +11,9 @@ import { RefundComponent } from './refund/refund.component';
 import { AtmComponent } from './atm/atm.component';
 import { UploadTransactionComponent } from './upload-transaction/upload-transaction.component';
 import { SearchComponent } from './search/search.component';
+import { AdminComponent } from './Admin/admin-main/admin.component';
+import { AdminProductComponent } from './Admin/admin-product/admin-product.component';
+import { AdminCreateProductComponent } from './Admin/admin-create-product/admin-create-product.component';
 const routes: Routes = [
  // {path: '', component: ItemComponent},
   {path: '', component: ItemComponent},
@@ -23,7 +26,9 @@ const routes: Routes = [
   {path: 'atm',component: AtmComponent},
   {path:'uploadTs',component: UploadTransactionComponent},
   {path: 'search', component: SearchComponent},
-  {path: 'item', component: ItemComponent}
+  {path: 'admin/main', component: AdminComponent},
+  {path: 'admin/product', component: AdminProductComponent},
+  {path: 'admin/product/new', component: AdminCreateProductComponent}
   
 ];
 

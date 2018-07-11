@@ -18,6 +18,7 @@ import { OrderlistComponent } from './orderlist/orderlist.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { CoverpageComponent } from './coverpage/coverpage.component';
 import { HeaderServiceService } from './service/header-service.service';
+import { AdminHeaderService } from './service/admin-header.service';
 import { CartComponent } from './cart/cart.component';
 import { RefundComponent } from './refund/refund.component';
 import { PayOptionComponent } from './pay-option/pay-option.component';
@@ -33,6 +34,10 @@ import { OrderlistService } from './service/orderlist.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from './service/cart.service';
 import { RefundService } from './service/refund.service';
+import { AdminComponent } from './Admin/admin-main/admin.component';
+import { AdminHeaderComponent } from './Admin/admin-header/admin-header.component';
+import { AdminProductComponent } from './Admin/admin-product/admin-product.component';
+import { AdminCreateProductComponent } from './Admin/admin-create-product/admin-create-product.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +58,10 @@ import { RefundService } from './service/refund.service';
     UploadTransactionComponent,
     AtmComponent,
     SearchComponent,
+    AdminComponent,
+    AdminHeaderComponent,
+    AdminProductComponent,
+    AdminCreateProductComponent,
 
   ],
   imports: [
@@ -73,7 +82,8 @@ import { RefundService } from './service/refund.service';
     NgbActiveModal,
     OrderdetailService,
     CartService,
-    RefundService
+    RefundService,
+    AdminHeaderService
   ],
   bootstrap: [AppComponent]
 })

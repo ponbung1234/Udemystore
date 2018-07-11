@@ -1,9 +1,35 @@
-  <!-- nvaigation bar -->
-  <app-admin-header></app-admin-header>
-  <br>
-  <br>
-  
+<!-- nvaigation bar -->
+<app-admin-header></app-admin-header>
+<br>
+<br>
+
 <div class="container">
+  <div class="row">
     <button type="button" class="btn btn-primary" routerLink='/../admin/product/new'>Add a new Product</button>
+  </div>
+
+  <div class="row pt-5">
+
+
+    <table class="table border rounded">
+      <thead class="thead-dark ">
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col"> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let p of product">
+          <th scope="row">{{ p.product_name }}</th>
+          <td>{{ p.product_price }}</td>
+
+          <td><a href="" routerLink='/../admin/product/' [queryParams]="{ productID: p.product_id }"  >Edit</a></td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
 </div>
- 

@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
   cartAmout: number = 0;
   cartPrice: number = 0;
   cartTotalPrice: number = 0;
+  cartEcustomerID = 0;
   lastIndex = 0 ;
   hr = 0;
 
@@ -32,14 +33,14 @@ export class CartComponent implements OnInit {
     .subscribe((cart) => {
       if(cart !== null ){
         this.lastIndex = cart;
-        if(cart[1].ecustomer_id == 1){
-        this.cartAmout = cart[1].cart_amount;
-        this.cartItem = cart;
-        this.cartProName = cart[1].product_name;
-        this.cartProDescript = cart[1].product_description;
-
-         for( let i = 0 ; i < cart.length ; i++){ 
-           sum += cart[i].price;
+        for( let i = 0 ; i < cart.length ; i++){ 
+          if(cart[i].ecustomer_id == 1){
+          this.cartAmout = cart[i].cart_amount;
+          this.cartItem = cart;
+          this.cartProName = cart[i].product_name;
+          this.cartProDescript = cart[i].product_description;
+          this.cartEcustomerID = cart[i].ecustomer_id;
+          sum += cart[i].price*this.cartAmout;
           }
           this.cartPrice = sum; 
           this.cartTotalPrice = (sum*vat)+sum;
@@ -53,9 +54,17 @@ export class CartComponent implements OnInit {
     })
   }
 
-
   ngOnInit() {
     this.nav.show();
+  }
+
+  submit(paymentType:number){
+    this._CartService.checkOut(this.cartEcustomerID + "," + this.cartTotalPrice + "," + paymentType).subscribe((formInput) => {
+      // console.log(formInput);
+     
+    }, (error) => {
+      console.log(error);
+    });
   }
 
 }

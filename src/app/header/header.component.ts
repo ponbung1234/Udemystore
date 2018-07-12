@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
             break;
           }
         }
-        console.log(this.itemAllOfUser)
+        // console.log(this.itemAllOfUser)
         // console.log(this.cartAmount);
       // console.log(cart[2].cart_amount)
       }

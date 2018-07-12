@@ -37,14 +37,13 @@ export class AtmComponent implements OnInit {
     .subscribe((cart) => {
       if(cart !== null ){
         this.lastIndex = cart;
-        if(cart[1].ecustomer_id == 1){
-        this.cartAmout = cart[1].cart_amount;
-        this.cartItem = cart;
-        this.cartProName = cart[1].product_name;
-        this.cartProDescript = cart[1].product_description;
-
-         for( let i = 0 ; i < cart.length ; i++){ 
-           sum += cart[i].price;
+        for( let i = 0 ; i < cart.length ; i++){ 
+          if(cart[i].ecustomer_id == 1){
+          this.cartAmout = cart[i].cart_amount;
+          this.cartItem = cart;
+          this.cartProName = cart[i].product_name;
+          this.cartProDescript = cart[i].product_description;
+          sum += cart[i].price*this.cartAmout;
           }
           this.cartPrice = sum; 
           this.cartTotalPrice = (sum*vat)+sum;

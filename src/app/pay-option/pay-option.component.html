@@ -12,8 +12,8 @@
             <div class="col-6">
               <i class="fas fa-2x fa-money-check-alt"></i>
             </div>
-            <div class="col-6">
-              <button routerLink="/atm" class="btn btn-outline-success" style="width:300px" (click)="c('Close click')">ATM UPLOAD</button>
+            <div class="col-6" >
+              <button (click)="callSubmit(1)" routerLink="/atm" class="btn btn-outline-success" style="width:300px" (click)="c('Close click')">ATM UPLOAD</button>
             </div>
           </div>
         </div>
@@ -23,8 +23,8 @@
                 <i class="fa-2x fab fa-cc-visa"></i>
               </div>
               <div class="col-6">
-                <a href="https://www.kasikornbank.com/th/promotion/Pages/KBankbelieve.aspx">
-                <button class="btn btn-outline-success " style="width:300px" (click)="c('Close click')">
+                <a href="https://www.kasikornbank.com/th/promotion/Pages/KBankbelieve.aspx" target="_blank">
+                <button (click)="callSubmit(3)" class="btn btn-outline-success " style="width:300px" (click)="c('Close click')">
                     CREDIT CARD
                 </button>
                 </a>
@@ -37,7 +37,7 @@
                 <i class=" fa-2x fas fa-qrcode"></i>
               </div>
               <div class="col-6">
-                  <button class="btn btn-outline-success" style="width:300px" (click)="c('Close click')">QR-CODE</button>
+                  <button (click)="callSubmit(2)" class="btn btn-outline-success" style="width:300px" (click)="c('Close click')">QR-CODE</button>
               </div>
             </div>
         </div>

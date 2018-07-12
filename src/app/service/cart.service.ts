@@ -7,6 +7,7 @@ import 'rxjs/add/observable/throw'
 @Injectable()
 export class CartService {
   private baseUrl:string='http://13.229.99.132/cart';
+  private postUrl:string = '192.168.43.242:8080/checkout';
   private headers = new Headers({'content-Type':'application/json'});
   private option = new RequestOptions({headers:this.headers});
   constructor(private _http:Http) { }
@@ -18,5 +19,11 @@ export class CartService {
 
   errorHandler(error:Response){
     return Observable.throw(error||"SERVE ERROR");
+  }
+
+  checkOut(cartCheckOut:string){
+    // console.log(cartCheckOut);
+    return this._http.post(this.postUrl,cartCheckOut,this.option).map((response:Response)=>response.json())
+    .catch(this.errorHandler);
   }
 }

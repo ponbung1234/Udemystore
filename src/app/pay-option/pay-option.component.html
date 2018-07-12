@@ -1,7 +1,7 @@
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h4 class="modal-title" style="margin-left: 35%">Pay Options</h4>
-      <button type="button" class="close " aria-label="Close" style="padding-top:3px;padding-right:7px;" (click)="d('Cross click')">
+      <button type="button" class="close " aria-label="Close" style="padding-top:3px;padding-right:7px;" >
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
@@ -13,7 +13,7 @@
               <i class="fas fa-2x fa-money-check-alt"></i>
             </div>
             <div class="col-6" >
-              <button (click)="callSubmit(1)" routerLink="/atm" class="btn btn-outline-success" style="width:300px" (click)="c('Close click')">ATM UPLOAD</button>
+              <button (click)="c('Close click'); callSubmit(1)" routerLink="/atm" class="btn btn-outline-success" style="width:300px" >ATM UPLOAD</button>
             </div>
           </div>
         </div>
@@ -24,7 +24,7 @@
               </div>
               <div class="col-6">
                 <a href="https://www.kasikornbank.com/th/promotion/Pages/KBankbelieve.aspx" target="_blank">
-                <button (click)="callSubmit(3)" class="btn btn-outline-success " style="width:300px" (click)="c('Close click')">
+                <button (click)=" c('Close click'); callSubmit(3)" class="btn btn-outline-success " style="width:300px" >
                     CREDIT CARD
                 </button>
                 </a>
@@ -37,7 +37,7 @@
                 <i class=" fa-2x fas fa-qrcode"></i>
               </div>
               <div class="col-6">
-                  <button (click)="callSubmit(2)" class="btn btn-outline-success" style="width:300px" (click)="c('Close click')">QR-CODE</button>
+                  <button (click)="c('Close click'); callSubmit(2)" class="btn btn-outline-success" style="width:300px" >QR-CODE</button>
               </div>
             </div>
         </div>

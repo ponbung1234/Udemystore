@@ -28,7 +28,8 @@ const routes: Routes = [
   {path: 'search', component: SearchComponent},
   {path: 'admin/main', component: AdminComponent},
   {path: 'admin/product', component: AdminProductComponent},
-  {path: 'admin/product/new', component: AdminCreateProductComponent}
+  {path: 'admin/product/new', component: AdminCreateProductComponent},
+  {path: 'item' , component:ItemComponent}
   
 ];
 

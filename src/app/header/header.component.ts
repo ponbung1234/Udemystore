@@ -10,9 +10,7 @@ import { Cart } from '../cart';
 })
 export class HeaderComponent implements OnInit {
   cart: Cart[] = []; 
-  private cartProduct: any;
-  cartAmount: Number;
-  public itemAmount: string; 
+  itemAllOfUser = 0;
   
 
   constructor(
@@ -23,9 +21,19 @@ export class HeaderComponent implements OnInit {
     .getCart()
     .subscribe((cart) => {
       if(cart !== null){
-        if(cart[1].ecustomer_id == 1){
-          this.cartAmount = cart[0].cart_amount;
+        // console.log(cart.length);
+        for(let i = 0 ; i < cart.length ; i++){
+          // console.log(cart[i])
+          if(cart[i].ecustomer_id == 1){
+            // console.log(cart[i])
+            this.itemAllOfUser += cart[i].cart_amount;
+          }else{
+            alert("no user");   
+            break;
+          }
         }
+        console.log(this.itemAllOfUser)
+        // console.log(this.cartAmount);
       // console.log(cart[2].cart_amount)
       }
   

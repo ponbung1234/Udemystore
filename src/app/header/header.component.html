@@ -9,7 +9,7 @@
             <li class="nav-item active">
                 <a class="nav-link" routerLink='orderlist'>Your Orders History
                     <span class="sr-only">(current)</span>
-                    <span class="badge badge-primary badge-pill bg-danger">4</span>
+                    <span class="badge badge-primary badge-pill bg-danger">{{ itemAllOfUser }}</span>
                 </a>
             </li>
         </ul>
@@ -26,7 +26,9 @@
                 <div class="mr-sm-5">
                     <a routerLink='/cart'>
                         <i class="fa fa-2x  fa-cart-arrow-down">
-                            <span class="badge badge-primary badge-pill badge-cart bg-danger ">4</span>
+                            <span class="badge badge-primary badge-pill badge-cart bg-danger ">
+                                {{ itemAllOfUser }}
+                            </span>
                         </i>
                         
                     </a>

@@ -108,7 +108,7 @@
     <p class="blog-post-meta">Purchases on {{refund.date | date}} by
       <a href="#">Username</a>
     </p>
-    <form  >
+    <form #userForm = "ngForm"  (ngSubmit)="processForm(userForm.value)">
       <div class="container">
         <div class="row ">
           <div class="col-8">
@@ -152,6 +152,7 @@
                         </div>
                         <div class="col-sm">
                             {{refund.order_id }}
+                           product =  {{refund.product_id }}
                         </div>
                       </div>
                       <div class="row">
@@ -166,7 +167,16 @@
                               <option *ngFor="let i of numbers">{{i}}</option>
                             
                           </select> -->
-                          <input type="number" id="eyes" name="eyes" placeholder="max: {{amount}}" min="1" max="{{amount}}" style="width:100% " />
+                          
+                          <!-- <input type="hidden" id="custId" name="itemid" value="{{amount}}" ngModel> -->
+                          <!-- <input type="text" name="someData" value="asd"  ngModel/> -->
+                          <input type="hidden" name="itemid"  [ngModel] = "refund.item_id">
+                          <input type="hidden" name="orderid"  [ngModel] = "refund.order_id">
+                          <input type="hidden" name="productid"  [ngModel] = "refund.product_id">
+                          <!-- <input type="text" id="eyes" name="Amount" value="refund.order_id" style="width:100% " ngModel/> -->
+                          <input type="number" id="eyes" name="Amount" placeholder="max: {{amount}}" min="1" max="{{amount}}" style="width:100% " ngModel/>
+                          <!-- <textarea class="form-control" name="itemid" rows="7" ngModel></textarea>
+                          <textarea class="form-control" name="Amount" rows="7" ngModel></textarea> -->
                         </div>
                       </div>
                     </div>
@@ -194,13 +204,13 @@
 
             <div class="form-group">
               <label for="exampleFormControlTextarea1 " class="font-weight-bold"> Reason</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+              <textarea class="form-control" name="reason" rows="7" ngModel></textarea>
               <div class="row d-flex justify-content-end p-2">
                 <div class="px-2">
                   <button type="submit" class="btn btn-danger">Cancel</button>
                 </div>
                 <div class="px-2">
-                  <button type="submit" class="btn btn-success">Submit</button>
+                  <button type="submit" class="btn btn-success" >Submit</button>
                 </div>
               </div>
             </div>

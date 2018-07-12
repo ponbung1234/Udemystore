@@ -1,5 +1,6 @@
 export class RefundRequest {
-    item_id: Number;
+    item_id: string;
+    Amount: string;
     reason: string;
 
 }

@@ -1,0 +1,42 @@
+<!-- nvaigation bar -->
+<app-admin-header></app-admin-header>
+<br>
+<br>
+
+
+<div class="container">
+  <div class="row">
+    <button type="button" class="btn btn-primary" onclick="Accept(s.refund_id)">View Refund</button>
+    <button type="button" class="btn btn-primary" onclick="Denied(s.refund_id)">View Refund</button>
+  </div>
+
+  <div class="row pt-5">
+
+    <table class="table border rounded">
+      <thead class="thead-dark ">
+        <tr>
+          <th scope="col">Refund ID</th>
+          <th scope="col">User name</th>
+          <th scope="col">Product name</th>
+          <th scope="col">Reason</th>
+          <th scope="col">Refund status</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- Edit this line -->
+        <tr *ngFor="let s of refundlist">
+          <th scope="row">{{ s.refund }}</th>
+          <td>{{ p.product_price }}</td>
+
+          <td>
+            <a href="" routerLink='/../admin/product/' [queryParams]="{ productID: p.product_id }">Edit</a>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

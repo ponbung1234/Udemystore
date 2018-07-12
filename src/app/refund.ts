@@ -5,5 +5,6 @@ export class Refund {
     price: number;
     pro_image_path: string;
     product_description: string;
-    date: Date
+    date: Date;
+    product_id: number;
 }

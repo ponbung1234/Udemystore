@@ -9,8 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './../app-routing.module';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
-import { interval } from 'rxjs';
-import { map } from 'rxjs/operators'
 @Component({
   selector: 'app-refund',
   templateUrl: './refund.component.html',

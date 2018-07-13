@@ -46,12 +46,12 @@
                 <div class="col-6 "><br>
                     <span>
                         <strong>
-                            {{carts.product_name}}
+                            {{carts.product_name }}
                         </strong>
                     </span>
                     <br><br>
                     <span>
-                        price: {{carts.price}} THB
+                        price: {{carts.price | number}} THB
                     </span>
                 </div>
             </div>
@@ -64,7 +64,7 @@
         <div class="row" style="margin: 10px;">
             <div class="col-7" style="text-align: center;">
                 <span>
-                    SubTotal: {{cartPrice}} THB
+                    SubTotal: {{cartPrice | number}} THB
                 </span>
             </div>
             <div class="col-5"  style="text-align: center;">
@@ -76,7 +76,7 @@
             <div class="col-12" style="font-size: 20px">
                 <span>
                     <strong>
-                        Total : {{cartTotalPrice}} THB      
+                        Total : {{cartTotalPrice | number }} THB      
                     </strong>
                 </span>
             </div>  

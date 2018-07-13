@@ -38,6 +38,7 @@ import { AdminComponent } from './Admin/admin-main/admin.component';
 import { AdminHeaderComponent } from './Admin/admin-header/admin-header.component';
 import { AdminProductComponent } from './Admin/admin-product/admin-product.component';
 import { AdminCreateProductComponent } from './Admin/admin-create-product/admin-create-product.component';
+import { DetailpageComponent } from './detailpage/detailpage.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AdminCreateProductComponent } from './Admin/admin-create-product/admin-
     AdminHeaderComponent,
     AdminProductComponent,
     AdminCreateProductComponent,
+    DetailpageComponent,
 
   ],
   imports: [

@@ -14,6 +14,7 @@ import { SearchComponent } from './search/search.component';
 import { AdminComponent } from './Admin/admin-main/admin.component';
 import { AdminProductComponent } from './Admin/admin-product/admin-product.component';
 import { AdminCreateProductComponent } from './Admin/admin-create-product/admin-create-product.component';
+import { DetailpageComponent } from './detailpage/detailpage.component';
 const routes: Routes = [
  // {path: '', component: ItemComponent},
   {path: '', component: ItemComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'admin/main', component: AdminComponent},
   {path: 'admin/product', component: AdminProductComponent},
   {path: 'admin/product/new', component: AdminCreateProductComponent},
-  {path: 'item' , component:ItemComponent}
+  {path: 'item' , component:ItemComponent},
+  {path: 'detailpage',component:DetailpageComponent}
   
 ];
 

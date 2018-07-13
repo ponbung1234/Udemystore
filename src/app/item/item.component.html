@@ -1,16 +1,17 @@
 <div *ngIf=" showLoader; else showPage ">
+
   <div class="container">
     <div class="row " style="padding-top: 10%; padding-bottom: 20%">
       <div class="loader"></div>
     </div>
-    
+
   </div>
-    
-  
-  </div>
-  
-  <ng-template #showPage>
-  
+
+
+</div>
+
+<ng-template #showPage>
+
   <!--call advertisement-->
 
   <app-advertise></app-advertise>
@@ -59,17 +60,10 @@
                           <img class="card-img-top imgSize" src="{{products.url}}" alt="Card image cap">
                           <div class="card-body">
                             <h5 class="card-title" style="height: 46.67px;">{{products.product_name}}</h5>
-                            <p 
-                            class="btn btn-primary" 
-                            (click)="addItem(products,i)" 
-                            >
+                            <p class="btn btn-primary" (click)="addItem(products.product_id)">
                               Add cart
                             </p>
-                            <p 
-                            class="btn btn-outline-secondary pull-right"
-                            ngbPopover="{{products.product_description}}" 
-                            popoverTitle=" Price: {{products.price | number}} THB" 
-                            >
+                            <p class="btn btn-outline-secondary pull-right" ngbPopover="{{products.product_description}}" popoverTitle=" Price: {{products.price}} THB">
                               Details
                             </p>
                           </div>
@@ -89,5 +83,5 @@
         </div>
       </div>
     </div>
-</div>
-  </ng-template>
+  </div>
+</ng-template>

@@ -9,6 +9,7 @@ import{ BehaviorSubject } from 'rxjs/BehaviorSubject'
 @Injectable()
 export class CartService {
   private baseUrl:string='http://13.229.99.132/cart';
+  // private baseUrl2:string='http://192.168.43.242:8080/postRefund';
   private baseUrl2:string='http://192.168.43.242:8080/addCart';
   private postUrl:string = 'http://192.168.43.242:8080/checkout';
   private headers = new Headers({'content-Type':'application/json'});
@@ -19,15 +20,15 @@ export class CartService {
   cast = this.cartNum.asObservable();
   constructor(private _http:Http) { }
 
-  updateCartNum(productID: number){
+  updateCartNum(cart: number){
     // console.log(this.cartNum);
     // this.cartNum.next(newcart);
     this.cartNum.subscribe((cartNum)=>{this.num = Number(cartNum)})
     this.num = this.num + 1;
     console.log(this.num);
     this.cartNum.next(this.num);
-    
-    return this._http.post(this.baseUrl2,productID, this.option).map((response:Response)=>response.json())
+    console.log("hello");
+    return this._http.post(this.baseUrl2,cart, this.option).map((response:Response)=>response.json())
     .catch(this.errorHandler)
 
     // this.cartNum.next();
@@ -35,6 +36,7 @@ export class CartService {
 
   setCartNum(num:number){
     this.cartNum.next(num);
+    return num;
   }
 
   getCart(){

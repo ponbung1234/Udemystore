@@ -14,23 +14,31 @@
             </li>
         </ul>
         <div class="navbar-text" style="padding-bottom: 0px; padding-top: 0px;">
-            <form class="form-inline" action="http://192.168.137.130:8080/search" method="post">
+            <form class="form-inline" #f="ngForm" (ngSubmit)="save(f.value)">
                 <div class="input-group mr-sm-5">
-                    <input class="form-control " name="input" type="input" placeholder="Search..." aria-label="input">
+                    <!-- <input  name="input" type="input" placeholder="Search..." aria-label="input"> -->
+                                          
+
+
+                    <input id="typeahead-format" type="text" name="searchName" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="formatter" />
+                    <!-- <input type="hidden" name="productid"  [(ngModel)]="model"> -->
+                    <!-- <pre>Model: {{ model | json }}</pre> -->
                     <div class="input-group-prepend">
-                        <button class="input-group-text">
-                            <span id="">Go!</span>
-                        </button>
+    
+                        <button class="input-group-text">Search</button>
+                        
                     </div>
                 </div>
+            
+           
                 <div class="mr-sm-5">
                     <a routerLink='/cart'>
                         <i class="fa fa-2x  fa-cart-arrow-down">
                             <span class="badge badge-primary badge-pill badge-cart bg-danger ">
-                                    {{ cartNumber }}
+                                {{ cartNumber }}
                             </span>
                         </i>
-                        
+
                     </a>
                 </div>
                 <div class="mr-sm-3" style="padding-top: 20px">
@@ -43,6 +51,10 @@
                     </p>
                 </div>
             </form>
+
         </div>
+
+      
+        <!-- <pre>Model: {{ model | json }}</pre> -->
     </div>
 </nav>

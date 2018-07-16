@@ -95,7 +95,13 @@ export class ItemComponent implements OnInit {
   }
 
   public addItem(productID: number) {
-    this._cartService.updateCartNum(productID);
+    // this._cartService.updateCartNum(productID);
+    this._cartService.updateCartNum(productID).subscribe((productID) => {
+      console.log(productID);
+     
+    }, (error) => {
+      console.log(error);
+    });
     
     // this._headerComponent.updateCartNumber(this.cartNumber);
     // check that if the user already have the product in the cart

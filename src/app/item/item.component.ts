@@ -50,14 +50,11 @@ export class ItemComponent implements OnInit {
 
     _productService
       .getProducts().switchMap(product => {
-
-        // console.log(product);
         this.product = product;
         if (this.product.length > 0) {
           this.showLoader = false
         }
         return route.queryParamMap;
-
       })
       .subscribe(params => {
         this.categoryR = params.get('category');
@@ -81,8 +78,6 @@ export class ItemComponent implements OnInit {
     }, (error) => {
       console.log(error);
     })
-
-
 
   }
 

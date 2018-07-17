@@ -8,7 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 import { NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
 import 'rxjs/add/operator/switchMap';
 import { CartService } from './../service/cart.service';
-//import { HeaderComponent } from './../header/header.component';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
+declare var jquery:any;
+declare var $ :any;
 
 @Injectable()
 @Component({
@@ -39,7 +42,8 @@ export class ItemComponent implements OnInit {
     private _categoryService: CategoryService,
     private route: ActivatedRoute,
     private config: NgbPopoverConfig,
-    private _cartService: CartService
+    private _cartService: CartService,
+    private modalService: NgbModal
     // private _headerComponent: HeaderComponent
 
   ) {
@@ -83,11 +87,14 @@ export class ItemComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
+
     this._cartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
+
   }
 
-  public addItem(productID: number) {
+  public addItem(productID: number,content) {
     // this._cartService.updateCartNum(productID);
+    this.modalService.open(content, { centered: true });
     this._cartService.updateCartNum(productID+","+1,1).subscribe((productID) => {
       console.log(productID);
      
@@ -95,28 +102,9 @@ export class ItemComponent implements OnInit {
       console.log(error);
     });
     
-    // this._headerComponent.updateCartNumber(this.cartNumber);
-    // check that if the user already have the product in the cart
-
-    // if (productID === cart.c) {
-
-    // }
-    // else {
-
-    // }
-
-    // if(index && Product != null){
-    //   // console.log(index,itemProduct);
-    //   this.itemCount++;
-    //   this.itemProduct = Product;
-    //   this.itemIndex = index;
-    //   console.log(this.itemCount);
-    //   // this.cartItemAmount.emit('this.itemCount');
-    //   // console.log(this.cartItemAmount);
-    // }else{
-    //   alert("No result");
-    // }
   }
-
+  openVerticallyCentered(content) {
+    
+  }
 
 }

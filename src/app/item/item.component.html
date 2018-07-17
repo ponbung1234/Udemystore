@@ -15,8 +15,13 @@
   <!--call advertisement-->
 
   <app-advertise></app-advertise>
+  <!-- ////////////////////-javasript tester-/////// -->
 
+
+
+  <!-- ////////////////////-javasript tester-/////// -->
   <div class="container-fluid">
+
     <div class="row">
 
       <div class="col-lg-3" style="padding-left: 30px">
@@ -58,24 +63,54 @@
 
                         <div class="card" style="width: 18rem;">
                           <a routerLink='/detailpage' [queryParams]="{ productID: products.product_id, categoryID: products.category_id }">
-                          <img class="card-img-top imgSize" src="{{products.url}}" alt="Card image cap">
-                        </a>
+                            <img class="card-img-top imgSize" src="{{products.url}}" alt="Card image cap">
+                          </a>
                           <div class="card-body">
                             <h5 class="card-title" style="height: 46.67px;">{{products.product_name}}</h5>
-                            <p class="btn btn-primary" (click)="addItem(products.product_id)">
+                            <p class="btn btn-primary" (click)="addItem(products.product_id,content)">
                               Add cart
-                          
+
                             </p>
                             <a routerLink='/detailpage' [queryParams]="{  productID: products.product_id, categoryID: products.category_id }">
-                            <p class="btn btn-outline-secondary pull-right" ngbPopover="{{products.product_description}}" popoverTitle=" Price: {{ products.price | number }} THB">
-                              Details
-                            </p>
-                          </a>
+                              <p class="btn btn-outline-secondary pull-right" ngbPopover="{{products.product_description}}" popoverTitle=" Price: {{ products.price | number }} THB">
+                                Details
+                              </p>
+                            </a>
                           </div>
                         </div>
 
                       </div>
                       <div *ngIf="(i+1)%3===0" class="w-100"></div>
+
+                      <!-- ///success popup/// -->
+                      <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          
+                            <h4 class="modal-title">Success</h4>
+                          
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="check_mark">
+                            <div class="sa-icon sa-success animate">
+                              <span class="sa-line sa-tip animateSuccessTip"></span>
+                              <span class="sa-line sa-long animateSuccessLong"></span>
+                              <div class="sa-placeholder"></div>
+                              <div class="sa-fix"></div>
+                            </div>
+                          </div>
+
+                          <p align="center">Add a [ {{products.product_name}} ] to your cart.</p>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+                        </div>
+                      </ng-template>
+
+
                     </ng-container>
 
                   </div>

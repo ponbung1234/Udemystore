@@ -70,8 +70,8 @@ export class HeaderComponent implements OnInit {
       productName['name'] = this.productList_name;
       productName['id'] = this.productList_id;
 
-      console.log(productName);
-      console.log(this.productList);
+      // console.log(productName);
+      // console.log(this.productList);
     }, (error) => {
       console.log(error);
     })
@@ -87,7 +87,7 @@ export class HeaderComponent implements OnInit {
         }
 
         this.itemAllOfUser2 = this._CartService.setCartNum(this.itemAllOfUser);
-        console.log(this.itemAllOfUser2);
+        // console.log(this.itemAllOfUser2);
       }, (error) => {
         console.log(error);
       })
@@ -98,7 +98,7 @@ export class HeaderComponent implements OnInit {
   }
 
   save(product) {
-    console.log(product.searchName);
+    //console.log(product.searchName);
     this.searchName = product.searchName;
     this._productService.getProducts().subscribe((product) => {
       this.productList = product;
@@ -110,7 +110,7 @@ export class HeaderComponent implements OnInit {
         }
 
       }
-      console.log(this.searchID);
+      // console.log(this.searchID);
       this.model = null;
       this.router.navigate(['./detailpage'], { queryParams: { productID: this.searchID } });
     }, (error) => {

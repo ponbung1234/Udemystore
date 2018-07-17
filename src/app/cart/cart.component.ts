@@ -3,6 +3,7 @@ import { HeaderServiceService } from './../service/header-service.service';
 import { CartService } from '../service/cart.service';
 import { Cart } from '../cart';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { log } from 'util';
 
 @Component({
   selector: 'app-cart',
@@ -18,6 +19,7 @@ export class CartComponent implements OnInit {
   cartEcustomerID = 0;
   lastIndex = 0 ;
   hr = 0;
+  cartNum = 0;
 
   cart: Cart[] = [];
   cartItem: Cart[]= [];
@@ -32,12 +34,14 @@ export class CartComponent implements OnInit {
     .getCart()
     .subscribe((cart) => {
       this.cartItem = cart;
-      console.log(this.cartItem);
+      // console.log(this.cartItem);
       if(cart !== null ){
         this.lastIndex = cart;
+        // console.log(this.lastIndex);
         for( let i = 0 ; i < cart.length ; i++){ 
           if(cart[i].ecustomer_id == 1){
           this.cartAmout = cart[i].cart_amount;
+          this.cartNum += 1;
           // this.cartItem = cart;
           // this.cartProName = cart[i].product_name;
           // this.cartProDescript = cart[i].product_description;
@@ -46,7 +50,10 @@ export class CartComponent implements OnInit {
           }
           this.cartPrice = sum; 
           this.cartTotalPrice = (sum*vat)+sum;
-        }    
+          
+        }
+        this.cartNum--;
+        //console.log(this.cartNum)
       }else{
         console.log("No data")
       }

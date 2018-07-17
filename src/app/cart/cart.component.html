@@ -18,7 +18,7 @@
                     <td >{{ carts.product_name }}</td>
                     <td > {{ carts.product_description }}
                     </td>
-                    <td> {{ carts.cart_amount }}</td>
+                    <td style="text-align: center"> {{ carts.cart_amount }}</td>
                     <td style="padding: 4px">
                         <Button routerLink="/item" class="btn btn-primary btnSize">add more</Button>
                         <button class="btn btn-danger btnSize"> delete</button>
@@ -51,7 +51,7 @@
                     </span>
                     <br><br>
                     <span>
-                        price: {{carts.price | number}} THB
+                        price: {{carts.price | number}} THB ({{ carts.cart_amount }})
                     </span>
                 </div>
             </div>

@@ -9,7 +9,6 @@ import { CartService } from '../service/cart.service'
   selector: 'app-detailpage',
   templateUrl: './detailpage.component.html',
   styleUrls: ['./detailpage.component.css'],
-  providers:[CartService]
 })
 export class DetailpageComponent implements OnInit {
   @Output() cartItemAmount: EventEmitter <any> = new EventEmitter<any>();
@@ -56,14 +55,13 @@ export class DetailpageComponent implements OnInit {
   
   ngOnInit() {
     this.nav.show();
-    this._cartService.cast.subscribe(cartNum => this.cartNumber = cartNum);
-    console.log("detail page num: "+this.cartNumber);
+    this._cartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
   }
-  public addItemDet(product: number, numberItem: number){
-    console.log("details:" + product)
-    this._cartService.updateCartNum(product).subscribe((product) => {
-    // console.log("details in :" + product)
-      
+  addItemDet(productID: number, numberItem: number){
+    console.log("details:" + productID)
+    this._cartService.updateCartNum(productID).subscribe((productID) => {
+      console.log(productID);
+     
     }, (error) => {
       console.log(error);
     });

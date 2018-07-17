@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
   cartNumber: number;
   productList: Products[] = [];
   public searchName: string;
-  public searchID : number;
+  public searchID: number;
   productList_name: Products[] = [];
   productList_id: Products[] = [];
 
@@ -54,30 +54,14 @@ export class HeaderComponent implements OnInit {
     private router: Router
   ) {
     // this.displayNumber = this._itemComponent.cartNumber;
-    _CartService
-      .getCart()
-      .subscribe((cart) => {
-        if (cart !== null) {
-          // console.log(cart.length);
-          for (let i = 0; i < cart.length; i++) {
-            this.itemAllOfUser += cart[i].cart_amount;
-          }
-        }
 
-        this.itemAllOfUser2 = _CartService.setCartNum(this.itemAllOfUser);
-        console.log(this.itemAllOfUser2);
-      }, (error) => {
-        console.log(error);
-      })
-
-    _CartService.cast.subscribe(cartNum => this.cartNumber = cartNum);
 
 
   }
 
   ngOnInit() {
     this._productService.getProducts().subscribe((product) => {
-       //console.log(product);
+      //console.log(product);
       this.productList = product;
       for (let i = 0; i < product.length; i++) {
         this.productList_name.push(product[i].product_name);
@@ -92,11 +76,28 @@ export class HeaderComponent implements OnInit {
       console.log(error);
     })
 
+    this._CartService
+      .getCart()
+      .subscribe((cart) => {
+        if (cart !== null) {
+          // console.log(cart.length);
+          for (let i = 0; i < cart.length; i++) {
+            this.itemAllOfUser += cart[i].cart_amount;
+          }
+        }
+
+        this.itemAllOfUser2 = this._CartService.setCartNum(this.itemAllOfUser);
+        console.log(this.itemAllOfUser2);
+      }, (error) => {
+        console.log(error);
+      })
+
+    this._CartService.cast.subscribe(cartNum => this.cartNumber = cartNum);
 
 
   }
 
-  save(product) { 
+  save(product) {
     console.log(product.searchName);
     this.searchName = product.searchName;
     this._productService.getProducts().subscribe((product) => {
@@ -104,7 +105,7 @@ export class HeaderComponent implements OnInit {
       for (let i = 0; i < product.length; i++) {
         // console.log("product name: "+product[i].product_name);
         // console.log("search name: "+this.searchName);
-        if(product[i].product_name === this.searchName){
+        if (product[i].product_name === this.searchName) {
           this.searchID = product[i].product_id;
         }
 
@@ -115,5 +116,5 @@ export class HeaderComponent implements OnInit {
     }, (error) => {
       console.log(error);
     })
-   }
+  }
 }

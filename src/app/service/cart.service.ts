@@ -14,17 +14,19 @@ export class CartService {
   private postUrl:string = 'http://192.168.43.242:8080/checkout';
   private headers = new Headers({'content-Type':'application/json'});
   private option = new RequestOptions({headers:this.headers});
+  
 
   private cartNum = new BehaviorSubject<number>(0);
   private num: number;
   cast = this.cartNum.asObservable();
   constructor(private _http:Http) { }
 
-  updateCartNum(cart: number){
+  updateCartNum(cart:string,amount:number){
     // console.log(this.cartNum);
     // this.cartNum.next(newcart);
     this.cartNum.subscribe((cartNum)=>{this.num = Number(cartNum)})
-    this.num = this.num + 1;
+    
+    this.num = this.num + amount;
     console.log(this.num);
     this.cartNum.next(this.num);
     console.log("hello");

@@ -2,7 +2,8 @@ import { Component, OnInit, Output, EventEmitter, Injectable } from '@angular/co
 import { ProductService } from '../service/product.service';
 import { Products } from '../products';
 import { HeaderServiceService } from '../service/header-service.service';
-import { CartService } from '../service/cart.service'
+import { CartService } from '../service/cart.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable()
 @Component({
@@ -13,7 +14,7 @@ import { CartService } from '../service/cart.service'
 export class DetailpageComponent implements OnInit {
   @Output() cartItemAmount: EventEmitter <any> = new EventEmitter<any>();
   productItem: Products[] = [];
-  productID = 0;
+  productID: number;
   productName = '';
   productDes = '';
   productPrice = 0;
@@ -28,16 +29,19 @@ export class DetailpageComponent implements OnInit {
     public nav: HeaderServiceService,
     private _product: ProductService,
     private _cartService: CartService,
+    private activatedRoute: ActivatedRoute
     
   ) { 
     _product
     .getProducts()
     .subscribe((productItem) => {
-      
+    this.activatedRoute.queryParams.subscribe(params => {
+        this.productID = params['productID'];
+      console.log(this.productID);
       // console.log(productItem);
       if(productItem != null){
         for(let i = 0 ; i < productItem.length ; i++ ){
-          if(this.productSearchID == productItem[i].product_id){
+          if( this.productID == productItem[i].product_id){
             // console.log(productItem[i])
             this.productID = productItem[i].product_id;
             this.productName = productItem[i].product_name;
@@ -50,16 +54,20 @@ export class DetailpageComponent implements OnInit {
       }else {
         alert("no data");
       }
+    });
+
     })
   }
   
   ngOnInit() {
     this.nav.show();
     this._cartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
+
   }
   addItemDet(productID: number, numberItem: number){
-    console.log("details:" + productID)
-    this._cartService.updateCartNum(productID).subscribe((productID) => {
+    console.log("details:" + productID);
+    console.log("numberItem:"+ numberItem);
+    this._cartService.updateCartNum(productID+","+numberItem, numberItem).subscribe((productID) => {
       console.log(productID);
      
     }, (error) => {

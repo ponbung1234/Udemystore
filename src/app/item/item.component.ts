@@ -96,7 +96,7 @@ export class ItemComponent implements OnInit {
 
   public addItem(productID: number) {
     // this._cartService.updateCartNum(productID);
-    this._cartService.updateCartNum(productID).subscribe((productID) => {
+    this._cartService.updateCartNum(productID+","+1,1).subscribe((productID) => {
       console.log(productID);
      
     }, (error) => {

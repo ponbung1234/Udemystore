@@ -48,3 +48,7 @@ Thumbs.db
 *.json
 package-lock.json
 _editorconfig
+.angular-cli.json
+package.json
+e2e/app.po.ts
+demo.zip

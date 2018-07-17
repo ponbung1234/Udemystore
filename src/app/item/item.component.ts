@@ -66,9 +66,7 @@ export class ItemComponent implements OnInit {
           this.filteredProducts = (this.category) ?
             this.product :
             this.product.filter(p => p.category_id === Number(this.categoryR));
-
           this.categoryName = 'All Categories';
-
         }
         else {
           this.filteredProducts = (this.category) ?
@@ -80,7 +78,6 @@ export class ItemComponent implements OnInit {
     _categoryService.getProducts().subscribe((category) => {
       // console.log(category);
       this.category = category;
-
     }, (error) => {
       console.log(error);
     })

@@ -44,7 +44,7 @@
             <th scope="row">{{orderlists.orderDate | date}}</th>
             <td>{{orderlists.orderDate | date:'shortTime'}}</td>
             <td class="text-success font-weight-bold">{{orderlists.status}}</td>
-            <td>{{orderlists.total_price}} THB</td>
+            <td>{{orderlists.total_price | number }} THB</td>
             <td>{{orderlists.paymentType_name}}</td>
             <td>
               <!-- Button for viewing order detail -->
@@ -105,7 +105,7 @@
                                   </button>
                                 </th>
                                 <td>
-                                  <p class="font-weight-bold">{{orderlists.total_price}} THB </p>
+                                  <p class="font-weight-bold">{{orderlists.total_price | number }} THB </p>
                                 </td>
 
                               </tr>
@@ -178,7 +178,7 @@
                                       </p>
                                     </div>
                                     <div class="col-9">
-                                      {{ od.price}} THB
+                                      {{ od.price | number}} THB
                                     </div>
 
                                   </div>

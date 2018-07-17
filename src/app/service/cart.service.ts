@@ -10,8 +10,8 @@ import{ BehaviorSubject } from 'rxjs/BehaviorSubject'
 export class CartService {
   private baseUrl:string='http://13.229.99.132/cart';
   // private baseUrl2:string='http://192.168.43.242:8080/postRefund';
-  private baseUrl2:string='http://192.168.43.242:8080/addCart';
-  private postUrl:string = 'http://192.168.43.242:8080/checkout';
+  private baseUrl2:string='http://13.229.99.132/addCart';
+  private postUrl:string = 'http://13.229.99.132/checkout';
   private headers = new Headers({'content-Type':'application/json'});
   private option = new RequestOptions({headers:this.headers});
   

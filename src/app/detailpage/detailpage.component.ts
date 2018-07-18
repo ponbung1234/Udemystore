@@ -144,7 +144,7 @@ export class DetailpageComponent implements OnInit {
   slideConfig = {
     "slidesToShow": 4,
     "slidesToScroll": 1,
-    "autoplay": true,
+    // "autoplay": true,
     "autoplaySpeed": 1500,
     "infinite":true,
     "speed":600,

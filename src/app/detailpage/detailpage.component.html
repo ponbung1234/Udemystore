@@ -69,35 +69,11 @@
     routerLink='/detailpage' 
     [queryParams]="{ productID: pro.product_id, categoryID: pro.category_id }"
     style="padding-top: 10px; padding-bottom: 20px;padding-left: 20px">
-          <div class="card ho" style="height: 17rem; margin-right: 10%">
-            <img class="card-img-top" src="{{ pro.url }}" alt="" >
+          <div class="card" style="height: 18rem; margin-right: 10%">
+            <img class="card-img-top" style="height: 190px;" src="{{ pro.url }}" alt="" >
             <hr>
-            <h5 class="card-title" style="text-align: center">{{ pro.product_name }}</h5>
+            <h5  style="text-align: center">{{ pro.product_name }}</h5>
           </div>
     </div>
-  </ngx-slick> 
- 
-
- 
-
-  <!-- <ngb-carousel *ngFor="let products of productItem; let i = index;">
-    <ng-template ngbSlide>
-      <img src="{{ products.url }}" alt="Random first slide">
-      <div class="carousel-caption">
-        <h3>{{ products.product_name }}</h3>
-      </div>
-    </ng-template>
-  </ngb-carousel> -->
-
-  <!-- <div style="overflow-x:auto; display: flex; width: 100%;" >
-    <div *ngFor="let products of relatedProduct; let i = index;">
-        <div  style="width: 18rem; margin-right: 2%;margin-left: 2%;">
-          <img style="width: 250px; height: 250px;" src="{{ products.url }}" alt="Card image cap">
-          <div >
-            <p >{{ products.product_name }}</p>
-          </div>
-        </div>
-      
-    </div>
-  </div> -->
+  </ngx-slick>
 </div>

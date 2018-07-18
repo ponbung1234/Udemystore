@@ -29,9 +29,12 @@
                                         {{ carts.cart_amount }}
                                     </strong>
                                 </button>
-                                <div class="input-group-append">
+                                <div *ngIf="carts.cart_amount !== 1 ;else showButton" class="input-group-append">
                                     <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)"><i class="fas fa-minus"></i></button>
                                 </div>
+                                <ng-template #showButton>
+                                        <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)" disabled><i class="fas fa-minus"></i></button>
+                                </ng-template>
                             </div>
                            
                             <button class="btn btn-danger btnSize" (click)="deleteItem(carts.product_id)" style="width: 78%;"> delete</button>

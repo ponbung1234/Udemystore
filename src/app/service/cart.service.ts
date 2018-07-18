@@ -12,6 +12,7 @@ export class CartService {
   // private baseUrl2:string='http://192.168.43.242:8080/postRefund';
   private baseUrl2:string='http://13.229.99.132/addCart';
   private baseUrl3:string='http://13.229.99.132/removeCart';
+  private baseUrl4:string='http://13.229.99.132/deleteCart';
   private postUrl:string = 'http://13.229.99.132/checkout';
   private headers = new Headers({'content-Type':'application/json'});
   private option = new RequestOptions({headers:this.headers});
@@ -47,7 +48,7 @@ export class CartService {
   }
 
   deleteProductfromCart(cart:number){
-    return this._http.post(this.baseUrl3,cart, this.option).map((response:Response)=>response.json())
+    return this._http.post(this.baseUrl4,cart, this.option).map((response:Response)=>response.json())
     .catch(this.errorHandler)
   }
 

@@ -8,7 +8,7 @@
                     <tr>
                         <th style="width: 250px;"> Product name</th>
                         <th style="width: 300px;"> Description</th>
-                        
+
                         <th style="width: 185px;">Amount</th>
                     </tr>
                 </thead>
@@ -17,32 +17,41 @@
                         <td>{{ carts.product_name }}</td>
                         <td> {{ carts.product_description }}
                         </td>
-                     
+
                         <td style="padding: 4px">
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" (click)="addItemDet(carts.product_id,1, carts , carts.cart_amount)"><i class="fas fa-plus"></i></button>
+                                    <button class="btn btn-outline-secondary" (click)="addItemDet(carts.product_id,1, carts , carts.cart_amount)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
                                 </div>
                                 <button class="btn btn-outline-primary" disabled>
                                     <strong>
-                                        
+
                                         {{ carts.cart_amount }}
                                     </strong>
                                 </button>
                                 <div *ngIf="carts.cart_amount !== 1 ;else showButton" class="input-group-append">
-                                    <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)"><i class="fas fa-minus"></i></button>
+                                    <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
                                 </div>
                                 <ng-template #showButton>
-                                        <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)" disabled><i class="fas fa-minus"></i></button>
+                                    <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)" disabled>
+                                        <i class="fas fa-minus"></i>
+                                    </button>
                                 </ng-template>
                             </div>
-                           
+
                             <button class="btn btn-danger btnSize" (click)="deleteItem(carts.product_id)" style="width: 78%;"> delete</button>
                         </td>
                     </tr>
 
                 </tbody>
             </table>
+            <!-- <button type="button" class="btn btn-warning" style="width: 100%" (click)="updatePrice()">
+                <h3>Update total price!</h3>
+            </button> -->
         </div>
         <div class="col-lg-4 borderDiv">
 
@@ -95,6 +104,7 @@
                             Total : {{cartTotalPrice | number }} THB
                         </strong>
                     </span>
+
                 </div>
             </div>
             <hr>
@@ -106,7 +116,11 @@
                         </strong>
                     </div>
                     <div class="col-6" style="margin-bottom: 3%">
-                        <app-pay-option></app-pay-option>
+                        <app-pay-option *ngIf="checkoutFlag ;else showButton"></app-pay-option>
+
+                        <ng-template #showButton>
+                            <button class="btn btn-warning" (click)="updatePrice()">Update total price!</button>
+                        </ng-template>
                     </div>
                 </div>
             </div>

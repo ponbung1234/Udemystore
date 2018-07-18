@@ -4,6 +4,7 @@ import { CartService } from '../service/cart.service';
 import { Cart } from '../cart';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { log } from 'util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -23,12 +24,14 @@ export class CartComponent implements OnInit {
   count = 0;
   numberItem: number;
   cartNumber: number;
+  checkoutFlag: boolean;
 
   cart: Cart[] = [];
   cartItem: Cart[]= [];
   constructor(
     public nav: HeaderServiceService,
     private _CartService: CartService,
+    private router: Router
   ) { 
     let sum = 0;
     let vat = 0.07;
@@ -65,7 +68,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
-   
+    this.checkoutFlag = true;   
     this._CartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
    
   }
@@ -80,7 +83,7 @@ export class CartComponent implements OnInit {
   }
 
   addItemDet(productID: number, numberItem: number,carts, amount) {
-
+    this.checkoutFlag = false;
     carts.cart_amount = amount + 1;
     this._CartService.updateCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
       console.log(productID);
@@ -90,6 +93,7 @@ export class CartComponent implements OnInit {
     });
   }
   removeItem(productID: number, numberItem: number,carts, amount){
+    this.checkoutFlag = false;
     carts.cart_amount = amount - 1;
     this._CartService.removeCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
       console.log(productID);
@@ -107,6 +111,12 @@ export class CartComponent implements OnInit {
       console.log(error);
     });
     window.location.reload();
+  }
+
+  updatePrice(){
+    window.location.reload();
+    
+
   }
 
 }

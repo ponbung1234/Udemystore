@@ -1,7 +1,7 @@
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h4 class="modal-title" style="margin-left: 35%">Pay Options</h4>
-      <button type="button" class="close " aria-label="Close" style="padding-top:3px;padding-right:7px;" >
+      <button (click)="c('Close click');" type="button" class="close " aria-label="Close" style="padding-top:3px;padding-right:7px;" >
         <span aria-hidden="true">&times;</span>
       </button>
     </div>

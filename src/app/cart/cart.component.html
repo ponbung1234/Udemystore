@@ -8,8 +8,8 @@
                     <tr>
                         <th style="width: 250px;"> Product name</th>
                         <th style="width: 300px;"> Description</th>
-                        <th style="width: 20px;"> Amount </th>
-                        <th style="width: 180px;"></th>
+                        
+                        <th style="width: 185px;">Amount</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -17,9 +17,9 @@
                         <td>{{ carts.product_name }}</td>
                         <td> {{ carts.product_description }}
                         </td>
-                        <td style="text-align: center"> {{ carts.cart_amount }}</td>
+                     
                         <td style="padding: 4px">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" (click)="addItemDet(carts.product_id,1, carts , carts.cart_amount)"><i class="fas fa-plus"></i></button>
                                 </div>
@@ -30,11 +30,11 @@
                                     </strong>
                                 </button>
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" (click)="addItemDet(carts.product_id,1, carts , carts.cart_amount)"><i class="fas fa-minus"></i></button>
+                                    <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)"><i class="fas fa-minus"></i></button>
                                 </div>
                             </div>
-                            <Button routerLink="/item" class="btn btn-primary btnSize">add more</Button>
-                            <button class="btn btn-danger btnSize"> delete</button>
+                           
+                            <button class="btn btn-danger btnSize" (click)="deleteItem(carts.product_id)" style="width: 78%;"> delete</button>
                         </td>
                     </tr>
 

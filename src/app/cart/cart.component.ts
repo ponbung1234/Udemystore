@@ -91,12 +91,22 @@ export class CartComponent implements OnInit {
   }
   removeItem(productID: number, numberItem: number,carts, amount){
     carts.cart_amount = amount - 1;
-    this._CartService.updateCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
+    this._CartService.removeCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
       console.log(productID);
 
     }, (error) => {
       console.log(error);
     });
+  }
+  deleteItem(productID: number){
+    
+    this._CartService.deleteProductfromCart(productID).subscribe((productID) => {
+      console.log(productID);
+
+    }, (error) => {
+      console.log(error);
+    });
+    window.location.reload();
   }
 
 }

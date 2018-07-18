@@ -8,7 +8,7 @@ import { log } from 'util';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
   cartProName: string = '';
@@ -20,6 +20,9 @@ export class CartComponent implements OnInit {
   lastIndex = 0 ;
   hr = 0;
   cartNum = 0;
+  count = 0;
+  numberItem: number;
+  cartNumber: number;
 
   cart: Cart[] = [];
   cartItem: Cart[]= [];
@@ -42,10 +45,6 @@ export class CartComponent implements OnInit {
           if(cart[i].ecustomer_id == 1){
           this.cartAmout = cart[i].cart_amount;
           this.cartNum += 1;
-          // this.cartItem = cart;
-          // this.cartProName = cart[i].product_name;
-          // this.cartProDescript = cart[i].product_description;
-          // this.cartEcustomerID = cart[i].ecustomer_id;
           sum += cart[i].price*this.cartAmout;
           }
           this.cartPrice = sum; 
@@ -67,12 +66,34 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.nav.show();
    
+    this._CartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
+   
   }
 
   submit(paymentType:number){
     this._CartService.checkOut(this.cartEcustomerID + "," + this.cartTotalPrice + "," + paymentType).subscribe((formInput) => {
       // console.log(formInput);
      
+    }, (error) => {
+      console.log(error);
+    });
+  }
+
+  addItemDet(productID: number, numberItem: number,carts, amount) {
+
+    carts.cart_amount = amount + 1;
+    this._CartService.updateCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
+      console.log(productID);
+
+    }, (error) => {
+      console.log(error);
+    });
+  }
+  removeItem(productID: number, numberItem: number,carts, amount){
+    carts.cart_amount = amount - 1;
+    this._CartService.updateCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
+      console.log(productID);
+
     }, (error) => {
       console.log(error);
     });

@@ -55,8 +55,6 @@ export class OrderlistComponent implements OnInit {
       console.log(error);
     })
 
-
-
   }
   openmodal(content,orderID: number){
     this.orderdetailCom.openVerticallyCentered(content,orderID);
@@ -76,7 +74,5 @@ export class OrderlistComponent implements OnInit {
     this.nav.show();
 
   }
-
-
 
 }

@@ -18,231 +18,230 @@
 
   <div class="row">
     <div class="col">
-      <div *ngIf=" showLoader; else showPage " >
-            <div class="loader"></div>
+      <div *ngIf=" showLoader; else showPage ">
+        <div class="loader"></div>
 
       </div>
-      
-  <ng-template #showPage>
-      <table class="table table-hover border">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">Order Date</th>
-            <th scope="col">Time</th>
-            <th scope="col">Order Status</th>
-            <th scope="col">Total Price</th>
-            <th scope="col">Paid By</th>
-            <th scope="col"> </th>
-          </tr>
 
-        </thead>
+      <ng-template #showPage>
+        <table class="table table-hover border">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Order Date</th>
+              <th scope="col">Time</th>
+              <th scope="col">Order Status</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Paid By</th>
+              <th scope="col"> </th>
+            </tr>
 
-
-        <tbody>
-
-          <tr *ngFor="let orderlists of orderlist">
-            <th scope="row">{{orderlists.orderDate | date}}</th>
-            <td>{{orderlists.orderDate | date:'shortTime'}}</td>
-            <td class="text-success font-weight-bold">{{orderlists.status}}</td>
-            <td>{{orderlists.total_price | number }} THB</td>
-            <td>{{orderlists.paymentType_name}}</td>
-            <td>
-              <!-- Button for viewing order detail -->
-              <ng-template #content let-c="close" let-d="dismiss">
-                <div class="modal-header">
-                  <h4 class="modal-title">Order Detail</h4>
-                  <button type="button" class="close" aria-label="Close" (click)="c('Close click')">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <!--information in the modal-->
-                <!-- <app-orderdetail></app-orderdetail> -->
-                <!-- First site -->
-                <div class="modal-body">
-
-                  <ngb-tabset>
-                    <ngb-tab title="Order Detail">
-                      <ng-template ngbTabContent>
-                        <div class="container">
-                          <table class="table table-hover">
-                            <thead>
-                              <tr>
-                                <th scope="col">Order Number: {{orderNum}} </th>
-                                <th scope="col"> Detail</th>
-
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-
-                                <th scope="row">
-                                  <button type="button" class="btn btn-success " style="height:40px;width:120px" disabled>
-                                    <p class="font-weight-bold">Date :</p>
-                                  </button>
-                                </th>
-                                <td>
-                                  <p class="font-weight-bold"> {{orderlists.orderDate | date}} </p>
-                                </td>
-
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-success" style="height:40px;width:120px" disabled>
-                                    <p class="font-weight-bold">Status :</p>
-                                  </button>
-                                </th>
-                                <td>
-                                  <p class="text-success font-weight-bold">
-                                    {{orderlists.status}}
-                                  </p>
-                                </td>
-
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-success " style="height:40px;width:120px" disabled>
-                                    <p class="font-weight-bold">Total Price :</p>
-                                  </button>
-                                </th>
-                                <td>
-                                  <p class="font-weight-bold">{{orderlists.total_price | number }} THB </p>
-                                </td>
-
-                              </tr>
-                              <tr>
-                                <th scope="row">
-                                  <button type="button" class="btn btn-success " style="height:40px;width:120px" disabled>
-                                    <p class="font-weight-bold">Paid by :</p>
-                                  </button>
-                                </th>
-                                <td>
-                                  <p class="font-weight-bold">{{orderlists.paymentType_name}}</p>
-                                </td>
-
-                              </tr>
-
-                            </tbody>
-                          </table>
-                        </div>
+          </thead>
 
 
-                      </ng-template>
-                    </ngb-tab>
+          <tbody>
 
-                    <!-- second site -->
-                    <ngb-tab>
-                      <ng-template ngbTabTitle>
-                        Products</ng-template>
-                      <ng-template ngbTabContent>
-                        <!-- activeIds="static-1" -->
-                        <ngb-accordion [closeOthers]="true" *ngFor="let od of orderdetail;let i = index">
-                          <!-- show product information -->
-                          <!-- {{od.order_id}} === {{orderlists.order_id}} -->
+            <tr *ngFor="let orderlists of orderlist">
+              <th scope="row">{{orderlists.orderDate | date}}</th>
+              <td>{{orderlists.orderDate | date:'shortTime'}}</td>
+              <td class="text-success font-weight-bold">{{orderlists.status}}</td>
+              <td>{{orderlists.total_price | number }} THB</td>
+              <td>{{orderlists.paymentType_name}}</td>
+              <td>
+                <!-- Button for viewing order detail -->
+                <ng-template #content let-c="close" let-d="dismiss">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Order Detail</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="c('Close click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <!--information in the modal-->
+                  <!-- <app-orderdetail></app-orderdetail> -->
+                  <!-- First site -->
+                  <div class="modal-body">
 
-                          <div *ngIf=" compareItem(od.order_id , orderlists.order_id) ">
-                            <!-- {{ compareItem( od.order_id ) }} -->
-                            <ngb-panel id="static-2">
-                              <ng-template ngbPanelTitle>
-                                <span> Product: [ {{od.product_name}} ]
-                                </span>
-                                <i class="fa fa-chevron-circle-down"></i>
-                              </ng-template>
-                              <ng-template ngbPanelContent>
+                    <ngb-tabset>
+                      <ngb-tab title="Order Detail">
+                        <ng-template ngbTabContent>
+                          <div class="container">
+                            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Order Number: {{orderNum}} </th>
+                                  <th scope="col"> Detail</th>
 
-                                <div class="d-flex justify-content-center">
-                                  <img class="rounded img-thumbnail" src="{{od.pro_image_path}}" alt="Card image cap" style="width:50%;height:50%;">
-                                </div>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
 
+                                  <th scope="row">
+                                    <button type="button" class="btn btn-success " style="height:40px;width:120px" disabled>
+                                      <p class="font-weight-bold">Date :</p>
+                                    </button>
+                                  </th>
+                                  <td>
+                                    <p class="font-weight-bold"> {{orderlists.orderDate | date}} </p>
+                                  </td>
 
-                                <div class="container">
-                                  <div class="row p-1">
-                                    <div class="col-8">
-                                      <h3 class="font-weight-bold p-1">{{od.product_name}}</h3>
-                                    </div>
+                                </tr>
+                                <tr>
+                                  <th scope="row">
+                                    <button type="button" class="btn btn-success" style="height:40px;width:120px" disabled>
+                                      <p class="font-weight-bold">Status :</p>
+                                    </button>
+                                  </th>
+                                  <td>
+                                    <p class="text-success font-weight-bold">
+                                      {{orderlists.status}}
+                                    </p>
+                                  </td>
 
-                                  </div>
-                                  <div class="row p-1">
-                                    <div class="col-3">
-                                      <p class="font-weight-bold">
-                                        Detail:</p>
-                                    </div>
-                                    <div class="col-9">
-                                      {{ od.product_description}}
-                                    </div>
+                                </tr>
+                                <tr>
+                                  <th scope="row">
+                                    <button type="button" class="btn btn-success " style="height:40px;width:120px" disabled>
+                                      <p class="font-weight-bold">Total Price :</p>
+                                    </button>
+                                  </th>
+                                  <td>
+                                    <p class="font-weight-bold">{{orderlists.total_price | number }} THB </p>
+                                  </td>
 
-                                  </div>
-                                  <div class="row p-1">
-                                    <div class="col-3">
-                                      <p class="font-weight-bold">
-                                        Price:
-                                      </p>
-                                    </div>
-                                    <div class="col-9">
-                                      {{ od.price | number}} THB
-                                    </div>
+                                </tr>
+                                <tr>
+                                  <th scope="row">
+                                    <button type="button" class="btn btn-success " style="height:40px;width:120px" disabled>
+                                      <p class="font-weight-bold">Paid by :</p>
+                                    </button>
+                                  </th>
+                                  <td>
+                                    <p class="font-weight-bold">{{orderlists.paymentType_name}}</p>
+                                  </td>
 
-                                  </div>
-                                  <div class="row p-1">
-                                    <div class="col-3">
-                                      <p class="font-weight-bold">
-                                        Amount:</p>
-                                    </div>
-                                    <div class="col-9">
-                                      {{od.amount}}
-                                    </div>
+                                </tr>
 
-                                  </div>
-                                  <div class="row d-flex justify-content-end mg-5">
-
-                                    <button type="button" routerLink='/refund' [queryParams]="{ itemID: od.item_id, amount: od.amount }" class="btn btn-outline-danger"
-                                      (click)="c('Close click')">Refund</button>
-
-                                  </div>
-                                </div>
-
-                              </ng-template>
-                            </ngb-panel>
+                              </tbody>
+                            </table>
                           </div>
 
-                        </ngb-accordion>
 
-                      </ng-template>
-                    </ngb-tab>
+                        </ng-template>
+                      </ngb-tab>
 
-                  </ngb-tabset>
+                      <!-- second site this is for displaying list of product -->
+                      <ngb-tab>
+                        <ng-template ngbTabTitle>
+                          Products</ng-template>
+                        <ng-template ngbTabContent>
+                          <!-- activeIds="static-1" -->
+                          <ngb-accordion [closeOthers]="true" *ngFor="let od of orderdetail;let i = index">
+                            <!-- show product information -->
+                            <!-- {{od.order_id}} === {{orderlists.order_id}} -->
 
-                </div>
+                            <div *ngIf=" compareItem(od.order_id , orderlists.order_id) ">
+                              <!-- {{ compareItem( od.order_id ) }} -->
+                              <ngb-panel id="static-2">
+                                <ng-template ngbPanelTitle>
+                                  <span> Product: [ {{od.product_name}} ]
+                                  </span>
+                                  <i class="fa fa-chevron-circle-down"></i>
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+
+                                  <div class="d-flex justify-content-center">
+                                    <img class="rounded img-thumbnail" src="{{od.pro_image_path}}" alt="Card image cap" style="width:50%;height:50%;">
+                                  </div>
 
 
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-secondary" (click)="c('Close click')">Close</button>
-                </div>
+                                  <div class="container">
+                                    <div class="row p-1">
+                                      <div class="col-8">
+                                        <h3 class="font-weight-bold p-1">{{od.product_name}}</h3>
+                                      </div>
 
-              </ng-template>
-              <!-- Button view detail -->
-              <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" (click)="openmodal(content,orderlists.order_id)">
-                View Detail
-              </button>
+                                    </div>
+                                    <div class="row p-1">
+                                      <div class="col-3">
+                                        <p class="font-weight-bold">
+                                          Detail:</p>
+                                      </div>
+                                      <div class="col-9">
+                                        {{ od.product_description}}
+                                      </div>
 
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </ng-template>
+                                    </div>
+                                    <div class="row p-1">
+                                      <div class="col-3">
+                                        <p class="font-weight-bold">
+                                          Price:
+                                        </p>
+                                      </div>
+                                      <div class="col-9">
+                                        {{ od.price | number}} THB
+                                      </div>
+
+                                    </div>
+                                    <div class="row p-1">
+                                      <div class="col-3">
+                                        <p class="font-weight-bold">
+                                          Amount:</p>
+                                      </div>
+                                      <div class="col-9">
+                                        {{od.amount}}
+                                      </div>
+
+                                    </div>
+                                    <div class="row p-1">
+                                      <div class="col-3">
+                                        <p class="font-weight-bold">
+                                          Status:</p>
+                                      </div>
+                                      <div class="col-9">
+                                        {{od.status}}
+                                      </div>
+
+                                    </div>
+                                    <div *ngIf="od.status !== 'Requested' ;else showButton" class="row d-flex justify-content-end mg-5">
+                                      <button type="button" routerLink='/refund' [queryParams]="{ itemID: od.item_id, amount: od.amount }" class="btn btn-outline-danger"
+                                        (click)="c('Close click')">Refund</button>
+
+                                    </div>
+                                    <ng-template #showButton>
+                                      <button type="button" routerLink='/refund' [queryParams]="{ itemID: od.item_id, amount: od.amount }" class="btn btn-outline-danger"
+                                        (click)="c('Close click')" disabled>Refund</button>
+                                    </ng-template>
+                                  </div>
+
+                                </ng-template>
+                              </ngb-panel>
+                            </div>
+
+                          </ngb-accordion>
+
+                        </ng-template>
+                      </ngb-tab>
+
+                    </ngb-tabset>
+
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" (click)="c('Close click')">Close</button>
+                  </div>
+
+                </ng-template>
+                <!-- Button view detail -->
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" (click)="openmodal(content,orderlists.order_id)">
+                  View Detail
+                </button>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
       <!-- </span> -->
     </div>
   </div>
 </div>
-
-
-<!-- from order
--orderDate
--total_price
-from order_detail
--status
-from paymentType
--paymentType_name
-from product
--product_name
--price -->
-<!-- select * from orders natural join payment,payment_type where orders.order_id = payment.order_id AND payment.paymentType_id = payment_type.paymentType_id; -->

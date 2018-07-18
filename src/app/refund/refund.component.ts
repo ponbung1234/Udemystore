@@ -78,8 +78,7 @@ export class RefundComponent implements OnInit {
     
     console.log(this.filteredProducts);
     this._refundService.postRefund(user.itemid+","+user.Amount+","+user.reason+","+user.orderid+","+user.productid).subscribe((formInput) => {
-      console.log(formInput);
-     
+      console.log(formInput);     
     }, (error) => {
       console.log(error);
     });

@@ -39,6 +39,7 @@ import { AdminHeaderComponent } from './Admin/admin-header/admin-header.componen
 import { AdminProductComponent } from './Admin/admin-product/admin-product.component';
 import { AdminCreateProductComponent } from './Admin/admin-create-product/admin-create-product.component';
 import { DetailpageComponent } from './detailpage/detailpage.component';
+import { SlickModule } from 'ngx-slick';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { DetailpageComponent } from './detailpage/detailpage.component';
     HttpClientModule,
     HttpModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    SlickModule.forRoot()
   ],
   providers: [
     HeaderServiceService,

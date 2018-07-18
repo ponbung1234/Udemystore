@@ -17,6 +17,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class DetailpageComponent implements OnInit {
   @Output() cartItemAmount: EventEmitter<any> = new EventEmitter<any>();
+  
   productItem: Products[] = [];
   relatedProduct: Products[] = [];
   private category: Category[] = [];
@@ -28,8 +29,11 @@ export class DetailpageComponent implements OnInit {
   numberItem = 1;
   count = 0;
   cartNumber: number;
+  sizeProduct = 0;
 
   categoryID: string;
+
+
 
 
   constructor(
@@ -49,10 +53,12 @@ export class DetailpageComponent implements OnInit {
         this.activatedRoute.queryParams.subscribe(params => {
           this.productID = params['productID'];
 
-          console.log(this.productID);
+          // console.log(this.productID);
           // console.log(productItem);
           if (productItem != null) {
             for (let i = 0; i < productItem.length; i++) {
+              this.sizeProduct = productItem.length;
+              console.log(this.sizeProduct);
               if (this.productID == productItem[i].product_id) {
                 // console.log(productItem[i])
                 this.productID = productItem[i].product_id;
@@ -113,10 +119,10 @@ export class DetailpageComponent implements OnInit {
 
   }
   addItemDet(productID: number, numberItem: number) {
-    console.log("details:" + productID);
-    console.log("numberItem:" + numberItem);
+    // console.log("details:" + productID);
+    // console.log("numberItem:" + numberItem);
     this._cartService.updateCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
-      console.log(productID);
+      // console.log(productID);
 
     }, (error) => {
       console.log(error);
@@ -132,5 +138,19 @@ export class DetailpageComponent implements OnInit {
       this.count--;
       this.numberItem = this.count;
     }
+  }
+
+  // carousel
+  slideConfig = {
+    "slidesToShow": 4,
+    "slidesToScroll": 1,
+    "autoplay": true,
+    "autoplaySpeed": 1500,
+    "infinite":true,
+    "speed":600,
+    
+  };
+  afterChange(e) {
+    // console.log('afterChange');
   }
 }

@@ -57,17 +57,47 @@
 
   </div>
 
-  <div class="row" style="padding-top: 10%">
+  <div style="padding-top: 5%; margin-bottom: 3%; margin-top: 3%;margin-bottom: 3%">
     <h2>Related Products</h2>
-
+    <hr>
   </div>
-  <div class="row">
+<!-- carousel -->
+  <ngx-slick style="width: 100%; padding-left: 1.5%" class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
+    <div ngxSlickItem 
+    *ngFor="let pro of relatedProduct" 
+    class="slide" 
+    routerLink='/detailpage' 
+    [queryParams]="{ productID: pro.product_id, categoryID: pro.category_id }"
+    style="padding-top: 10px; padding-bottom: 20px;padding-left: 20px">
+          <div class="card ho" style="height: 17rem; margin-right: 10%">
+            <img class="card-img-top" src="{{ pro.url }}" alt="" >
+            <hr>
+            <h5 class="card-title" style="text-align: center">{{ pro.product_name }}</h5>
+          </div>
+    </div>
+  </ngx-slick> 
+ 
 
-    <ng-container *ngFor="let products of relatedProduct; let i = index;">
-      <div class="col">
-        <p>{{products.product_name}}</p>
+ 
+
+  <!-- <ngb-carousel *ngFor="let products of productItem; let i = index;">
+    <ng-template ngbSlide>
+      <img src="{{ products.url }}" alt="Random first slide">
+      <div class="carousel-caption">
+        <h3>{{ products.product_name }}</h3>
       </div>
-      <div *ngIf="(i+1)%3===0" class="w-100"></div>
-    </ng-container>
-  </div>
+    </ng-template>
+  </ngb-carousel> -->
+
+  <!-- <div style="overflow-x:auto; display: flex; width: 100%;" >
+    <div *ngFor="let products of relatedProduct; let i = index;">
+        <div  style="width: 18rem; margin-right: 2%;margin-left: 2%;">
+          <img style="width: 250px; height: 250px;" src="{{ products.url }}" alt="Card image cap">
+          <div >
+            <p >{{ products.product_name }}</p>
+          </div>
+        </div>
+      
+    </div>
+  </div> -->
 </div>

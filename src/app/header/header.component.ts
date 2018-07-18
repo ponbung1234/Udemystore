@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
   productList: Products[] = [];
   public searchName: string;
   public searchID: number;
+  public categoryID: number;
   productList_name: Products[] = [];
   productList_id: Products[] = [];
 
@@ -107,12 +108,13 @@ export class HeaderComponent implements OnInit {
         // console.log("search name: "+this.searchName);
         if (product[i].product_name === this.searchName) {
           this.searchID = product[i].product_id;
+          this.categoryID = product[i].category_id;
         }
 
       }
       // console.log(this.searchID);
       this.model = null;
-      this.router.navigate(['./detailpage'], { queryParams: { productID: this.searchID } });
+      this.router.navigate(['./detailpage'], { queryParams: { productID: this.searchID, categoryID: this.categoryID } });
     }, (error) => {
       console.log(error);
     })

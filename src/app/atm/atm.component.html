@@ -29,11 +29,11 @@
                         </span>
                         <br><br>
                         <span>
-                            price: {{carts.price | number}} THB
+                            price: {{carts.price | number}} THB  ({{ carts.cart_amount }})
                         </span>
                     </div>
                 </div>
-                <div *ngIf="i !== 5">
+                <div *ngIf="i != cartNum">
                     <hr class="hrS" #show>
                 </div>
             </div>

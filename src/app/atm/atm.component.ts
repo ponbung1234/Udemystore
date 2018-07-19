@@ -21,7 +21,8 @@ export class AtmComponent implements OnInit {
   cartPrice: number = 0;
   cartTotalPrice: number = 0;
   lastIndex = 0 ;
-  hr = 0;
+  cartNum = 0;
+
 
   cart: Cart[] = [];
   cartItem : any;
@@ -39,6 +40,7 @@ export class AtmComponent implements OnInit {
         this.lastIndex = cart;
         for( let i = 0 ; i < cart.length ; i++){ 
           if(cart[i].ecustomer_id == 1){
+            this.cartNum += 1;
           this.cartAmout = cart[i].cart_amount;
           this.cartItem = cart;
           this.cartProName = cart[i].product_name;
@@ -48,6 +50,7 @@ export class AtmComponent implements OnInit {
           this.cartPrice = sum; 
           this.cartTotalPrice = (sum*vat)+sum;
         }    
+        this.cartNum--;
       }else{
         console.log("No data")
       }

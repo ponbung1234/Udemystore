@@ -1,26 +1,12 @@
 <div class="container p-3">
-    <ngb-carousel *ngIf="images">
-        <ng-template ngbSlide>
-          <img class="img-thumbnail" [src]="images[0]" alt="Random first slide">
-          <div class="carousel-caption">
-            <h3>First Promotion</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <img class="img-thumbnail" [src]="images[1]" alt="Random second slide">
-          <div class="carousel-caption">
-            <h3>Second Promotion</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <img class="img-thumbnail" [src]="images[2]" alt="Random third slide">
-          <div class="carousel-caption">
-            <h3>Third Promotion</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </div>
-        </ng-template>
-      </ngb-carousel>
-      
+  <ngx-slick style="width: 100%; padding-left: 1.3%" class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
+    <div ngxSlickItem 
+    *ngFor="let img of advertiseIMG"
+    class="slide"
+    style="padding-top: 10px; padding-bottom: 20px;padding-left: 20px;">
+      <div>
+        <img class="rounded img-fluid" src="{{ img.img }}" alt="" >
+      </div>
+    </div>
+  </ngx-slick>
 </div>

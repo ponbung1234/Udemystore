@@ -40,6 +40,8 @@ import { AdminProductComponent } from './Admin/admin-product/admin-product.compo
 import { AdminCreateProductComponent } from './Admin/admin-create-product/admin-create-product.component';
 import { DetailpageComponent } from './detailpage/detailpage.component';
 import { SlickModule } from 'ngx-slick';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
+import { LoginService } from './service/login.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,8 @@ import { SlickModule } from 'ngx-slick';
     HttpModule,
     FormsModule,
     NgbModule.forRoot(),
-    SlickModule.forRoot()
+    SlickModule.forRoot(),
+    NgxPageScrollModule
   ],
   providers: [
     HeaderServiceService,
@@ -87,7 +90,8 @@ import { SlickModule } from 'ngx-slick';
     OrderdetailService,
     CartService,
     RefundService,
-    AdminHeaderService
+    AdminHeaderService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

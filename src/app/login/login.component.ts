@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from './../service/login.service';
+import {Router} from '@angular/router';
+import { AuthService } from './../service/auth.service';
+
+
 
 @Component({
   selector: 'app-login',
@@ -11,10 +15,15 @@ import { LoginService } from './../service/login.service';
 export class LoginComponent implements OnInit {
   closeResult: string;
   // @Input('loginValue') loginValue;
+  username: string;
+  password: string;
+
 
   constructor(
     private modalService: NgbModal,
-    private _loginService: LoginService
+    private _loginService: LoginService,
+    private router: Router,
+    private authService: AuthService
   ) {}
   
   ngOnInit(){
@@ -33,8 +42,12 @@ export class LoginComponent implements OnInit {
     const password = target.querySelector('#psw').value;
     // call login service
     //this._loginService.login(username + password);
-
-
     console.log(username,password);
+    // this.authService.attemptAuth(this.username, this.password).subscribe(
+    //   data => {
+    //     this.token.saveToken(data.token);
+    //     this.router.navigate(['user']);
+    //   }
+    // );
   }
 }

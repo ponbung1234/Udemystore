@@ -19,7 +19,7 @@ export class PayOptionComponent implements OnInit {
   public open(content) {
     this.modalService.open(content);
   }
-  callSubmit(paymentType:number){
+  callSubmit(paymentType:String){
     // console.log(paymentType);
     this.cartComponent.submit(paymentType);
     

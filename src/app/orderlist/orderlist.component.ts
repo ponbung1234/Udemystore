@@ -35,21 +35,23 @@ export class OrderlistComponent implements OnInit {
 
   ) {
 
+
     _orderlistService.getOrderlist().subscribe((orderlist) => {
+      console.log("orderlist");
       console.log(orderlist);
       this.orderlist = orderlist;
       if(this.orderlist.length>0){
-        this.showLoader = false
-      }
-  
-
+            this.showLoader = false;
+          }
     }, (error) => {
       console.log(error);
     })
-
     _orderdetailService.getOrderdetail().subscribe((orderdetail) => {
+      console.log("orderdetail");
       console.log(orderdetail);
       this.orderdetail = orderdetail;
+
+  
 
     }, (error) => {
       console.log(error);

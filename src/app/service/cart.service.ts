@@ -69,7 +69,7 @@ export class CartService {
 
 
   checkOut(cartCheckOut:string){
-    // console.log(cartCheckOut);
+     console.log(cartCheckOut);
     return this._http.post(this.postUrl,cartCheckOut,this.option).map((response:Response)=>response.json())
     .catch(this.errorHandler);
   }

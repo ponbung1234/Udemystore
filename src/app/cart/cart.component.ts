@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
   numberItem: number;
   cartNumber: number;
   checkoutFlag: boolean;
-
+  public cartID:number;
   cart: Cart[] = [];
   cartItem: Cart[]= [];
   constructor(
@@ -39,6 +39,7 @@ export class CartComponent implements OnInit {
     _CartService
     .getCart()
     .subscribe((cart) => {
+     
       this.cartItem = cart;
       // console.log(this.cartItem);
       if(cart !== null ){
@@ -46,16 +47,17 @@ export class CartComponent implements OnInit {
         // console.log(this.lastIndex);
         for( let i = 0 ; i < cart.length ; i++){ 
           if(cart[i].ecustomer_id == 1){
+          this.cartID=cart[i].cart_id;
           this.cartAmout = cart[i].cart_amount;
           this.cartNum += 1;
           sum += cart[i].price*this.cartAmout;
           }
           this.cartPrice = sum; 
           this.cartTotalPrice = (sum*vat)+sum;
-          
         }
         this.cartNum--;
         //console.log(this.cartNum)
+        //console.log(this.cartID);
       }else{
         console.log("No data")
       }
@@ -73,17 +75,18 @@ export class CartComponent implements OnInit {
    
   }
 
-  submit(paymentType:number){
-    this._CartService.checkOut(this.cartEcustomerID + "," + this.cartTotalPrice + "," + paymentType).subscribe((formInput) => {
+  submit(paymentType:String){
+    console.log("payment");
+    console.log(this.cartID);
+    this._CartService.checkOut(this.cartTotalPrice + "," + paymentType + "," +this.cartID).subscribe((formInput) => {
       // console.log(formInput);
-     
     }, (error) => {
       console.log(error);
     });
   }
 
   addItemDet(productID: number, numberItem: number,carts, amount) {
-    this.checkoutFlag = false;
+    this.checkoutFlag = false; 
     carts.cart_amount = amount + 1;
     this._CartService.updateCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
       console.log(productID);

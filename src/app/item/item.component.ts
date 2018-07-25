@@ -82,7 +82,8 @@ export class ItemComponent implements OnInit {
       // console.log(category);
       this.category = category;
     }, (error) => {
-      console.log(error);
+
+      // console.log("login first");
     })
 
   }
@@ -90,6 +91,7 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
     this.nav.show();
     const value: string = this.cookieService.get('userToken');
+    //this.cookieService.deleteAll();
     console.log(value);
     // this.cookieService.deleteAll();
     

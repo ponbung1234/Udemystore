@@ -119,7 +119,6 @@ export class CartComponent implements OnInit {
   updatePrice(){
     window.location.reload();
     
-
   }
 
 }

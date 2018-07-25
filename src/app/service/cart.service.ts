@@ -5,27 +5,36 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw'
 import{ BehaviorSubject } from 'rxjs/BehaviorSubject'
-
+import { CookieService } from 'ngx-cookie-service';
+import {LoginService} from './login.service';
 @Injectable()
 export class CartService {
   private baseUrl:string='http://13.229.99.132/cart';
   // private baseUrl2:string='http://192.168.43.242:8080/postRefund';
-  private baseUrl2:string='http://13.229.99.132/addCart';
+  private baseUrl2:string='http://192.168.43.242:8080/addCart';
   private baseUrl3:string='http://13.229.99.132/removeCart';
   private baseUrl4:string='http://13.229.99.132/deleteCart';
   private postUrl:string = 'http://13.229.99.132/checkout';
-  private headers = new Headers({'content-Type':'application/json'});
+  // private headers = new Headers({'content-Type':'application/json'});
+  private headers = new Headers({'content-Type':'application/json','Authorization': `${this.cookieService.get('userToken')}`});
   private option = new RequestOptions({headers:this.headers});
   
 
   private cartNum = new BehaviorSubject<number>(0);
   private num: number;
   cast = this.cartNum.asObservable();
-  constructor(private _http:Http) { }
-
+  constructor(
+    private _http:Http,
+    private cookieService: CookieService
+  ) { 
+    const token: string = cookieService.get('userToken');
+   
+  }
+  // private headers = new Headers({'content-Type':'application/json','authentication': `${getToken}`});
   updateCartNum(cart:string,amount:number){
     // console.log(this.cartNum);
     // this.cartNum.next(newcart);
+
     this.cartNum.subscribe((cartNum)=>{this.num = Number(cartNum)})
     
     this.num = this.num + amount;

@@ -14,16 +14,18 @@
             </li>
         </ul>
         <div class="navbar-text" style="padding-bottom: 0px; padding-top: 0px;">
-            <form class="form-inline" #f="ngForm" (ngSubmit)="save(f.value)">
-                <div class="input-group mr-sm-5">
-                    <!-- <input  name="input" type="input" placeholder="Search..." aria-label="input"> -->
+            <div class="row">
 
+                <form class="form-inline" #f="ngForm" (ngSubmit)="save(f.value)">
+                    <div class="input-group mr-sm-5">
+                        <!-- <input  name="input" type="input" placeholder="Search..." aria-label="input"> -->
 
-
+                        
+                        
                     <input id="typeahead-format" type="text" name="searchName" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"
                         [resultFormatter]="formatter" />
-                    <!-- <input type="hidden" name="productid"  [(ngModel)]="model"> -->
-                    <!-- <pre>Model: {{ model | json }}</pre> -->
+                        <!-- <input type="hidden" name="productid"  [(ngModel)]="model"> -->
+                        <!-- <pre>Model: {{ model | json }}</pre> -->
                     <div class="input-group-prepend">
 
                         <button class="input-group-text">Search</button>
@@ -39,32 +41,38 @@
                                 {{ cartNumber }}
                             </span>
                         </i>
-
+                        
                     </a>
                 </div>
-                <div class="mr-sm-3" style="padding-top: 20px" *ngIf="!userNameStatus; else showUserName">
-                    <p class="btn btn-sm btn-outline-success" style="margin-right: 3px;">
-                        <app-login></app-login>
-                    </p>
-
-                    <p class="btn btn-sm btn-outline-secondary">
-                        <app-register></app-register>
-                    </p>
-                </div>
-                <ng-template #showUserName>
-                    <div class="mr-sm-3" style="padding-top: 20px">
-                            {{userName}}
-                        <p class="btn btn-sm btn-outline-secondary" (click)="logout()">
-                            Logout
-                        </p>
-                    </div>
-                </ng-template>
-
             </form>
-
+            <div class="mr-sm-3" style="padding-top: 20px" *ngIf="!userNameStatus; else showUserName">
+                <p class="btn btn-sm btn-outline-success" style="margin-right: 3px;">
+                    <app-login></app-login>
+                </p>
+                
+                <p class="btn btn-sm btn-outline-secondary">
+                    <app-register></app-register>
+                </p>
+            </div>
+            
+            
+            
+            <ng-template #showUserName>
+                <div class="btn-group mr-3"  style="padding-top: 10px; padding-bottom: 10px">
+                    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                        <button class="btn btn-outline-light" ngbDropdownToggle>{{ userName }}</button>
+                        <div class="dropdown-menu" ngbDropdownMenu style="min-width: 5rem;">
+                            <button class="dropdown-item" (click)="logout()"> logout </button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            </div>
         </div>
-
-
+        
+        
+        
         <!-- <pre>Model: {{ model | json }}</pre> -->
     </div>
+    
 </nav>

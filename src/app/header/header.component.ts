@@ -47,8 +47,6 @@ export class HeaderComponent implements OnInit {
   public categoryID: number;
   productList_name: Products[] = [];
   productList_id: Products[] = [];
-  // get id from login here
-  userID = 1;
   orderNum = 0;
   orderItem: Orderlist[] = [];
   userNameStatus: boolean;
@@ -77,9 +75,8 @@ export class HeaderComponent implements OnInit {
       this.orderItem = order;
       for(let i = 0 ; i < order.length ; i++){
         // console.log(this.orderNum + " : " + order.length + " : " + this.orderItem[i].ecustomer_id)
-        if(this.orderItem[i].ecustomer_id == this.userID){
+       
             this.orderNum++;
-        }
       }
     });
     this._productService.getProducts().subscribe((product) => {

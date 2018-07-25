@@ -1,8 +1,5 @@
 <ng-template #content let-c="close" let-d="dismiss">
 
-  <!-- Modal -->
-  
-    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header" style="padding:10px 215px;">
         <h4>
@@ -15,7 +12,7 @@
         </div>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
-        <!-- func send value -->test
+
         <form role="form" (submit)="loginData($event)" >
           <div class="form-group">
             <label for="usrname">
@@ -49,17 +46,17 @@
  
 </ng-template>
 <a  (click)="openVerticallyCentered(content)">Login</a>
-
-<!-- <h1>Login</h1>
-<form name='f' action="login" method='POST'>
+<!-- 
+<h1>Login</h1>
+<form (submit)="loginData($event)">
    <table>
       <tr>
          <td>User:</td>
-         <td><input type='text' name='username' value=''></td>
+         <td><input type='text' name='username' id="usrname" value=''></td>
       </tr>
       <tr>
          <td>Password:</td>
-         <td><input type='password' name='password' /></td>
+         <td><input type='password' name='password' id="psw" /></td>
       </tr>
       <tr>
          <td><input name="submit" type="submit" value="submit" /></td>

@@ -43,6 +43,7 @@ import { SlickModule } from 'ngx-slick';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import { LoginService } from './service/login.service';
 import { AuthService } from './service/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { AuthService } from './service/auth.service';
     RefundService,
     AdminHeaderService,
     LoginService,
-    AuthService
+    AuthService,
+    CookieService 
   ],
   bootstrap: [AppComponent]
 })

@@ -9,6 +9,7 @@ import { NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
 import 'rxjs/add/operator/switchMap';
 import { CartService } from './../service/cart.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { CookieService } from 'ngx-cookie-service';
 
 declare var jquery:any;
 declare var $ :any;
@@ -43,7 +44,8 @@ export class ItemComponent implements OnInit {
     private route: ActivatedRoute,
     private config: NgbPopoverConfig,
     private _cartService: CartService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private cookieService: CookieService
     // private _headerComponent: HeaderComponent
 
   ) {
@@ -87,7 +89,10 @@ export class ItemComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
-
+    const value: string = this.cookieService.get('userToken');
+    console.log(value);
+    // this.cookieService.deleteAll();
+    
     this._cartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
 
   }

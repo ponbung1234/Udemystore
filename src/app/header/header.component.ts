@@ -72,7 +72,7 @@ export class HeaderComponent implements OnInit {
     this._orderService.getOrderlist().subscribe((order) => {
       this.orderItem = order;
       for(let i = 0 ; i < order.length ; i++){
-        console.log(this.orderNum + " : " + order.length + " : " + this.orderItem[i].ecustomer_id)
+        // console.log(this.orderNum + " : " + order.length + " : " + this.orderItem[i].ecustomer_id)
         if(this.orderItem[i].ecustomer_id == this.userID){
             this.orderNum++;
         }

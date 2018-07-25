@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OrderlistService } from '../service/orderlist.service';
+import { Orderlist } from '../Orderlist';
 
 
 const productName = [];
@@ -46,13 +48,18 @@ export class HeaderComponent implements OnInit {
   public categoryID: number;
   productList_name: Products[] = [];
   productList_id: Products[] = [];
+  // get id from login here
+  userID = 1;
+  orderNum = 0;
+  orderItem: Orderlist[] = [];
 
   constructor(
     public nav: HeaderServiceService,
     private _CartService: CartService,
     private _itemComponent: ItemComponent,
     private _productService: ProductService,
-    private router: Router
+    private router: Router,
+    private _orderService : OrderlistService
   ) {
     // this.displayNumber = this._itemComponent.cartNumber;
 
@@ -61,6 +68,16 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this._orderService.getOrderlist().subscribe((order) => {
+      this.orderItem = order;
+      for(let i = 0 ; i < order.length ; i++){
+        console.log(this.orderNum + " : " + order.length + " : " + this.orderItem[i].ecustomer_id)
+        if(this.orderItem[i].ecustomer_id == this.userID){
+            this.orderNum++;
+        }
+      }
+    });
     this._productService.getProducts().subscribe((product) => {
       //console.log(product);
       this.productList = product;

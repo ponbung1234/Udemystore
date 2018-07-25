@@ -67,10 +67,17 @@
                           </a>
                           <div class="card-body">
                             <h5 class="card-title" style="height: 46.67px;">{{products.product_name}}</h5>
-                            <p class="btn btn-primary" (click)="addItem(products.product_id,content)">
+                            <button class="btn btn-primary" (click)="addItem(products.product_id,content)" *ngIf=" loginStatus; else notLogin">
                               Add cart
+                            </button>
 
-                            </p>
+                            <ng-template #notLogin>
+                              <button class="btn btn-primary" ngbPopover="Please login first" popoverTitle=" You are not login">
+                                
+                                <app-login></app-login>
+                                <!-- <app-add-cart-popup></app-add-cart-popup> -->
+                              </button>
+                            </ng-template>
                             <a routerLink='/detailpage' [queryParams]="{  productID: products.product_id, categoryID: products.category_id }">
                               <p class="btn btn-outline-secondary pull-right" ngbPopover="{{products.product_description}}" popoverTitle=" Price: {{ products.price | number }} THB">
                                 Details
@@ -84,10 +91,10 @@
 
                       <!-- ///success popup/// -->
                       <ng-template #content let-c="close" let-d="dismiss">
+
                         <div class="modal-header">
-                          
-                            <h4 class="modal-title">Success</h4>
-                          
+
+                          <h4 class="modal-title">Success</h4>
                           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -108,8 +115,8 @@
                         <div class="modal-footer">
                           <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
                         </div>
-                      </ng-template>
 
+                      </ng-template>
 
                     </ng-container>
 

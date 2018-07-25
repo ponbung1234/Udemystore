@@ -4,6 +4,8 @@ import { LoginService } from './../service/login.service';
 import {Router} from '@angular/router';
 import { AuthService } from './../service/auth.service';
 import { User } from './../user';
+import { Token } from '../../../node_modules/@angular/compiler';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -18,17 +20,22 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   // user: User[] = [];
-
+  alert: boolean = false;
+  successAlert: boolean = false;
+  loginStatus: boolean;
 
   constructor(
     private modalService: NgbModal,
     private _loginService: LoginService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private cookieService: CookieService,
+
   ) {}
   
   ngOnInit(){
     // console.log();
+    this.loginStatus = this.cookieService.check('userName');
   }
 
   openVerticallyCentered(content) {
@@ -41,35 +48,25 @@ export class LoginComponent implements OnInit {
     const target = event.target;
     const username = target.querySelector('#usrname').value;
     const password = target.querySelector('#psw').value;
-    // call login service
-    //this._loginService.login(username + password);
 
     console.log(username,password);
 
-    // this.authService.attemptAuth(this.username, this.password).subscribe(
-    //   data => {
-    //     this.token.saveToken(data.token);
-    //     this.router.navigate(['user']);
-    //   }
-    // );
-    this._loginService.login(username,password)
-    // .subscribe((login) => {
-      // var payload = login.json();
-      // var headers = login.headers;
-      // var response = login;
-
-      // console.log(login);
-      // console.log(payload);
-      // console.log(headers);     
-    , (error) => {
+    this._loginService.login(username,password).subscribe((Token)=>{
+      console.log(Token);
+      this.cookieService.set("userToken", Token);
+      this.cookieService.set("userName",username);
+      this.successAlert = true;
+      this.alert = false;
+      window.location.reload();
+      
+      
+    } ,(error) => {
+      console.log("sssssssss");
+      this.alert = true;
       console.log(error);
-    };
+    });
+    
 
-    // .subscribe((res) => {
-    //   var payload = res.json();
-    //   var headers = res.headers;
-    //   console.log(payload);
-    //   console.log(headers);
-    // });
+
   }
 }

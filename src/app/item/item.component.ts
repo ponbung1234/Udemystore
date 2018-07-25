@@ -11,6 +11,8 @@ import { CartService } from './../service/cart.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
 
+
+
 declare var jquery:any;
 declare var $ :any;
 
@@ -36,6 +38,7 @@ export class ItemComponent implements OnInit {
   itemProduct;
   itemIndex;
   cartNumber: number;
+  loginStatus: boolean;
 
   constructor(
     private _productService: ProductService,
@@ -46,7 +49,6 @@ export class ItemComponent implements OnInit {
     private _cartService: CartService,
     private modalService: NgbModal,
     private cookieService: CookieService
-    // private _headerComponent: HeaderComponent
 
   ) {
     //Popover
@@ -94,6 +96,8 @@ export class ItemComponent implements OnInit {
     //this.cookieService.deleteAll();
     console.log(value);
     // this.cookieService.deleteAll();
+    this.loginStatus = this.cookieService.check('userName');
+    console.log(this.loginStatus);
     
     this._cartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
 

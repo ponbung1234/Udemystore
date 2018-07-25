@@ -42,12 +42,7 @@ export class LoginService {
     //set cookie
     // this.cookieService.set(user, pass);
 
-    return this._http.post(this.baseUrl, myObjStr, this.option).subscribe((res:Response) => {
-      console.log(res.headers.get('authorization'));
-      this.userToken = res.headers.get('authorization');
-      this.cookieService.set("userToken", this.userToken);
-      // you can assign the value to any variable here
-    });
+    return this._http.post(this.baseUrl, myObjStr, this.option).map((response:Response)=>response.headers.get('authorization')).catch(this.errorHandler);
     // .map((response: Response) => { response.headers.get("Authorization")})
     //   .catch(this.errorHandler)
   }

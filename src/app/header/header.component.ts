@@ -97,8 +97,8 @@ export class HeaderComponent implements OnInit {
     }, (error) => {
       console.log(error);
     })
-
-    this._CartService
+    if(this.userNameStatus){
+      this._CartService
       .getCart()
       .subscribe((cart) => {
         if (cart !== null) {
@@ -107,12 +107,16 @@ export class HeaderComponent implements OnInit {
             this.itemAllOfUser += cart[i].cart_amount;
           }
         }
-
         this.itemAllOfUser2 = this._CartService.setCartNum(this.itemAllOfUser);
         // console.log(this.itemAllOfUser2);
       }, (error) => {
         console.log(error);
       })
+    }
+    else{
+      this.itemAllOfUser2 = 0;
+    }
+
 
     this._CartService.cast.subscribe(cartNum => this.cartNumber = cartNum);
 

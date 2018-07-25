@@ -5,6 +5,7 @@ import { Cart } from '../cart';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { log } from 'util';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-cart',
@@ -28,10 +29,12 @@ export class CartComponent implements OnInit {
   public cartID:number;
   cart: Cart[] = [];
   cartItem: Cart[]= [];
+  userStatus: boolean;
   constructor(
     public nav: HeaderServiceService,
     private _CartService: CartService,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) { 
     let sum = 0;
     let vat = 0.07;
@@ -72,6 +75,7 @@ export class CartComponent implements OnInit {
     this.nav.show();
     this.checkoutFlag = true;   
     this._CartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
+    this.userStatus = this.cookieService.check('userName');
    
   }
 

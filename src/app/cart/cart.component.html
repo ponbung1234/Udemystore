@@ -1,134 +1,144 @@
 <main role="main" class="container-fluid">
     <h1 style="margin: 30px">Your Cart</h1>
     <hr style="border: 2px solid;">
-    <div class="row">
-        <div class="col-lg-7" style="margin-right: 50px; margin-left: 10px">
-            <table class="table table-hover border">
-                <thead class="thead-light ">
-                    <tr>
-                        <th style="width: 250px;"> Product name</th>
-                        <th style="width: 300px;"> Description</th>
+    <div *ngIf=" userStatus; else notLogin">
+        <div class="row">
+            <div class="col-lg-7" style="margin-right: 50px; margin-left: 10px">
+                <table class="table table-hover border">
+                    <thead class="thead-light ">
+                        <tr>
+                            <th style="width: 250px;"> Product name</th>
+                            <th style="width: 300px;"> Description</th>
 
-                        <th style="width: 185px;">Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let carts of cartItem">
-                        <td>{{ carts.product_name }}</td>
-                        <td> {{ carts.product_description }}
-                        </td>
+                            <th style="width: 185px;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let carts of cartItem">
+                            <td>{{ carts.product_name }}</td>
+                            <td> {{ carts.product_description }}
+                            </td>
 
-                        <td style="padding: 4px">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" (click)="addItemDet(carts.product_id,1, carts , carts.cart_amount)">
-                                        <i class="fas fa-plus"></i>
+                            <td style="padding: 4px">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" (click)="addItemDet(carts.product_id,1, carts , carts.cart_amount)">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <button class="btn btn-outline-primary" disabled>
+                                        <strong>
+
+                                            {{ carts.cart_amount }}
+                                        </strong>
                                     </button>
+                                    <div *ngIf="carts.cart_amount !== 1 ;else showButton" class="input-group-append">
+                                        <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <ng-template #showButton>
+                                        <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)" disabled>
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </ng-template>
                                 </div>
-                                <button class="btn btn-outline-primary" disabled>
-                                    <strong>
 
-                                        {{ carts.cart_amount }}
-                                    </strong>
-                                </button>
-                                <div *ngIf="carts.cart_amount !== 1 ;else showButton" class="input-group-append">
-                                    <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                </div>
-                                <ng-template #showButton>
-                                    <button class="btn btn-outline-secondary" (click)="removeItem(carts.product_id,1, carts , carts.cart_amount)" disabled>
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                </ng-template>
-                            </div>
+                                <button class="btn btn-danger btnSize" (click)="deleteItem(carts.product_id)" style="width: 78%;"> delete</button>
+                            </td>
+                        </tr>
 
-                            <button class="btn btn-danger btnSize" (click)="deleteItem(carts.product_id)" style="width: 78%;"> delete</button>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-            <!-- <button type="button" class="btn btn-warning" style="width: 100%" (click)="updatePrice()">
+                    </tbody>
+                </table>
+                <!-- <button type="button" class="btn btn-warning" style="width: 100%" (click)="updatePrice()">
                 <h3>Update total price!</h3>
             </button> -->
 
-        
-        </div>
-       
-        <div class="col-lg-4 borderDiv">
 
-            <div class="header">
-                <h5 style="color: forestgreen; text-align: center">
-                    Summery Details
-                </h5>
             </div>
-            <div *ngFor="let carts of cartItem; let i = index">
-                <div class="row">
-                    <div class="col-6 ">
-                        <img class="imgSize pull-right" src="{{carts.pro_image_path}}" alt="">
+
+            <div class="col-lg-4 borderDiv">
+
+                <div class="header">
+                    <h5 style="color: forestgreen; text-align: center">
+                        Summery Details
+                    </h5>
+                </div>
+                <div *ngFor="let carts of cartItem; let i = index">
+                    <div class="row">
+                        <div class="col-6 ">
+                            <img class="imgSize pull-right" src="{{carts.pro_image_path}}" alt="">
+                        </div>
+                        <div class="col-6 ">
+                            <br>
+                            <span>
+                                <strong>
+                                    {{carts.product_name }}
+                                </strong>
+                            </span>
+                            <br>
+                            <br>
+                            <span>
+                                price: {{carts.price | number}} THB ({{ carts.cart_amount }})
+                            </span>
+                        </div>
                     </div>
-                    <div class="col-6 ">
-                        <br>
+                    <div *ngIf="i != cartNum">
+                        <hr class="hrS" #show>
+                    </div>
+                </div>
+                <!-- Total path -->
+                <hr>
+                <div class="row" style="margin: 10px;">
+                    <div class="col-7" style="text-align: center;">
+                        <span>
+                            SubTotal: {{cartPrice | number}} THB
+                        </span>
+                    </div>
+                    <div class="col-5" style="text-align: center;">
+                        <span>
+                            VAT: 7 %
+                        </span>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="col-12" style="font-size: 20px">
                         <span>
                             <strong>
-                                {{carts.product_name }}
+                                Total : {{cartTotalPrice | number }} THB
                             </strong>
                         </span>
-                        <br>
-                        <br>
-                        <span>
-                            price: {{carts.price | number}} THB ({{ carts.cart_amount }})
-                        </span>
-                    </div>
-                </div>
-                <div *ngIf="i != cartNum">
-                    <hr class="hrS" #show>
-                </div>
-            </div>
-            <!-- Total path -->
-            <hr>
-            <div class="row" style="margin: 10px;">
-                <div class="col-7" style="text-align: center;">
-                    <span>
-                        SubTotal: {{cartPrice | number}} THB
-                    </span>
-                </div>
-                <div class="col-5" style="text-align: center;">
-                    <span>
-                        VAT: 7 %
-                    </span>
-                </div>
-                <br>
-                <br>
-                <div class="col-12" style="font-size: 20px">
-                    <span>
-                        <strong>
-                            Total : {{cartTotalPrice | number }} THB
-                        </strong>
-                    </span>
 
-                </div>
-            </div>
-            <hr>
-            <div class="col-md-12" style="margin-top: 3%">
-                <div class="row">
-                    <div class="col-6">
-                        <strong>
-                            Check out please click
-                        </strong>
                     </div>
-                    <div class="col-6" style="margin-bottom: 3%">
-                        <app-pay-option *ngIf="checkoutFlag ;else showButton"></app-pay-option>
+                </div>
+                <hr>
+                <div class="col-md-12" style="margin-top: 3%">
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>
+                                Check out please click
+                            </strong>
+                        </div>
+                        <div class="col-6" style="margin-bottom: 3%">
+                            <app-pay-option *ngIf="checkoutFlag ;else showButton"></app-pay-option>
 
-                        <ng-template #showButton>
-                            <button class="btn btn-warning" (click)="updatePrice()">Update total price!</button>
-                        </ng-template>
+                            <ng-template #showButton>
+                                <button class="btn btn-warning" (click)="updatePrice()">Update total price!</button>
+                            </ng-template>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
-
     </div>
+    <ng-template #notLogin>
+        Your are not
+
+        <p align="center" (click)="c('Close click')" class="btn btn-sm btn-outline-secondary">
+            <app-login></app-login>
+        </p>
+
+    </ng-template>
 </main>

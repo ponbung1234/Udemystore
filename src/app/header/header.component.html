@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item active" *ngIf="userNameStatus;">
                 <a class="nav-link" routerLink='orderlist'>Your Orders History
                     <span class="sr-only">(current)</span>
                     <span class="badge badge-primary badge-pill bg-danger">{{ orderNum }}</span>
@@ -17,20 +17,21 @@
             <form class="form-inline" #f="ngForm" (ngSubmit)="save(f.value)">
                 <div class="input-group mr-sm-5">
                     <!-- <input  name="input" type="input" placeholder="Search..." aria-label="input"> -->
-                                          
 
 
-                    <input id="typeahead-format" type="text" name="searchName" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="formatter" />
+
+                    <input id="typeahead-format" type="text" name="searchName" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"
+                        [resultFormatter]="formatter" />
                     <!-- <input type="hidden" name="productid"  [(ngModel)]="model"> -->
                     <!-- <pre>Model: {{ model | json }}</pre> -->
                     <div class="input-group-prepend">
-    
+
                         <button class="input-group-text">Search</button>
-                        
+
                     </div>
                 </div>
-            
-           
+
+
                 <div class="mr-sm-5">
                     <a routerLink='/cart'>
                         <i class="fa fa-2x  fa-cart-arrow-down">
@@ -41,7 +42,7 @@
 
                     </a>
                 </div>
-                <div class="mr-sm-3" style="padding-top: 20px">
+                <div class="mr-sm-3" style="padding-top: 20px" *ngIf="!userNameStatus; else showUserName">
                     <p class="btn btn-sm btn-outline-success" style="margin-right: 3px;">
                         <app-login></app-login>
                     </p>
@@ -50,11 +51,20 @@
                         <app-register></app-register>
                     </p>
                 </div>
+                <ng-template #showUserName>
+                    <div class="mr-sm-3" style="padding-top: 20px">
+                            {{userName}}
+                        <p class="btn btn-sm btn-outline-secondary" (click)="logout()">
+                            Logout
+                        </p>
+                    </div>
+                </ng-template>
+
             </form>
 
         </div>
 
-      
+
         <!-- <pre>Model: {{ model | json }}</pre> -->
     </div>
 </nav>

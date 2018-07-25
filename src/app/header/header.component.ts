@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HeaderServiceService } from './../service/header-service.service';
 import { CartService } from '../service/cart.service';
 import { Cart } from '../cart';
-import { ItemComponent } from '../item/item.component';
 import { ProductService } from '../service/product.service';
 import { Products } from '../products';
 import { Observable } from 'rxjs';
@@ -11,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OrderlistService } from '../service/orderlist.service';
 import { Orderlist } from '../Orderlist';
-
+import { CookieService } from 'ngx-cookie-service';
 
 const productName = [];
 
@@ -20,7 +19,7 @@ const productName = [];
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  providers: [ItemComponent]
+  providers: []
 })
 export class HeaderComponent implements OnInit {
   // Search
@@ -52,18 +51,23 @@ export class HeaderComponent implements OnInit {
   userID = 1;
   orderNum = 0;
   orderItem: Orderlist[] = [];
+  userNameStatus: boolean;
+  userName: String;
 
   constructor(
     public nav: HeaderServiceService,
     private _CartService: CartService,
-    private _itemComponent: ItemComponent,
     private _productService: ProductService,
     private router: Router,
-    private _orderService : OrderlistService
+    private _orderService : OrderlistService,
+    private cookieService: CookieService
   ) {
     // this.displayNumber = this._itemComponent.cartNumber;
 
-
+    this.userNameStatus = cookieService.check('userName');
+    this.userName =cookieService.get('userName');
+    // console.log(userNameStatus);
+    
 
   }
 
@@ -135,5 +139,14 @@ export class HeaderComponent implements OnInit {
     }, (error) => {
       console.log(error);
     })
+  }
+
+  logout(){
+    this.cookieService.deleteAll();
+    window.location.reload();
+  }
+
+  getUserNameStatus(){
+    return this.userNameStatus;
   }
 }

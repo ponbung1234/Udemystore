@@ -40,7 +40,6 @@ import { AdminProductComponent } from './Admin/admin-product/admin-product.compo
 import { AdminCreateProductComponent } from './Admin/admin-create-product/admin-create-product.component';
 import { DetailpageComponent } from './detailpage/detailpage.component';
 import { SlickModule } from 'ngx-slick';
-import {NgxPageScrollModule} from 'ngx-page-scroll';
 import { LoginService } from './service/login.service';
 import { AuthService } from './service/auth.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -80,7 +79,6 @@ import { CookieService } from 'ngx-cookie-service';
     FormsModule,
     NgbModule.forRoot(),
     SlickModule.forRoot(),
-    NgxPageScrollModule
   ],
   providers: [
     HeaderServiceService,

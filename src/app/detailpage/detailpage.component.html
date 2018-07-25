@@ -3,7 +3,7 @@
     <h1>
       Product Details
     </h1>
-    <hr>
+    <hr style="border: 2px solid;">
   </div>
   <div class="row" style="margin-top: 1.5%">
     <div class="col-lg-4">
@@ -59,7 +59,7 @@
 
   <div style="padding-top: 5%; margin-bottom: 3%; margin-top: 3%;margin-bottom: 3%">
     <h2>Related Products</h2>
-    <hr>
+    <hr style="border: 2px solid;">
   </div>
 <!-- carousel -->
   <ngx-slick style="width: 100%; padding-left: 1.5%" class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
@@ -69,11 +69,11 @@
     routerLink='/detailpage' 
     [queryParams]="{ productID: pro.product_id, categoryID: pro.category_id }"
     style="padding-top: 10px; padding-bottom: 20px;padding-left: 20px">
-          <div class="card" style="height: 18rem; margin-right: 10%">
+          <div class="card ho" style="height: 18rem; margin-right: 10%">
             <img class="card-img-top" style="height: 190px;" src="{{ pro.url }}" alt="" >
-            <hr>
+            <hr style="margin-top: 0">
             <h5  style="text-align: center">{{ pro.product_name }}</h5>
           </div>
-    </div>>
+    </div>
   </ngx-slick>
 </div>

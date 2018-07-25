@@ -74,8 +74,8 @@
                             <ng-template #notLogin>
                               <button class="btn btn-primary" ngbPopover="Please login first" popoverTitle=" You are not login">
                                 
-                                <app-login></app-login>
-                                <!-- <app-add-cart-popup></app-add-cart-popup> -->
+                                <!-- <app-login></app-login> -->
+                                <app-addcart-popup></app-addcart-popup>
                               </button>
                             </ng-template>
                             <a routerLink='/detailpage' [queryParams]="{  productID: products.product_id, categoryID: products.category_id }">

@@ -1,0 +1,23 @@
+<!-- ///success popup/// -->
+<ng-template #content let-c="close" let-d="dismiss">
+
+    <div class="modal-header">
+
+      <h4 class="modal-title">Please login</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Your are not 
+
+      <p align="center" (click)="c('Close click')" class="btn btn-sm btn-outline-secondary"><app-login></app-login></p>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+    </div>
+
+  </ng-template>
+
+  <a  (click)="openVerticallyCentered(content)">Add cart</a>

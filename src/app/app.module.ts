@@ -43,6 +43,7 @@ import { SlickModule } from 'ngx-slick';
 import { LoginService } from './service/login.service';
 import { AuthService } from './service/auth.service';
 import { CookieService } from 'ngx-cookie-service';
+import { AddcartPopupComponent } from './addcart-popup/addcart-popup.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { CookieService } from 'ngx-cookie-service';
     AdminProductComponent,
     AdminCreateProductComponent,
     DetailpageComponent,
+    AddcartPopupComponent,
 
   ],
   imports: [

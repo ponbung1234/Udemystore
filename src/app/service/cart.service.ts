@@ -9,12 +9,12 @@ import { CookieService } from 'ngx-cookie-service';
 import {LoginService} from './login.service';
 @Injectable()
 export class CartService {
-  private baseUrl:string='http://13.229.99.132/cart';
+  private baseUrl:string='http://192.168.43.242:8080/cart';
   // private baseUrl2:string='http://192.168.43.242:8080/postRefund';
   private baseUrl2:string='http://192.168.43.242:8080/addCart';
   private baseUrl3:string='http://13.229.99.132/removeCart';
   private baseUrl4:string='http://13.229.99.132/deleteCart';
-  private postUrl:string = 'http://13.229.99.132/checkout';
+  private postUrl:string = 'http://192.168.43.242:8080/checkout';
   // private headers = new Headers({'content-Type':'application/json'});
   private headers = new Headers({'content-Type':'application/json','Authorization': `${this.cookieService.get('userToken')}`});
   private option = new RequestOptions({headers:this.headers});

@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
   cart: Cart[] = [];
   cartItem: Cart[]= [];
   userStatus: boolean;
+  showLoader = true;
   constructor(
     public nav: HeaderServiceService,
     private _CartService: CartService,
@@ -45,16 +46,18 @@ export class CartComponent implements OnInit {
      
       this.cartItem = cart;
       // console.log(this.cartItem);
+      if(this.cartItem.length>0){
+        this.showLoader = false;
+      }
       if(cart !== null ){
         this.lastIndex = cart;
         // console.log(this.lastIndex);
         for( let i = 0 ; i < cart.length ; i++){ 
-          if(cart[i].ecustomer_id == 1){
+          
           this.cartID=cart[i].cart_id;
           this.cartAmout = cart[i].cart_amount;
           this.cartNum += 1;
           sum += cart[i].price*this.cartAmout;
-          }
           this.cartPrice = sum; 
           this.cartTotalPrice = (sum*vat)+sum;
         }
@@ -76,6 +79,9 @@ export class CartComponent implements OnInit {
     this.checkoutFlag = true;   
     this._CartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
     this.userStatus = this.cookieService.check('userName');
+    if(!this.userStatus){
+      this.showLoader = false;
+    }
    
   }
 

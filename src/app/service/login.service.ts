@@ -15,7 +15,6 @@ export class LoginService {
 
   private headers = new Headers({ 'content-Type': 'text' });
   // const options = {headers, params, responseType: 'text' as 'text'};
-  private respon
   private option = new RequestOptions({
     headers: this.headers
   });

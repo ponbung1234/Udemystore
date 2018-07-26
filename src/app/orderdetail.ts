@@ -5,5 +5,5 @@ export class Orderdetail {
     pro_image_path: string;
     product_description: string;
     amount: string;
-
+    status: string;
 }

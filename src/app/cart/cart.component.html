@@ -1,6 +1,19 @@
 <main role="main" class="container-fluid">
     <h1 style="margin: 30px">Your Cart</h1>
     <hr style="border: 2px solid;">
+<div *ngIf=" showLoader; else showPage ">
+
+        <div class="container">
+            <div class="row " style="padding-top: 10%; padding-bottom: 20%">
+            <div class="loader"></div>
+            </div>
+        
+        </div>
+        
+        
+        </div>
+        
+<ng-template #showPage>
     <div *ngIf=" userStatus; else notLogin">
         <div class="row">
             <div class="col-lg-7" style="margin-right: 50px; margin-left: 10px">
@@ -133,12 +146,16 @@
 
         </div>
     </div>
+    </ng-template>
     <ng-template #notLogin>
-        Your are not
+        <div  align="center" class="pt-5">
+                <h3>Your are not
 
-        <p align="center" (click)="c('Close click')" class="btn btn-sm btn-outline-secondary">
-            <app-login></app-login>
-        </p>
-
+                <p (click)="c('Close click')" class="btn btn-outline-secondary">
+                    <app-login></app-login>
+                </p></h3>
+        
+        </div>
+       
     </ng-template>
 </main>

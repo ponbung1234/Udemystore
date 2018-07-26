@@ -5,15 +5,17 @@ import { RefundRequest } from './../refundRequest';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw'
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class RefundService {
   refund: RefundRequest[];
-  private baseUrl1:string='http://13.229.99.132/refund';
-  private baseUrl2:string='http://13.229.99.132/postRefund';
-  private headers = new Headers({'content-Type':'application/json'});
+  private baseUrl1:string='http://192.168.43.242:8080/refund';
+  private baseUrl2:string='http://192.168.43.242:8080/postRefund';
+  private headers = new Headers({'content-Type':'application/json','Authorization': `${this.cookieService.get('userToken')}`});
   private option = new RequestOptions({headers:this.headers});
-  constructor(private _http:Http) { }
+  constructor(private _http:Http,
+    private cookieService: CookieService) { }
 
   getRefund(){
     return this._http.get(this.baseUrl1,this.option).map((response:Response)=>response.json())

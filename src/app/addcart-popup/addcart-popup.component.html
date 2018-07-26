@@ -2,11 +2,11 @@
 <ng-template #content let-c="close" let-d="dismiss">
 
     <div class="modal-content">
-      <div class="modal-header" style="padding:10px 215px;">
+      <div class="modal-header" style="padding-left: 165px">
         <h4>
-          <span class="glyphicon glyphicon-lock"></span>Please Login
+          Please Login
         </h4>
-        <div style="margin-left: 162px;">
+        <div >
           <button type="button" class="close" aria-label="Close" style="padding-top:5px;" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -39,14 +39,14 @@
             <span class="glyphicon glyphicon-off" ></span> Login</button>
         </form>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" style="padding-right: 100px">
 
-        <p>Not a member?
+        <span>Not a member?
           <a href="#">Sign Up</a>
-        </p>
-        <p>Forgot
+        </span>
+        <span>Forgot
           <a href="#">Password?</a>
-        </p>
+        </span>
       </div>
     </div>
 

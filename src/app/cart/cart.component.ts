@@ -31,6 +31,7 @@ export class CartComponent implements OnInit {
   cartItem: Cart[]= [];
   userStatus: boolean;
   showLoader = true;
+  noCart: boolean = false;
   constructor(
     public nav: HeaderServiceService,
     private _CartService: CartService,
@@ -46,9 +47,10 @@ export class CartComponent implements OnInit {
      
       this.cartItem = cart;
       // console.log(this.cartItem);
-      if(this.cartItem.length>0){
+      if(this.cartItem.length > 0 ){
         this.showLoader = false;
       }
+
       if(cart !== null ){
         this.lastIndex = cart;
         // console.log(this.lastIndex);
@@ -69,7 +71,9 @@ export class CartComponent implements OnInit {
       }
 
     }, (error) => {
-      console.log(error);
+      this.showLoader = false;
+      this.noCart = false;
+      // console.log(error);
     })
    
   }

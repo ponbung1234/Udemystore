@@ -38,17 +38,17 @@ export class RefundComponent implements OnInit {
       .getRefund().switchMap(refund => {
 
         this.refund = refund;
-        //console.log(this.refund);
+        // console.log(this.refund);
         return route.queryParamMap;
 
       })
       .subscribe(params => {
         this.itemID = params.get('itemID');
-        //console.log(this.itemID);
+        // console.log(this.itemID);
         this.filteredProducts = (this.refund) ?
           this.refund.filter(p => p.item_id === Number(this.itemID)) :
           this.refund;
-        console.log(this.filteredProducts);
+        // console.log(this.filteredProducts);
 
       });
     // console.log(this.filteredProducts);

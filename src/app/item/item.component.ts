@@ -84,7 +84,6 @@ export class ItemComponent implements OnInit {
       // console.log(category);
       this.category = category;
     }, (error) => {
-
       // console.log("login first");
     })
 

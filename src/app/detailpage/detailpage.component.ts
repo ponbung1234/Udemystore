@@ -8,6 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { CategoryService } from '../service/category.service';
 import { Category } from '../category';
 import 'rxjs/add/operator/switchMap';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 @Component({
@@ -30,7 +31,6 @@ export class DetailpageComponent implements OnInit {
   count = 0;
   cartNumber: number;
   sizeProduct = 0;
-
   categoryID: string;
 
 
@@ -43,6 +43,7 @@ export class DetailpageComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private _categoryService: CategoryService,
+    private cookieService: CookieService
 
   ) {
 

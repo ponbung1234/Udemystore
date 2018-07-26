@@ -39,14 +39,13 @@ export class AtmComponent implements OnInit {
       if(cart !== null ){
         this.lastIndex = cart;
         for( let i = 0 ; i < cart.length ; i++){ 
-          if(cart[i].ecustomer_id == 1){
+         
             this.cartNum += 1;
           this.cartAmout = cart[i].cart_amount;
           this.cartItem = cart;
           this.cartProName = cart[i].product_name;
           this.cartProDescript = cart[i].product_description;
           sum += cart[i].price*this.cartAmout;
-          }
           this.cartPrice = sum; 
           this.cartTotalPrice = (sum*vat)+sum;
         }    
@@ -62,6 +61,7 @@ export class AtmComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
+    window.location.reload();
   }
 
 

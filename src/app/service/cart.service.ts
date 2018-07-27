@@ -9,12 +9,12 @@ import { CookieService } from 'ngx-cookie-service';
 import {LoginService} from './login.service';
 @Injectable()
 export class CartService {
-  private baseUrl:string='http://192.168.43.242:8080/cart';
+  private baseUrl:string='http://13.229.99.132/cart';
   // private baseUrl2:string='http://192.168.43.242:8080/postRefund';
-  private baseUrl2:string='http://192.168.43.242:8080/addCart';
+  private baseUrl2:string='http://13.229.99.132/addCart';
   private baseUrl3:string='http://13.229.99.132/removeCart';
   private baseUrl4:string='http://13.229.99.132/deleteCart';
-  private postUrl:string = 'http://192.168.43.242:8080/checkout';
+  private postUrl:string = 'http://13.229.99.132/checkout';
   // private headers = new Headers({'content-Type':'application/json'});
   private headers = new Headers({'content-Type':'application/json','Authorization': `${this.cookieService.get('userToken')}`});
   private option = new RequestOptions({headers:this.headers});
@@ -38,9 +38,9 @@ export class CartService {
     this.cartNum.subscribe((cartNum)=>{this.num = Number(cartNum)})
     
     this.num = this.num + amount;
-    console.log(this.num);
+   // console.log(this.num);
     this.cartNum.next(this.num);
-    console.log("updated");
+    //console.log("updated");
     return this._http.post(this.baseUrl2,cart, this.option).map((response:Response)=>response.json())
     .catch(this.errorHandler)
     // this.cartNum.next();
@@ -49,9 +49,9 @@ export class CartService {
     this.cartNum.subscribe((cartNum)=>{this.num = Number(cartNum)})
     
     this.num = this.num - amount;
-    console.log(this.num);
+    //console.log(this.num);
     this.cartNum.next(this.num);
-    console.log("removed");
+    //console.log("removed");
     return this._http.post(this.baseUrl3,cart, this.option).map((response:Response)=>response.json())
     .catch(this.errorHandler)
   }
@@ -78,7 +78,7 @@ export class CartService {
 
 
   checkOut(cartCheckOut:string){
-     console.log(cartCheckOut);
+     //console.log(cartCheckOut);
     return this._http.post(this.postUrl,cartCheckOut,this.option).map((response:Response)=>response.json())
     .catch(this.errorHandler);
   }

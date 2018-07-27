@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this._productService.getProducts().subscribe((product)=>{
-      console.log(product);
+     // console.log(product);
       this.product=product;
     },(error)=>{
       console.log(error);

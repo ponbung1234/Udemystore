@@ -22,7 +22,7 @@ export class AtmComponent implements OnInit {
   cartTotalPrice: number = 0;
   lastIndex = 0 ;
   cartNum = 0;
-
+  flag =0 ;
 
   cart: Cart[] = [];
   cartItem : any;
@@ -51,7 +51,7 @@ export class AtmComponent implements OnInit {
         }    
         this.cartNum--;
       }else{
-        console.log("No data")
+        //console.log("No data")
       }
 
     }, (error) => {
@@ -61,7 +61,11 @@ export class AtmComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
-    window.location.reload();
+   if(this.flag == 0){
+     this.flag = 1;
+    //  window.location.reload();
+     
+   }
   }
 
 

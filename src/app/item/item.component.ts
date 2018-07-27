@@ -93,10 +93,10 @@ export class ItemComponent implements OnInit {
     this.nav.show();
     const value: string = this.cookieService.get('userToken');
     //this.cookieService.deleteAll();
-    console.log(value);
+    //console.log(value);
     // this.cookieService.deleteAll();
     this.loginStatus = this.cookieService.check('userName');
-    console.log(this.loginStatus);
+    //console.log(this.loginStatus);
     
     this._cartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
 
@@ -106,7 +106,7 @@ export class ItemComponent implements OnInit {
     // this._cartService.updateCartNum(productID);
     this.modalService.open(content, { centered: true });
     this._cartService.updateCartNum(productID+","+1,1).subscribe((productID) => {
-      console.log(productID);
+      //console.log(productID);
      
     }, (error) => {
       console.log(error);

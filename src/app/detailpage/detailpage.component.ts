@@ -59,7 +59,7 @@ export class DetailpageComponent implements OnInit {
           if (productItem != null) {
             for (let i = 0; i < productItem.length; i++) {
               this.sizeProduct = productItem.length;
-              console.log(this.sizeProduct);
+              //console.log(this.sizeProduct);
               if (this.productID == productItem[i].product_id) {
                 // console.log(productItem[i])
                 this.productID = productItem[i].product_id;
@@ -95,7 +95,7 @@ export class DetailpageComponent implements OnInit {
         this.relatedProduct = (this.category) ?
           this.productItem.filter(p => p.category_id === Number(this.categoryID)) :
           this.productItem;
-        console.log(this.relatedProduct);
+        //console.log(this.relatedProduct);
 
       });
 

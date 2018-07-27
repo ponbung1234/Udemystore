@@ -14,7 +14,7 @@ export class AdminCreateProductComponent implements OnInit {
     activatedRoute.queryParams.subscribe(params => {
       
       let id = params['productId'];
-      console.log(id);
+      //console.log(id);
       
     });
 
@@ -23,7 +23,7 @@ export class AdminCreateProductComponent implements OnInit {
   ngOnInit() {
   }
   save(product) { 
-    console.log(product);
+    //console.log(product);
     // if (this.id) this.productService.update(this.id, product);
     // else this.productService.create(product);
     

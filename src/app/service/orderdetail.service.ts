@@ -8,7 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class OrderdetailService {
-  private baseUrl:string='http://192.168.43.242:8080/orderDetail';
+  private baseUrl:string='http://13.229.99.132/orderDetail';
   private headers = new Headers({'content-Type':'application/json','Authorization': `${this.cookieService.get('userToken')}`});
   private option = new RequestOptions({headers:this.headers});
   constructor(private _http:Http,

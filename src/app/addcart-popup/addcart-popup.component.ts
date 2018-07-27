@@ -33,7 +33,7 @@ export class AddcartPopupComponent implements OnInit {
   }
 
   openVerticallyCentered(content) {
-    console.log(content);
+    //console.log(content);
     this.modalService.open(content, { centered: true });
   }
 // get value from input 
@@ -43,10 +43,10 @@ export class AddcartPopupComponent implements OnInit {
     const username = target.querySelector('#usrname').value;
     const password = target.querySelector('#psw').value;
 
-    console.log(username,password);
+    //console.log(username,password);
 
     this._loginService.login(username,password).subscribe((Token)=>{
-      console.log(Token);
+      //console.log(Token);
       this.cookieService.set("userToken", Token);
       this.cookieService.set("userName",username);
       this.successAlert = true;
@@ -55,7 +55,7 @@ export class AddcartPopupComponent implements OnInit {
       
       
     } ,(error) => {
-      console.log("sssssssss");
+      //console.log("sssssssss");
       this.alert = true;
       console.log(error);
     });

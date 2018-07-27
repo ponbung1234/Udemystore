@@ -49,6 +49,7 @@ export class CartComponent implements OnInit {
       // console.log(this.cartItem);
       if(this.cartItem.length > 0 ){
         this.showLoader = false;
+        this.noCart = true;
       }
 
       if(cart !== null ){
@@ -90,8 +91,8 @@ export class CartComponent implements OnInit {
   }
 
   submit(paymentType:String){
-    console.log("payment");
-    console.log(this.cartID);
+   // console.log("payment");
+   // console.log(this.cartID);
     this._CartService.checkOut(this.cartTotalPrice + "," + paymentType + "," +this.cartID).subscribe((formInput) => {
       // console.log(formInput);
     }, (error) => {
@@ -103,7 +104,7 @@ export class CartComponent implements OnInit {
     this.checkoutFlag = false; 
     carts.cart_amount = amount + 1;
     this._CartService.updateCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
-      console.log(productID);
+      //console.log(productID);
 
     }, (error) => {
       console.log(error);
@@ -113,7 +114,7 @@ export class CartComponent implements OnInit {
     this.checkoutFlag = false;
     carts.cart_amount = amount - 1;
     this._CartService.removeCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
-      console.log(productID);
+      //console.log(productID);
 
     }, (error) => {
       console.log(error);
@@ -122,7 +123,7 @@ export class CartComponent implements OnInit {
   deleteItem(productID: number){
     
     this._CartService.deleteProductfromCart(productID).subscribe((productID) => {
-      console.log(productID);
+      //console.log(productID);
 
     }, (error) => {
       console.log(error);

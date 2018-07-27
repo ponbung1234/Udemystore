@@ -46,8 +46,8 @@ export class OrderdetailComponent implements OnInit {
    // modalRef.componentInstance.anyDataForm = this.anyData;
    modalRef. result.then(() => { console.log('When user closes'); }, () => { console.log('Backdrop click')})
    
-    console.log(content);
-    console.log(this.orderNum);
+    //console.log(content);
+    //console.log(this.orderNum);
   }
 
   public closeModal(){

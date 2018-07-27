@@ -38,7 +38,7 @@ export class RefundComponent implements OnInit {
       .getRefund().switchMap(refund => {
 
         this.refund = refund;
-        // console.log(this.refund);
+         console.log(this.refund);
         return route.queryParamMap;
 
       })
@@ -48,7 +48,7 @@ export class RefundComponent implements OnInit {
         this.filteredProducts = (this.refund) ?
           this.refund.filter(p => p.item_id === Number(this.itemID)) :
           this.refund;
-        // console.log(this.filteredProducts);
+         console.log(this.filteredProducts);
 
       });
     // console.log(this.filteredProducts);
@@ -61,7 +61,7 @@ export class RefundComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       //this.itemID = params['itemID'];
       this.amount = params['amount'];
-      console.log(this.amount);
+      //console.log(this.amount);
       this.numbers = Array(10).fill(0).map((x, i) => i);
     });
     this.nav.show();
@@ -74,11 +74,11 @@ export class RefundComponent implements OnInit {
     // console.log(this.formInput);
     
     // console.log(JSON.stringify(this.formInput));
-    console.log(user.itemid);
+    //console.log(user.itemid);
     
-    console.log(this.filteredProducts);
+    //console.log(this.filteredProducts);
     this._refundService.postRefund(user.itemid+","+user.Amount+","+user.reason+","+user.orderid+","+user.productid).subscribe((formInput) => {
-      console.log(formInput);     
+      //console.log(formInput);     
     }, (error) => {
       console.log(error);
     });

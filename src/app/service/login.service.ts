@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class LoginService {
-  private baseUrl: string = 'http://192.168.43.242:8080/login';
+  private baseUrl: string = 'http://13.229.99.132/login';
 
   private headers = new Headers({ 'content-Type': 'text' });
   // const options = {headers, params, responseType: 'text' as 'text'};
@@ -37,7 +37,7 @@ export class LoginService {
       password: pass
     };
     const myObjStr = JSON.stringify(users);
-    console.log(myObjStr);
+    //console.log(myObjStr);
     //set cookie
     // this.cookieService.set(user, pass);
 

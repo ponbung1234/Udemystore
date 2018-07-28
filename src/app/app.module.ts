@@ -44,6 +44,9 @@ import { LoginService } from './service/login.service';
 import { AuthService } from './service/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AddcartPopupComponent } from './addcart-popup/addcart-popup.component';
+import { CreditCardComponent } from './credit-card/credit-card.component';
+import { NgXCreditCardsModule } from 'ngx-credit-cards';
+
 
 @NgModule({
   declarations: [
@@ -70,6 +73,7 @@ import { AddcartPopupComponent } from './addcart-popup/addcart-popup.component';
     AdminCreateProductComponent,
     DetailpageComponent,
     AddcartPopupComponent,
+    CreditCardComponent,
 
   ],
   imports: [
@@ -81,6 +85,7 @@ import { AddcartPopupComponent } from './addcart-popup/addcart-popup.component';
     FormsModule,
     NgbModule.forRoot(),
     SlickModule.forRoot(),
+    NgXCreditCardsModule
   ],
   providers: [
     HeaderServiceService,

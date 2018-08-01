@@ -32,6 +32,7 @@ export class DetailpageComponent implements OnInit {
   cartNumber: number;
   sizeProduct = 0;
   categoryID: string;
+  loginStatus:boolean; 
 
 
 
@@ -110,6 +111,7 @@ export class DetailpageComponent implements OnInit {
 
   ngOnInit() {
     this.nav.show();
+    this.loginStatus = this.cookieService.check('userName');
 
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {

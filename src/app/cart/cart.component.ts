@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { HeaderServiceService } from './../service/header-service.service';
 import { CartService } from '../service/cart.service';
 import { Cart } from '../cart';
@@ -19,89 +19,114 @@ export class CartComponent implements OnInit {
   cartPrice: number = 0;
   cartTotalPrice: number = 0;
   cartEcustomerID = 0;
-  lastIndex = 0 ;
+  lastIndex = 0;
   hr = 0;
   cartNum = 0;
   count = 0;
   numberItem: number;
   cartNumber: number;
   checkoutFlag: boolean;
-  public cartID:number;
+  public cartID: number;
   cart: Cart[] = [];
-  cartItem: Cart[]= [];
+  cartItem: Cart[] = [];
   userStatus: boolean;
   showLoader = true;
   noCart: boolean = false;
+
+
   constructor(
     public nav: HeaderServiceService,
     private _CartService: CartService,
     private router: Router,
-    private cookieService: CookieService
-  ) { 
+    private cookieService: CookieService,
+    private renderer: Renderer2
+  ) {
     let sum = 0;
     let vat = 0.07;
-    
     _CartService
-    .getCart()
-    .subscribe((cart) => {
-     
-      this.cartItem = cart;
-      // console.log(this.cartItem);
-      if(this.cartItem.length > 0 ){
-        this.showLoader = false;
-        this.noCart = true;
-      }
+      .getCart()
+      .subscribe((cart) => {
 
-      if(cart !== null ){
-        this.lastIndex = cart;
-        // console.log(this.lastIndex);
-        for( let i = 0 ; i < cart.length ; i++){ 
-          
-          this.cartID=cart[i].cart_id;
-          this.cartAmout = cart[i].cart_amount;
-          this.cartNum += 1;
-          sum += cart[i].price*this.cartAmout;
-          this.cartPrice = sum; 
-          this.cartTotalPrice = (sum*vat)+sum;
+        this.cartItem = cart;
+        // console.log(this.cartItem);
+        if (this.cartItem.length > 0) {
+          this.showLoader = false;
+          this.noCart = true;
         }
-        this.cartNum--;
-        //console.log(this.cartNum)
-        //console.log(this.cartID);
-      }else{
-        console.log("No data")
-      }
 
-    }, (error) => {
-      this.showLoader = false;
-      this.noCart = false;
-      // console.log(error);
-    })
-   
+        if (cart !== null) {
+          this.lastIndex = cart;
+          // console.log(this.lastIndex);
+          for (let i = 0; i < cart.length; i++) {
+
+            this.cartID = cart[i].cart_id;
+            this.cartAmout = cart[i].cart_amount;
+            this.cartNum += 1;
+            sum += cart[i].price * this.cartAmout;
+            this.cartPrice = sum;
+            this.cartTotalPrice = (sum * vat) + sum;
+          }
+          this.cartNum--;
+          //console.log(this.cartNum)
+          //console.log(this.cartID);
+        } else {
+          console.log("No data")
+        }
+
+      }, (error) => {
+        this.showLoader = false;
+        this.noCart = false;
+        // console.log(error);
+      })
+
   }
 
   ngOnInit() {
     this.nav.show();
-    this.checkoutFlag = true;   
-    this._CartService.cast.subscribe(cartNum=> this.cartNumber = cartNum);
+    this.checkoutFlag = true;
+    this._CartService.cast.subscribe(cartNum => this.cartNumber = cartNum);
     this.userStatus = this.cookieService.check('userName');
-    if(!this.userStatus){
+    if (!this.userStatus) {
       this.showLoader = false;
     }
-   
+
   }
 
-  submit(paymentType:String){
-   // console.log("payment");
-   // console.log(this.cartID);
-    this._CartService.checkOut(this.cartTotalPrice + "," + paymentType + "," +this.cartID).subscribe((formInput) => {
+  ngAfterViewInit() {
+    this.addJS();
+  }
+
+  onViewinit() {
+
+  }
+
+  addJS(){
+    const payform = document.getElementById('payform');
+    console.log(payform);
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = 'https://sit-dev-kpaymentgateway.new-kpgw.com/ui/v1/kpayment.min.js';
+    script.setAttribute('data-apikey', 'pkey_test_1rCKZrDxLhWqciIRD34zErPKL6WS8Zk9');
+    script.setAttribute('data-name', 'Shoes Space');
+    script.setAttribute('data-currency', 'THB');
+    script.setAttribute('data-amount', '74.00');
+    script.setAttribute('data-payment-methods', 'card');
+
+    this.renderer.appendChild(payform, script);
+  }
+
+  submit(paymentType: String) {
+    // console.log("payment");
+    // console.log(this.cartID);
+    this._CartService.checkOut(this.cartTotalPrice + "," + paymentType + "," + this.cartID).subscribe((formInput) => {
       // console.log(formInput);
     }, (error) => {
       console.log(error);
     });
   }
 
-  addItemDet(productID: number, numberItem: number,carts, amount) {
-    this.checkoutFlag = false; 
+  addItemDet(productID: number, numberItem: number, carts, amount) {
+    this.checkoutFlag = false;
     carts.cart_amount = amount + 1;
     this._CartService.updateCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
       //console.log(productID);
@@ -110,7 +135,7 @@ export class CartComponent implements OnInit {
       console.log(error);
     });
   }
-  removeItem(productID: number, numberItem: number,carts, amount){
+  removeItem(productID: number, numberItem: number, carts, amount) {
     this.checkoutFlag = false;
     carts.cart_amount = amount - 1;
     this._CartService.removeCartNum(productID + "," + numberItem, numberItem).subscribe((productID) => {
@@ -120,8 +145,8 @@ export class CartComponent implements OnInit {
       console.log(error);
     });
   }
-  deleteItem(productID: number){
-    
+  deleteItem(productID: number) {
+
     this._CartService.deleteProductfromCart(productID).subscribe((productID) => {
       //console.log(productID);
 
@@ -131,9 +156,9 @@ export class CartComponent implements OnInit {
     window.location.reload();
   }
 
-  updatePrice(){
+  updatePrice() {
     window.location.reload();
-    
+
   }
 
 }

@@ -25,7 +25,9 @@
         
       ],
 
-      "scripts": [],
+      "scripts": [
+        "https://dev-kpaymentgateway.kasikornbank.com/ui/v1/kpayment.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

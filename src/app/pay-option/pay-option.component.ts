@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from '../cart/cart.component';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-pay-option',
@@ -9,9 +10,12 @@ import { CartComponent } from '../cart/cart.component';
   providers:[CartComponent]
 })
 export class PayOptionComponent implements OnInit {
+  successAlert: boolean =false;
   constructor(
     public modalService: NgbModal,
-    private cartComponent: CartComponent
+    private cartComponent: CartComponent,
+
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -19,9 +23,13 @@ export class PayOptionComponent implements OnInit {
   public open(content) {
     this.modalService.open(content);
   }
-  callSubmit(paymentType:String){
+  callSubmit(paymentType:String,content){
     // console.log(paymentType);
-    this.cartComponent.submit(paymentType);
+    this.successAlert = true;
+    this.modalService.open(content, { centered: true });
+    window.location.reload();
+    // this.router.navigate(['/']);
+    // this.cartComponent.submit(paymentType);
     
   }
 

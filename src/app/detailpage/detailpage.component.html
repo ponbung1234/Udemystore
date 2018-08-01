@@ -35,22 +35,35 @@
           </p>
         </div>
         <!-- footer-details -->
-        <div class="input-group mb-3" style="padding-left: 25%; padding-right: 25%">
+        <div class="input-group mb-3" style="padding-left: 25%; padding-right: 25%" *ngIf=" loginStatus; else notLogin" >
           <div class="input-group-prepend">
             <button class="btn btn-outline-secondary" (click)="plus()">+</button>
           </div>
           <!-- <input style="text-align: center" type="button" class="form-control" value="Add {{ numberItem }} to cart"> -->
-          <button class="form-control btn btn-outline-primary" (click)="addItemDet(productID,numberItem)">
+          <button class="form-control btn btn-outline-primary" (click)="addItemDet(productID,numberItem)" >
             Add
             <strong>
               {{ numberItem }}
             </strong>
             product to cart
           </button>
+       
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" (click)="minus()">-</button>
           </div>
         </div>
+        <ng-template #notLogin>
+          <div align="center" class="pt-5">
+              <h3>To add product to cart, please Login
+  
+                  <!-- <p (click)="c('Close click')" class="btn btn-outline-secondary">
+                      <app-login></app-login>
+                   </p> -->
+              </h3>
+  
+          </div>
+  
+      </ng-template>
 
       </div>
     </div>

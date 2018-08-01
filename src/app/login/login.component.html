@@ -13,10 +13,10 @@
       </div>
       <div class="modal-body" style="padding:40px 50px;">
         <div class="alert alert-danger" role="alert" *ngIf=" alert">
-          pass pid na ja
+          Wrong username or password.
         </div>
         <div class="alert alert-success" role="alert" *ngIf=" successAlert">
-          dai law na
+          Login Successful.
         </div>
 
         <form role="form" (submit)="loginData($event)">

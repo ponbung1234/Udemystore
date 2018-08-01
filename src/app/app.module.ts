@@ -46,6 +46,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { AddcartPopupComponent } from './addcart-popup/addcart-popup.component';
 import { CreditCardComponent } from './credit-card/credit-card.component';
 import { NgXCreditCardsModule } from 'ngx-credit-cards';
+import { ScriptHackComponent } from './script-hack/script-hack.component';
+import { SuccessComponent } from './success/success.component';
 
 
 @NgModule({
@@ -74,6 +76,8 @@ import { NgXCreditCardsModule } from 'ngx-credit-cards';
     DetailpageComponent,
     AddcartPopupComponent,
     CreditCardComponent,
+    ScriptHackComponent,
+    SuccessComponent,
 
   ],
   imports: [

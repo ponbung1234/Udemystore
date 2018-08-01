@@ -1,4 +1,98 @@
 <ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" style="margin-left: 35%">Credit card</h4>
+    <button (click)="c('Close click');" type="button" class="close " aria-label="Close" style="padding-top:3px;padding-right:7px;">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div id="pay-invoice" class="card">
+          <div class="card-body">
+            <form action="/echo" method="post" novalidate="novalidate" class="needs-validation">
+              <div class="form-group text-center">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <i class="text-muted fa fa-cc-visa fa-2x"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fa fa-cc-mastercard fa-2x"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fa fa-cc-amex fa-2x"></i>
+                  </li>
+                  <li class="list-inline-item">
+                    <i class="fa fa-cc-discover fa-2x"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="form-group has-success">
+                <label for="cc-name" class="control-label mb-1">Name on card</label>
+                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name" required autocomplete="cc-name" aria-required="true"
+                  aria-invalid="false" aria-describedby="cc-name-error">
+                <span class="invalid-feedback">Enter the name as shown on credit card</span>
+              </div>
+              <div class="form-group">
+                <label for="cc-number" class="control-label mb-1">Card number</label>
+                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" required="" pattern="[0-9]{16}">
+                <span class="invalid-feedback">Enter a valid 16 digit card number</span>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="cc-exp" class="control-label mb-1">Expiration</label>
+                    <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
+                    <span class="invalid-feedback">Enter the expiration date</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <label for="x_card_code" class="control-label mb-1">Security code</label>
+                  <div class="input-group">
+                    <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required autocomplete="off">
+                    <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="Security Code"
+                          data-content="<div class='text-center one-card'>The 3 digit code on back of the card..<div class='visa-mc-cvc-preview'></div></div>"
+                          data-trigger="hover"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <!-- c('Close click'); -->
+                <button (click)=" callSubmit('Credit Card')" type="submit" class="btn btn-lg btn-info btn-block">
+                  <i class="fa fa-lock fa-lg"></i>&nbsp;
+                  <span id="payment-button-amount">Pay 509,159.5 THB</span>
+                  <span id="payment-button-sending" style="display:none;">Sending…</span>
+                </button>
+                <div class="alert alert-success" role="alert" style="margin-top: 10px;" *ngIf=" successAlert">
+                  Successful.
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</ng-template>
+
+<button class="btn btn-success" (click)="open(content)">Payment Option</button>
+
+
+
+
+
+
+<!-- 
+  <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h4 class="modal-title" style="margin-left: 35%">Pay Options</h4>
       <button (click)="c('Close click');" type="button" class="close " aria-label="Close" style="padding-top:3px;padding-right:7px;" >
@@ -23,11 +117,22 @@
                 <i class="fa-2x fab fa-cc-visa"></i>
               </div>
               <div class="col-6">
-                <a href="https://www.kasikornbank.com/th/promotion/Pages/KBankbelieve.aspx" target="_blank">
-                <button (click)=" c('Close click'); callSubmit(3)" class="btn btn-outline-success " style="width:300px" >
-                    CREDIT CARD
-                </button>
-                </a>
+                <form  method="POST" action="checkout.jsp">
+                  <!-- <script type="text/javascript"
+                    src="https://dev-kpaymentgateway.kasikornbank.com/ui/v1/kpayment.min.js"
+                    data-apikey="pkey_test_38nyn5BNLRnl29fPNQceGyXJpHkjT3HH48"
+                    data-name="Shoes Space"
+                    data-currency="THB"
+                    data-amount="74.00"
+                    data-payment-methods="card">
+                  </script> -->
+<!--                   
+                
+                  <app-script-hack src="//dev-kpaymentgateway.kasikornbank.com/ui/v1/kpayment.min.js"  type="text/javascript"></app-script-hack>
+              </form>
+              <app-script-hack src="//dev-kpaymentgateway.kasikornbank.com/ui/v1/kpayment.min.js"  type="text/javascript"></app-script-hack>
+              <a href="https://twitter.com/olivierleplus" class="twitter-follow-button" data-lang="en" data-show-count="false">Follow @olivierleplus</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+              
               </div>
             </div>
         </div>
@@ -46,4 +151,4 @@
     
   </ng-template>
   
-  <button class="btn btn-success" (click)="open(content)" >Payment Option</button>
+  <button class="btn btn-success" (click)="open(content)" >Payment Option</button> -->

@@ -9,6 +9,8 @@ import 'rxjs/add/operator/switchMap';
 import { Orderdetail } from '../orderdetail';
 import {OrderdetailService} from '../service/orderdetail.service';
 import { isNull } from 'util';
+// import { CookieService } from '../../../node_modules/ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-orderlist',
@@ -25,17 +27,19 @@ export class OrderlistComponent implements OnInit {
   public orderNum: Number;
   numWords= ['One','Two','Three','Four','Five','Six','seven'];
   showLoader = true;
+  userName: string;
 
   constructor(
     private _orderlistService: OrderlistService,
     public nav: HeaderServiceService,
     private route: ActivatedRoute,
     private orderdetailCom: OrderdetailComponent,
-    private _orderdetailService: OrderdetailService
+    private _orderdetailService: OrderdetailService,
+    private cookieService: CookieService
 
   ) {
 
-
+    this.userName = this.cookieService.get('userName');
     _orderlistService.getOrderlist().subscribe((orderlist) => {
      // console.log("orderlist");
       //console.log(orderlist);

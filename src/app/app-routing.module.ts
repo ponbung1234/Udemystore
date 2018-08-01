@@ -16,6 +16,7 @@ import { AdminProductComponent } from './Admin/admin-product/admin-product.compo
 import { AdminCreateProductComponent } from './Admin/admin-create-product/admin-create-product.component';
 import { DetailpageComponent } from './detailpage/detailpage.component';
 import { CreditCardComponent } from './credit-card/credit-card.component';
+import { SuccessComponent } from './success/success.component';
 const routes: Routes = [
  // {path: '', component: ItemComponent},
   {path: '', component: ItemComponent},

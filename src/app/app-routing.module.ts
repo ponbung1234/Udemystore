@@ -34,7 +34,8 @@ const routes: Routes = [
   {path: 'admin/product/new', component: AdminCreateProductComponent},
   {path: 'item' , component:ItemComponent},
   {path: 'detailpage',component:DetailpageComponent},
-  {path: 'creditcart', component:CreditCardComponent}
+  {path: 'creditcart', component:CreditCardComponent},
+  {path: 'success', component:SuccessComponent}
 
   
 ];

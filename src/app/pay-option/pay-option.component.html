@@ -65,13 +65,13 @@
 
               <div>
                 <!-- c('Close click'); -->
-                <button (click)=" callSubmit('Credit Card')" type="submit" class="btn btn-lg btn-info btn-block">
+                <button (click)="c('Close click'); callSubmit('Credit Card')" type="submit" class="btn btn-lg btn-info btn-block">
                   <i class="fa fa-lock fa-lg"></i>&nbsp;
                   <span id="payment-button-amount">Pay 509,159.5 THB</span>
                   <span id="payment-button-sending" style="display:none;">Sending…</span>
                 </button>
-                <div class="alert alert-success" role="alert" style="margin-top: 10px;" *ngIf=" successAlert">
-                  Successful.
+                <div class="alert alert-info" role="alert" style="margin-top: 10px;" *ngIf=" successAlert">
+                    Verifying...
                 </div>
               </div>
             </form>

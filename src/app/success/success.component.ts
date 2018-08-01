@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '../../../node_modules/@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-success',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+  }
+
+  openPopup(content){
+    this.modalService.open(content, { centered: true });
   }
 
 }

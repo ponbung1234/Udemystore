@@ -134,7 +134,8 @@
                                     </strong>
                                 </div>
                                 <div class="col-6" style="margin-bottom: 3%">
-                                    <app-pay-option *ngIf="checkoutFlag ;else showButton"></app-pay-option>
+                                    <!-- <app-pay-option *ngIf="checkoutFlag ;else showButton"></app-pay-option> -->
+                                    <app-payment-form [name]="'The Shop'" [description]="'sample description'" [currency]="'THB'" [amount]="2" [paymentMethods]="'card'" (receive)="onReceive($event)"></app-payment-form>
                                     <!-- <form method="POST" action="checkout.jsp" id="payform"> -->
                                         <!-- <script type="text/javascript"
                                         src="https://dev-kpaymentgateway.kasikornbank.com/ui/v1/kpayment.min.js"
@@ -164,8 +165,10 @@
 
         </div>
     </ng-template>
+    <!-- <app-payment-form [name]="'The Shop'" [description]="'sample description'" [currency]="'THB'" [amount]="2" [paymentMethods]="'card'" (receive)="onReceive($event)"></app-payment-form> -->
     <ng-template #noIteminCart>
         <div align="center" class="pt-5">
+                
             <h3>Your cart is Empty!</h3>
         </div>
     </ng-template>

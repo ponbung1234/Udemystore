@@ -48,7 +48,8 @@ import { CreditCardComponent } from './credit-card/credit-card.component';
 import { NgXCreditCardsModule } from 'ngx-credit-cards';
 import { ScriptHackComponent } from './script-hack/script-hack.component';
 import { SuccessComponent } from './success/success.component';
-
+import { PaymentFormComponent } from './payment-form/payment-form.component';
+ 
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { SuccessComponent } from './success/success.component';
     CreditCardComponent,
     ScriptHackComponent,
     SuccessComponent,
+    PaymentFormComponent
 
   ],
   imports: [

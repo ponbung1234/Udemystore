@@ -50,7 +50,7 @@
                 <div class="col-6">
                   <label for="x_card_code" class="control-label mb-1">Security code</label>
                   <div class="input-group">
-                    <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required autocomplete="off">
+                    <input id="x_card_code" name="x_card_code" type="password" class="form-control cc-cvc" required autocomplete="off">
                     <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -67,7 +67,7 @@
                 <!-- c('Close click'); -->
                 <button (click)="c('Close click'); callSubmit('Credit Card')" type="submit" class="btn btn-lg btn-info btn-block">
                   <i class="fa fa-lock fa-lg"></i>&nbsp;
-                  <span id="payment-button-amount">Pay 509,159.5 THB</span>
+                  <span id="payment-button-amount">Pay 193,798.4 THB</span>
                   <span id="payment-button-sending" style="display:none;">Sending…</span>
                 </button>
                 <div class="alert alert-info" role="alert" style="margin-top: 10px;" *ngIf=" successAlert">

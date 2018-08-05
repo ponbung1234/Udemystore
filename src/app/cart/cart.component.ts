@@ -93,7 +93,7 @@ export class CartComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.addJS();
+    // this.addJS();
   }
 
   onViewinit() {
@@ -101,18 +101,18 @@ export class CartComponent implements OnInit {
   }
 
   addJS(){
-    const payform = document.getElementById('payform');
-    console.log(payform);
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = 'https://sit-dev-kpaymentgateway.new-kpgw.com/ui/v1/kpayment.min.js';
-    script.setAttribute('data-apikey', 'pkey_test_1rCKZrDxLhWqciIRD34zErPKL6WS8Zk9');
-    script.setAttribute('data-name', 'Shoes Space');
-    script.setAttribute('data-currency', 'THB');
-    script.setAttribute('data-amount', '74.00');
-    script.setAttribute('data-payment-methods', 'card');
+    // const payform = document.getElementById('payform');
+    // console.log(payform);
+    // const script = document.createElement("script");
+    // script.type = "text/javascript";
+    // script.src = 'https://sit-dev-kpaymentgateway.new-kpgw.com/ui/v1/kpayment.min.js';
+    // script.setAttribute('data-apikey', 'pkey_test_1rCKZrDxLhWqciIRD34zErPKL6WS8Zk9');
+    // script.setAttribute('data-name', 'Shoes Space');
+    // script.setAttribute('data-currency', 'THB');
+    // script.setAttribute('data-amount', '74.00');
+    // script.setAttribute('data-payment-methods', 'card');
 
-    this.renderer.appendChild(payform, script);
+    // this.renderer.appendChild(payform, script);
   }
 
   submit(paymentType: String) {

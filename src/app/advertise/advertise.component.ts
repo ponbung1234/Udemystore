@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
 
 
 @Component({
@@ -9,20 +8,27 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./advertise.component.css']
 })
 export class AdvertiseComponent implements OnInit {
-  images: Array<string>;
-
+advertiseIMG = [
+  {img:'http://www.kbtg.tech/th/HomeSlideImage/Job2.png'}, 
+  {img:'http://www.kbtg.tech/th/HomeSlideImage/banner_kplus.jpg'},
+  {img:'http://www.kbtg.tech/th/HomeSlideImage/Job1.png'},  
+]
   constructor(private _http: HttpClient) {}
 
   ngOnInit() {
-    this._http.get('https://picsum.photos/list')
-        .pipe(map((images: Array<{id: number}>) => this._randomImageUrls(images)))
-        .subscribe(images => this.images = images);
+  
   }
 
-  private _randomImageUrls(images: Array<{id: number}>): Array<string> {
-    return [1, 2, 3].map(() => {
-      const randomId = images[Math.floor(Math.random() * images.length)].id;
-      return `https://picsum.photos/1108/400?image=${randomId}`;
-    });
+  slideConfig = {
+    "slidesToShow": 1,
+    "slidesToScroll": 1,
+    "autoplay": true,
+    "autoplaySpeed": 3000,
+    "infinite":true,
+    "speed":600,
+    
+  };
+  afterChange(e) {
+    // console.log('afterChange');
   }
 }

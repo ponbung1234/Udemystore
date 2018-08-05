@@ -1,0 +1,92 @@
+<div class="container">
+  <div style="padding-top:2%; padding-left: 0.5%">
+    <h1>
+      Product Details
+    </h1>
+    <hr style="border: 2px solid;">
+  </div>
+  <div class="row" style="margin-top: 1.5%">
+    <div class="col-lg-4">
+      <div class="col-12">
+        <img class="img-fluid " src="{{ productIMG }}">
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <div class="col-12 card" style="height: 100%; padding-left: 0%; padding-right: 0%;">
+        <!-- header-details -->
+        <div class="card-header">
+          <h3>
+            <div class="row">
+              <div class="col-6" style="text-align: left; margin-bottom: 0%">
+                <p style="margin-bottom: 0%"> {{ productName }} </p>
+              </div>
+              <div class="col-6" style="text-align: right; margin-bottom: 0%">
+                <p style="margin-bottom: 0%"> Price: {{ productPrice | number }} THB </p>
+              </div>
+            </div>
+          </h3>
+        </div>
+        <!-- body-details -->
+        <div class="card-body">
+          <h5>Details</h5>
+          <p>
+            {{ productDes }}
+
+          </p>
+        </div>
+        <!-- footer-details -->
+        <div class="input-group mb-3" style="padding-left: 25%; padding-right: 25%" *ngIf=" loginStatus; else notLogin" >
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" (click)="plus()">+</button>
+          </div>
+          <!-- <input style="text-align: center" type="button" class="form-control" value="Add {{ numberItem }} to cart"> -->
+          <button class="form-control btn btn-outline-primary" (click)="addItemDet(productID,numberItem)" >
+            Add
+            <strong>
+              {{ numberItem }}
+            </strong>
+            product to cart
+          </button>
+       
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="minus()">-</button>
+          </div>
+        </div>
+        <ng-template #notLogin>
+          <div align="center" class="pt-5">
+              <h3>To add product to cart, please Login
+  
+                  <!-- <p (click)="c('Close click')" class="btn btn-outline-secondary">
+                      <app-login></app-login>
+                   </p> -->
+              </h3>
+  
+          </div>
+  
+      </ng-template>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div style="padding-top: 5%; margin-bottom: 3%; margin-top: 3%;margin-bottom: 3%">
+    <h2>Related Products</h2>
+    <hr style="border: 2px solid;">
+  </div>
+<!-- carousel -->
+  <ngx-slick style="width: 100%; padding-left: 1.5%" class="carousel" #slickModal="slick-modal" [config]="slideConfig" (afterChange)="afterChange($event)">
+    <div ngxSlickItem 
+    *ngFor="let pro of relatedProduct" 
+    class="slide" 
+    routerLink='/detailpage' 
+    [queryParams]="{ productID: pro.product_id, categoryID: pro.category_id }"
+    style="padding-top: 10px; padding-bottom: 20px;padding-left: 20px">
+          <div class="card ho" style="height: 18rem; margin-right: 10%">
+            <img class="card-img-top" style="height: 190px;" src="{{ pro.url }}" alt="" >
+            <hr style="margin-top: 0">
+            <h5  style="text-align: center">{{ pro.product_name }}</h5>
+          </div>
+    </div>
+  </ngx-slick>
+</div>

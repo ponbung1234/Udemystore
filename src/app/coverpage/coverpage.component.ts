@@ -5,7 +5,7 @@ declare function require(path: string);
 @Component({
   selector: 'app-coverpage',
   templateUrl: './coverpage.component.html',
-  styleUrls: ['./coverpage.component.css']
+  styleUrls: ['./coverpage.component.scss']
 })
 export class CoverpageComponent implements OnInit {
   imageSrc = require('../images/header-bg.jpg');

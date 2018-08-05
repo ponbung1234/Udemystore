@@ -1,8 +1,5 @@
 <ng-template #content let-c="close" let-d="dismiss">
 
-  <!-- Modal -->
-  
-    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header" style="padding:10px 215px;">
         <h4>
@@ -15,7 +12,14 @@
         </div>
       </div>
       <div class="modal-body" style="padding:40px 50px;">
-        <form role="form">
+        <div class="alert alert-danger" role="alert" *ngIf=" alert">
+          Wrong username or password.
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf=" successAlert">
+          Login Successful.
+        </div>
+
+        <form role="form" (submit)="loginData($event)">
           <div class="form-group">
             <label for="usrname">
               <span class="glyphicon glyphicon-user"></span> Username</label>
@@ -24,14 +28,14 @@
           <div class="form-group">
             <label for="psw">
               <span class="glyphicon glyphicon-eye-open"></span> Password</label>
-            <input type="text" class="form-control" id="psw" placeholder="Enter password">
+            <input type="password" class="form-control" id="psw" placeholder="Enter password">
           </div>
           <div class="checkbox">
             <label>
               <input type="checkbox" value="" checked>Remember me</label>
           </div>
-          <button type="submit" class="btn btn-success btn-block">
-            <span class="glyphicon glyphicon-off"></span> Login</button>
+          <button type="submit" class="btn btn-success btn-block"  >
+            <span class="glyphicon glyphicon-off" ></span> Login</button>
         </form>
       </div>
       <div class="modal-footer">
@@ -47,5 +51,5 @@
 
  
 </ng-template>
-<a  (click)="openVerticallyCentered(content)">Login</a>
 
+<a  (click)="openVerticallyCentered(content)">Login</a>

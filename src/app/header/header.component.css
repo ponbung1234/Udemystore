@@ -2,9 +2,22 @@
     cursor: pointer;
 }
 .badge-cart{
-    font-size: 48%;
+    font-size: 40%;
     position: absolute;
     top: 1px;
-    margin-left: -15px;
+    margin-left: -13px;
     margin-top: 10px; 
+} 
+
+ .navbar-brand{
+    color:  #ffffff;
+	font: normal 25px 'Cookie', cursive;
+    margin: 0;
+    padding-right: 10px;
 }
+
+.nav-link{
+    font: normal 15px 'Arial', cursive;
+    margin: 0;
+    padding-top: 16px;
+} 
